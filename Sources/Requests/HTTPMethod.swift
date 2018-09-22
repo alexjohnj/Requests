@@ -2,25 +2,58 @@
 // Created by Alex Jackson on 01/09/2018.
 //
 
-import Foundation
+/// A method (AKA verb) to be sent in a HTTP request. The standard (HTTP/1.1) headers are implemented as static
+/// properties. New methods can be added in an extension on the `HTTPMethod` type.
+///
+/// # Pattern Matching
+///
+/// `HTTPMethod` provides an overload of the `~=` operator so methods can esaily be pattern matched on in a `switch`
+/// statement.
+///
+public struct HTTPMethod: Hashable, RawRepresentable {
 
-public enum HTTPMethod: String {
+    public let rawValue: String
 
-    case connect = "CONNECT"
+    public init(rawValue: String) {
+        self.rawValue = rawValue
+    }
+}
 
-    case delete = "DELETE"
+// MARK: - Pattern Matching
 
-    case get = "GET"
+public extension HTTPMethod {
+    static func ~= (pattern: HTTPMethod, value: HTTPMethod) -> Bool {
+        return pattern == value
+    }
+}
 
-    case head = "HEAD"
+// MARK: - ExpressibleByStringLiteral Conformance
 
-    case options = "OPTIONS"
+extension HTTPMethod: ExpressibleByStringLiteral {
+    public init(stringLiteral value: String) {
+        self.init(rawValue: value)
+    }
+}
 
-    case patch = "PATCH"
+// MARK: - HTTP/1.1 Methods
 
-    case post = "POST"
+public extension HTTPMethod {
 
-    case put = "PUT"
+    static let connect: HTTPMethod = "CONNECT"
 
-    case trace = "TRACE"
+    static let delete: HTTPMethod = "DELETE"
+
+    static let get: HTTPMethod = "GET"
+
+    static let head: HTTPMethod = "HEAD"
+
+    static let options: HTTPMethod = "OPTIONS"
+
+    static let patch: HTTPMethod = "PATCH"
+
+    static let post: HTTPMethod = "POST"
+
+    static let put: HTTPMethod = "PUT"
+
+    static let trace: HTTPMethod = "TRACE"
 }
