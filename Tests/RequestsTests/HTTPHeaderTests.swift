@@ -45,4 +45,28 @@ final class HTTPHeaderTests: XCTestCase {
         XCTAssertEqual(explodedHeader.name, name)
         XCTAssertEqual(explodedHeader.value, value)
     }
+
+    func test_headerFieldNameEqualityIsCaseInsensitive() {
+        // Given
+        let name = HTTPHeader.Name("Content-Type")
+        let name2 = HTTPHeader.Name("CONTENT-TYPE")
+        let name3 = HTTPHeader.Name("type-CONTENT")
+
+        // Then
+        XCTAssertEqual(name, name2)
+        XCTAssertNotEqual(name, name3)
+        XCTAssertNotEqual(name2, name3)
+    }
+
+    func test_headerFieldNameHashIsCaseInsensitive() {
+        // Given
+        let name = HTTPHeader.Name("Content-Type")
+        let name2 = HTTPHeader.Name("CONTENT-TYPE")
+        let name3 = HTTPHeader.Name("type-CONTENT")
+
+        // Then
+        XCTAssertEqual(name.hashValue, name2.hashValue)
+        XCTAssertNotEqual(name.hashValue, name3.hashValue)
+        XCTAssertNotEqual(name2.hashValue, name3.hashValue)
+    }
 }
