@@ -13,6 +13,12 @@ public struct Header: Hashable {
 
     // MARK: - Public Properties
 
+    public var dictionaryValue: [String: String] {
+        return storage.reduce(into: [:]) { accum, element in
+            accum[element.key.rawValue] = element.value
+        }
+    }
+
     // MARK: - Private Properties
 
     private var storage: [Field.Name: String]

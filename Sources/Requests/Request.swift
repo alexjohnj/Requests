@@ -27,8 +27,8 @@ public protocol Request: CustomStringConvertible {
     /// The HTTP method to use with the request
     var method: HTTPMethod { get }
 
-    /// HTTP headers to be submitted in the request.
-    var headers: Set<Field> { get }
+    /// HTTP header to be submitted in the request.
+    var header: Header { get }
 
     /// URL query parameters to be submitted in the request. Query parameters common to a certain API should be
     /// provided by this property and implemented in a protocol extension.
@@ -66,11 +66,7 @@ extension Request {
         var request = URLRequest(url: url, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
         request.httpMethod = method.rawValue
         request.httpBody = httpBody
-
-        request.allHTTPHeaderFields = headers.reduce(into: [:]) { accum, header in
-            accum[header.name.rawValue] = header.value
-        }
-
+        request.allHTTPHeaderFields = header.dictionaryValue
         return request
     }
 

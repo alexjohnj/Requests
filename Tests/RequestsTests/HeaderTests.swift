@@ -8,6 +8,8 @@ import Requests
 
 final class HeaderTests: XCTestCase {
 
+    // MARK: - Initializers
+
     func test_initFromArray_Works() {
         // Given, When
         let fields: [Field] = [
@@ -56,6 +58,8 @@ final class HeaderTests: XCTestCase {
         expect(header[.accept]).to(equal("en_GB"))
     }
 
+    // MARK: - Add Method
+
     func test_add_addsFieldToHeader() {
         // Given
         var header = Header()
@@ -77,6 +81,8 @@ final class HeaderTests: XCTestCase {
         // Then
         expect(header[.accept]).to(equal("text/html,application/json"))
     }
+
+    // MARK: - Set Method
 
     func test_set_addsNewFieldToHeader() {
         // Given
@@ -100,6 +106,8 @@ final class HeaderTests: XCTestCase {
         expect(header[.accept]).to(equal("text/html"))
     }
 
+    // MARK: - Contains Method
+
     func test_contains_returnsFalseForNonExistentField() {
         // Given
         let header = Header()
@@ -114,5 +122,23 @@ final class HeaderTests: XCTestCase {
 
         // When, Then
         expect(header.contains(.contentType)).to(beTrue())
+    }
+
+    // MARK: - Dictionary Value Property
+
+    func test_dictionaryValue_containsAllValues() {
+        // Given, When
+        let header: Header = [
+            .contentType("application/json"),
+            .accept("text/html")
+        ]
+        let dictHeader = header.dictionaryValue
+        let expectedValue = [
+            Field.Name.contentType.rawValue: "application/json",
+            Field.Name.accept.rawValue: "text/html"
+        ]
+
+        // Then
+        expect(dictHeader).to(equal(expectedValue))
     }
 }

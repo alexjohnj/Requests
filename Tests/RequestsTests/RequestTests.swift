@@ -28,7 +28,7 @@ struct TestRequest: Request {
         return .put
     }
 
-    var headers: Set<Field> {
+    var header: Header {
         return [
             .contentType("application/json")
         ]
