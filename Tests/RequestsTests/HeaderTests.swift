@@ -184,4 +184,14 @@ final class HeaderTests: XCTestCase {
         // Then
         expect(dictHeader).to(equal(expectedValue))
     }
+
+    // MARK: - isEmpty Property
+
+    func test_isEmpty() {
+        // Given, When
+        let header = Header()
+
+        // Then
+        expect(header.isEmpty).to(beTrue())
+    }
 }

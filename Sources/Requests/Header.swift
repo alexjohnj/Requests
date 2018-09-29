@@ -19,6 +19,9 @@ public struct Header: Hashable {
         }
     }
 
+    /// `true` if the header is empty.
+    public var isEmpty: Bool { return storage.isEmpty }
+
     // MARK: - Private Properties
 
     private var storage: [Field.Name: String]
