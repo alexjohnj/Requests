@@ -12,7 +12,7 @@
 /// As HTTP headers are case insensitive, the implementations of `Hashable` and `Equatable` take this into consideration
 /// and convert all header names to lowercase before comparing them.
 ///
-public struct HTTPHeader {
+public struct Field {
 
     // MARK: - Nested Types
 
@@ -47,8 +47,8 @@ public struct HTTPHeader {
             return lhs.rawValue.lowercased() == rhs.rawValue.lowercased()
         }
 
-        public func hash(into hasher: inout Hasher) {
-            hasher.combine(rawValue.lowercased())
+        public var hashValue: Int {
+            return rawValue.lowercased().hashValue
         }
     }
 
@@ -68,7 +68,7 @@ public struct HTTPHeader {
 
 // MARK: - CustomStringConvertible Conformance
 
-extension HTTPHeader: CustomStringConvertible {
+extension Field: CustomStringConvertible {
     public var description: String {
         return "\(name): \(value)"
     }
@@ -76,34 +76,34 @@ extension HTTPHeader: CustomStringConvertible {
 
 // MARK: - Equatable Conformance
 
-extension HTTPHeader: Equatable { }
+extension Field: Equatable { }
 
 // MARK: - Hashable Conformance
 
-extension HTTPHeader: Hashable { }
+extension Field: Hashable { }
 
 // MARK: - Pattern Matching
 
-extension HTTPHeader {
-    public static func ~= (pattern: HTTPHeader, value: HTTPHeader) -> Bool {
+extension Field {
+    public static func ~= (pattern: Field, value: Field) -> Bool {
         return pattern == value
     }
+}
 
-    public var explode: (name: Name, value: String) {
-        return (self.name, self.value)
-    }
+// MARK: - Field Functions
+
+public func explode(_ field: Field) -> (name: Field.Name, value: String) {
+    return (field.name, field.value)
 }
 
 // MARK: - Predefined Headers
 
-public extension HTTPHeader.Name {
-
-    static let contentType: HTTPHeader.Name = "Content-Type"
+public extension Field.Name {
+    static let contentType: Field.Name = "Content-Type"
 }
 
-public extension HTTPHeader {
-
-    static let contentType: (String) -> HTTPHeader = { value in
-        return HTTPHeader(name: .contentType, value: value)
+public extension Field {
+    static let contentType: (String) -> Field = { value in
+        return Field(name: .contentType, value: value)
     }
 }

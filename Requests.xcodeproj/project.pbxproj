@@ -21,11 +21,13 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2DBA163B4A55A38B602AC742 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA122C46D0464A6C767537 /* Header.swift */; };
 		2DBA167ABAD771E01309F2DB /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA124934F47FD0BB7906C8 /* Request.swift */; };
 		2DBA199705CB45204FB385DA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA12E510745933108529A4 /* HTTPMethod.swift */; };
-		FA6CC556215690B400CDDF85 /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CC555215690B400CDDF85 /* HTTPHeader.swift */; };
+		FA03518C21579B870015AD30 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03518B21579B870015AD30 /* RequestTests.swift */; };
+		FA6CC556215690B400CDDF85 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CC555215690B400CDDF85 /* Field.swift */; };
 		FA6CC559215694A600CDDF85 /* HTTPMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CC5572156942200CDDF85 /* HTTPMethodTests.swift */; };
-		FA6CC55D2156965200CDDF85 /* HTTPHeaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CC55A2156954A00CDDF85 /* HTTPHeaderTests.swift */; };
+		FA6CC55D2156965200CDDF85 /* FieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CC55A2156954A00CDDF85 /* FieldTests.swift */; };
 		OBJ_29 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_41 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* XCTestManifests.swift */; };
 		OBJ_43 /* Requests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Requests::Requests::Product" /* Requests.framework */; };
@@ -36,24 +38,26 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Requests::Requests";
+			remoteGlobalIDString = Requests::Requests;
 			remoteInfo = Requests;
 		};
 		FAF93D92213ADA7600F6C763 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Requests::RequestsTests";
+			remoteGlobalIDString = Requests::RequestsTests;
 			remoteInfo = RequestsTests;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DBA122C46D0464A6C767537 /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		2DBA124934F47FD0BB7906C8 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		2DBA12E510745933108529A4 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		FA6CC555215690B400CDDF85 /* HTTPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
+		FA03518B21579B870015AD30 /* RequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
+		FA6CC555215690B400CDDF85 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		FA6CC5572156942200CDDF85 /* HTTPMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethodTests.swift; sourceTree = "<group>"; };
-		FA6CC55A2156954A00CDDF85 /* HTTPHeaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderTests.swift; sourceTree = "<group>"; };
+		FA6CC55A2156954A00CDDF85 /* FieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTests.swift; sourceTree = "<group>"; };
 		OBJ_13 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		"Requests::Requests::Product" /* Requests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Requests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,7 +96,8 @@
 			children = (
 				OBJ_13 /* XCTestManifests.swift */,
 				FA6CC5572156942200CDDF85 /* HTTPMethodTests.swift */,
-				FA6CC55A2156954A00CDDF85 /* HTTPHeaderTests.swift */,
+				FA6CC55A2156954A00CDDF85 /* FieldTests.swift */,
+				FA03518B21579B870015AD30 /* RequestTests.swift */,
 			);
 			name = RequestsTests;
 			path = Tests/RequestsTests;
@@ -130,7 +135,8 @@
 			children = (
 				2DBA12E510745933108529A4 /* HTTPMethod.swift */,
 				2DBA124934F47FD0BB7906C8 /* Request.swift */,
-				FA6CC555215690B400CDDF85 /* HTTPHeader.swift */,
+				FA6CC555215690B400CDDF85 /* Field.swift */,
+				2DBA122C46D0464A6C767537 /* Header.swift */,
 			);
 			name = Requests;
 			path = Sources/Requests;
@@ -227,9 +233,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				FA6CC556215690B400CDDF85 /* HTTPHeader.swift in Sources */,
+				FA6CC556215690B400CDDF85 /* Field.swift in Sources */,
 				2DBA199705CB45204FB385DA /* HTTPMethod.swift in Sources */,
 				2DBA167ABAD771E01309F2DB /* Request.swift in Sources */,
+				2DBA163B4A55A38B602AC742 /* Header.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +253,8 @@
 			buildActionMask = 0;
 			files = (
 				FA6CC559215694A600CDDF85 /* HTTPMethodTests.swift in Sources */,
-				FA6CC55D2156965200CDDF85 /* HTTPHeaderTests.swift in Sources */,
+				FA03518C21579B870015AD30 /* RequestTests.swift in Sources */,
+				FA6CC55D2156965200CDDF85 /* FieldTests.swift in Sources */,
 				OBJ_41 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

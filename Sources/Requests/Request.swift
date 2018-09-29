@@ -13,7 +13,7 @@ public enum RequestError: Error {
 }
 
 /// A Request encapsulates a network request. A `Request` knows how to transform itself into a URLRequest.
-internal protocol Request: CustomStringConvertible {
+public protocol Request: CustomStringConvertible {
 
     /// The type of Response expected for `Request`
     associatedtype Response
@@ -28,7 +28,7 @@ internal protocol Request: CustomStringConvertible {
     var method: HTTPMethod { get }
 
     /// HTTP headers to be submitted in the request.
-    var headers: Set<HTTPHeader> { get }
+    var headers: Set<Field> { get }
 
     /// URL query parameters to be submitted in the request. Query parameters common to a certain API should be
     /// provided by this property and implemented in a protocol extension.
@@ -97,7 +97,7 @@ extension Request {
 // MARK: - CustomStringConvertible Implementation
 
 extension Request {
-    internal var description: String {
+    public var description: String {
         if let url = (try?  toURLRequest())?.url {
             return "Request<\(Response.self)> [\(method.rawValue)] (\(url))"
         } else {

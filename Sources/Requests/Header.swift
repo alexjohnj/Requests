@@ -1,0 +1,74 @@
+//
+// Created by Alex Jackson on 29/09/2018.
+//
+
+import Foundation
+
+/// A header in a HTTP request. A header consists of a series of fields containing a key and a value. Keys are
+/// represented by the `Field.Name` type while values are simply `String`s.
+///
+/// - Note: Instances of the `Header` type does not preserve the order of fields added to it.
+///
+public struct Header: Hashable {
+
+    // MARK: - Public Properties
+
+    // MARK: - Private Properties
+
+    private var storage: [Field.Name: String]
+
+    // MARK: - Initializers
+
+    public init(fields: [Field]) {
+        let keysAndValues = fields.map(explode)
+
+        self.storage = Dictionary(keysAndValues, uniquingKeysWith: { v1, v2 in
+            return "\(v1),\(v2)"
+        })
+    }
+
+    // MARK: - Public Methods
+
+    /// Adds `field` into the header. If a field with the same name already exists, its value is joined with `field`'s
+    /// value using a `,`.
+    public mutating func add(_ field: Field) {
+        if let existingValue = storage[field.name] {
+            storage[field.name] = "\(existingValue),\(field.value)"
+        } else {
+            storage[field.name] = field.value
+        }
+    }
+
+    /// Sets `field` in the header, replacing any existing values.
+    public mutating func set(_ field: Field) {
+        storage[field.name] = field.value
+    }
+
+    // MARK: - Public Subscripts
+
+    public subscript(_ name: Field.Name) -> String? {
+        return storage[name]
+    }
+}
+
+// MARK: - Custom String Convertible Conformance
+
+extension Header: CustomStringConvertible {
+
+    public var description: String {
+        return storage
+          .lazy
+          .map(Field.init)
+          .map { $0.description }
+          .joined(separator: "\n")
+    }
+
+}
+
+// MARK: - Array Literal Conformance
+
+extension Header: ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Field...) {
+        self.init(fields: elements)
+    }
+}

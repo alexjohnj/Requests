@@ -21,7 +21,7 @@ final class HTTPMethodTests: XCTestCase {
         }
     }
 
-    func test_patternMatchingOperatorDOesntMatchOnDifferentMethods() {
+    func test_patternMatchingOperatorDoesntMatchOnDifferentMethods() {
         // Given
         let method = HTTPMethod.get
 
