@@ -4,25 +4,25 @@
 import PackageDescription
 
 let package = Package(
-    name: "Requests",
-    products: [
-        // Products define the executables and libraries produced by a package, and make them visible to other packages.
-        .library(
-            name: "Requests",
-            targets: ["Requests"]),
-    ],
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
-    ],
-    targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages which this package depends on.
-        .target(
-            name: "Requests",
-            dependencies: []),
-        .testTarget(
-            name: "RequestsTests",
-            dependencies: ["Requests"]),
-    ]
+  name: "Requests",
+  products: [
+      // Products define the executables and libraries produced by a package, and make them visible to other packages.
+      .library(
+        name: "Requests",
+        targets: ["Requests"]
+      ),
+  ],
+  dependencies: [
+      .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "7.3.0"))
+  ],
+  targets: [
+      // Targets are the basic building blocks of a package. A target can define a module or a test suite.
+      // Targets can depend on other targets in this package, and on products in packages which this package depends on.
+      .target(
+        name: "Requests",
+        dependencies: []),
+      .testTarget(
+        name: "RequestsTests",
+        dependencies: ["Requests", "Nimble"]),
+  ]
 )
