@@ -99,11 +99,23 @@ public func explode(_ field: Field) -> (name: Field.Name, value: String) {
 // MARK: - Predefined Headers
 
 public extension Field.Name {
+
+    static let accept: Field.Name = "Accept"
+
+    static let acceptLanguage: Field.Name = "Accept-Language"
+
+    static let authorization: Field.Name = "Authorization"
+
     static let contentType: Field.Name = "Content-Type"
+
 }
 
 public extension Field {
-    static let contentType: (String) -> Field = { value in
-        return Field(name: .contentType, value: value)
-    }
+
+    static let contentType: (String) -> Field = { Field(name: .contentType, value: $0) }
+
+    static let accept: (String) -> Field = { Field(name: .accept, value: $0) }
+
+    static let acceptLanguage: (String) -> Field = { Field(name: .acceptLanguage, value: $0) }
+
 }

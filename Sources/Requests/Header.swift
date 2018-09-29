@@ -19,12 +19,10 @@ public struct Header: Hashable {
 
     // MARK: - Initializers
 
-    public init(fields: [Field]) {
+    public init(_ fields: [Field]) {
         let keysAndValues = fields.map(explode)
 
-        self.storage = Dictionary(keysAndValues, uniquingKeysWith: { v1, v2 in
-            return "\(v1),\(v2)"
-        })
+        self.storage = Dictionary(keysAndValues, uniquingKeysWith: { "\($0),\($1)" })
     }
 
     // MARK: - Public Methods
@@ -44,10 +42,23 @@ public struct Header: Hashable {
         storage[field.name] = field.value
     }
 
+    /// Returns `true` if the header contains a value for the field named `field`.
+    public func contains(_ name: Field.Name) -> Bool {
+        return self[name] != nil
+    }
+
     // MARK: - Public Subscripts
 
     public subscript(_ name: Field.Name) -> String? {
         return storage[name]
+    }
+}
+
+// MARK: - Convenience Initializers
+
+extension Header {
+    public init(_ fields: Field...) {
+        self.init(fields)
     }
 }
 
@@ -69,6 +80,6 @@ extension Header: CustomStringConvertible {
 
 extension Header: ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Field...) {
-        self.init(fields: elements)
+        self.init(elements)
     }
 }
