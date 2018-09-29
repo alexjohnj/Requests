@@ -48,6 +48,12 @@ public struct Header: Hashable {
         storage[field.name] = field.value
     }
 
+    /// Removes the field named `name` from the header, returning the field if it was present.
+    @discardableResult
+    public mutating func remove(_ name: Field.Name) -> Field? {
+        return storage.removeValue(forKey: name).map { Field(name: name, value: $0) }
+    }
+
     /// Returns `true` if the header contains a value for the field named `field`.
     public func contains(_ name: Field.Name) -> Bool {
         return self[name] != nil

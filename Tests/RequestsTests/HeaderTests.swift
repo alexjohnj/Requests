@@ -106,6 +106,49 @@ final class HeaderTests: XCTestCase {
         expect(header[.accept]).to(equal("text/html"))
     }
 
+    // MARK: - Remove Method
+
+    func test_remove_returnsNilIfFieldNameIsNotInHeader() {
+        // Given, When, Then
+        var header = Header(.contentType("application/json"))
+        expect(header.remove(.accept)).to(beNil())
+    }
+
+    func test_remove_doesNotEffectHeaderIfFieldNameIsNotInHeader() {
+        // Given
+        var header = Header(.contentType("application/json"))
+        let copy = header
+
+        // When
+        header.remove(.accept)
+
+        // Then
+        expect(header).to(equal(copy))
+    }
+
+    func test_remove_removesMatchingField() {
+        // Given
+        var header = Header(.contentType("application/json"))
+
+        // When
+        header.remove(.contentType)
+
+        // Then
+        expect(header.contains(.contentType)).to(beFalse())
+    }
+
+    func test_remove_returnsMatchingField() {
+        // Given
+        let field = Field.contentType("application/json")
+        var header = Header(field)
+
+        // When
+        let removedField = header.remove(.contentType)
+
+        // Then
+        expect(removedField).to(equal(field))
+    }
+
     // MARK: - Contains Method
 
     func test_contains_returnsFalseForNonExistentField() {
