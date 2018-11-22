@@ -28,6 +28,10 @@ public protocol Request: CustomStringConvertible {
     var header: Header { get }
 
     /// URL query parameters to be submitted in the request. Defaults to an empty array.
+    ///
+    /// - Note: An empty array of query items is interpreted as no query items. The resulting URL will have no query
+    /// query parameter component.
+    ///
     var queryItems: [URLQueryItem] { get }
 
     /// The caching policy to specify when converted to a `URLRequest`. Defaults to `.useProtocolCachePolicy`.
@@ -87,7 +91,8 @@ extension Request {
     private func buildRequestURL() throws -> URL {
         let endpointURL = endpoint.isEmpty ? baseURL : baseURL.appendingPathComponent(endpoint)
 
-        endpointComponents?.queryItems = queryItems
+        var endpointComponents = URLComponents(url: endpointURL, resolvingAgainstBaseURL: false)
+        endpointComponents?.queryItems = queryItems.isEmpty ? nil : queryItems
 
         guard let url = endpointComponents?.url else { throw RequestError.invalidRequestURL }
         return url
