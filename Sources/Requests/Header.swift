@@ -34,6 +34,11 @@ public struct Header: Hashable {
         self.storage = Dictionary(keysAndValues, uniquingKeysWith: { "\($0),\($1)" })
     }
 
+    /// An empty header.
+    public static var empty: Header {
+        return Header([])
+    }
+
     // MARK: - Public Methods
 
     /// Adds `field` into the header. If a field with the same name already exists, its value is joined with `field`'s

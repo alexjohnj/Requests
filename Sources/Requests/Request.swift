@@ -15,19 +15,19 @@ public protocol Request: CustomStringConvertible {
     /// The type of Response expected for `Request`
     associatedtype Response
 
-    /// The base URL of the API
+    /// The base URL of the API. Convention dictates that this **should not** end with a trailing slash.
     var baseURL: URL { get }
 
-    /// The path to the endpoint of the API.
+    /// The path to the endpoint of the API. Convention dictates that this **should** start with a forwards slash.
     var endpoint: String { get }
 
-    /// The HTTP method to use with the request
+    /// The HTTP method to use with the request.
     var method: HTTPMethod { get }
 
-    /// HTTP header to be submitted in the request.
+    /// HTTP header to be submitted in the request. Defaults to an empty header.
     var header: Header { get }
 
-    /// URL query parameters to be submitted in the request.
+    /// URL query parameters to be submitted in the request. Defaults to an empty array.
     var queryItems: [URLQueryItem] { get }
 
     /// The caching policy to specify when converted to a `URLRequest`. Defaults to `.useProtocolCachePolicy`.
@@ -36,11 +36,20 @@ public protocol Request: CustomStringConvertible {
     /// The timeout interval to specify when converted to a `URLRequest`. Defaults to `60.0`.
     var timeoutInterval: TimeInterval { get }
 
-    /// The data sent in the body of the request or `nil` if no data should be sent.
+    /// The data sent in the body of the request or `nil` if no data should be sent. Defaults to `nil`.
     var httpBody: Data? { get }
 }
 
 extension Request {
+
+    public var header: Header {
+        return .empty
+    }
+
+    public var httpBody: Data? {
+        return nil
+    }
+
     public var cachePolicy: URLRequest.CachePolicy {
         return .useProtocolCachePolicy
     }
