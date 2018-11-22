@@ -85,8 +85,7 @@ extension Request {
      - returns: A valid `URL` or `nil` if one can't be constructed.
      */
     private func buildRequestURL() throws -> URL {
-        let endpointURL = baseURL.appendingPathComponent(endpoint)
-        var endpointComponents = URLComponents(url: endpointURL, resolvingAgainstBaseURL: false)
+        let endpointURL = endpoint.isEmpty ? baseURL : baseURL.appendingPathComponent(endpoint)
 
         endpointComponents?.queryItems = queryItems
 
