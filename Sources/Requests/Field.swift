@@ -4,16 +4,14 @@
 
 /// A header field in a HTTP request. A field consists of a key-value pair mapping `name` onto `value`.
 ///
-/// # Equatable & Hashable Conformance
-///
-/// As HTTP headers are case insensitive, the implementations of `Hashable` and `Equatable` take this into consideration
-/// and convert all header names to lowercase before comparing them.
+/// - Note: As HTTP headers are case insensitive, the implementations of `Hashable` and `Equatable` take this into
+/// consideration and convert all header names to lowercase before comparing them.
 ///
 public struct Field {
 
     // MARK: - Nested Types
 
-    /// The name of a header in a HTTP request.
+    /// The name of a header field in a HTTP request.
     public struct Name: Hashable, RawRepresentable, ExpressibleByStringLiteral, CustomStringConvertible {
 
         // MARK: - Public Properties
@@ -109,10 +107,10 @@ public extension Field.Name {
 
 public extension Field {
 
-    static let contentType: (String) -> Field = { Field(name: .contentType, value: $0) }
+    static let contentType = { Field(name: .contentType, value: $0) }
 
-    static let accept: (String) -> Field = { Field(name: .accept, value: $0) }
+    static let accept = { Field(name: .accept, value: $0) }
 
-    static let acceptLanguage: (String) -> Field = { Field(name: .acceptLanguage, value: $0) }
+    static let acceptLanguage = { Field(name: .acceptLanguage, value: $0) }
 
 }
