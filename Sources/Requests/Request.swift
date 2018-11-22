@@ -1,7 +1,4 @@
 //
-//  Request.swift
-//  Placeholder
-//
 //  Created by Alex Jackson on 16/09/2017.
 //  Copyright © 2017 Alex Jackson. All rights reserved.
 //
@@ -30,9 +27,8 @@ public protocol Request: CustomStringConvertible {
     /// HTTP header to be submitted in the request.
     var header: Header { get }
 
-    /// URL query parameters to be submitted in the request. Query parameters common to a certain API should be
-    /// provided by this property and implemented in a protocol extension.
-    var queryParameters: [String: String]? { get }
+    /// URL query parameters to be submitted in the request.
+    var queryItems: [URLQueryItem] { get }
 
     /// The caching policy to specify when converted to a `URLRequest`. Defaults to `.useProtocolCachePolicy`.
     var cachePolicy: URLRequest.CachePolicy { get }
@@ -45,12 +41,16 @@ public protocol Request: CustomStringConvertible {
 }
 
 extension Request {
-    internal var cachePolicy: URLRequest.CachePolicy {
+    public var cachePolicy: URLRequest.CachePolicy {
         return .useProtocolCachePolicy
     }
 
-    internal var timeoutInterval: TimeInterval {
+    public var timeoutInterval: TimeInterval {
         return 60.0
+    }
+
+    public var queryItems: [URLQueryItem] {
+        return []
     }
 }
 
@@ -78,10 +78,6 @@ extension Request {
     private func buildRequestURL() throws -> URL {
         let endpointURL = baseURL.appendingPathComponent(endpoint)
         var endpointComponents = URLComponents(url: endpointURL, resolvingAgainstBaseURL: false)
-
-        let queryItems = queryParameters?.map { (key, value) in
-            URLQueryItem(name: key, value: value)
-        }
 
         endpointComponents?.queryItems = queryItems
 

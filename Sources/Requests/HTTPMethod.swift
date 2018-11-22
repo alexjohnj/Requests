@@ -7,7 +7,7 @@
 ///
 /// # Pattern Matching
 ///
-/// `HTTPMethod` provides an overload of the `~=` operator so methods can esaily be pattern matched on in a `switch`
+/// `HTTPMethod` provides an overload of the `~=` operator so methods can easily be pattern matched on in a `switch`
 /// statement.
 ///
 public struct HTTPMethod: Hashable, RawRepresentable {

@@ -1,8 +1,5 @@
 //
-//  HTTPHeader.swift
-//  Requests
-//
-//  Created by Alex Jackson on 22/09/2018.
+// Created by Alex Jackson on 22/09/2018.
 //
 
 /// A header field in a HTTP request. A field consists of a key-value pair mapping `name` onto `value`.
