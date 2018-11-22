@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2DBA12B907490331D5D8FA0D /* URL+StaticString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA142E3A9B2EA6FEE32C49 /* URL+StaticString.swift */; };
 		2DBA16155243F7BA908E416D /* URLQueryItem+ExpresibleByDictionaryLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1AC44EEE417A972BF5C6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */; };
 		2DBA1E2090BCB0C69CB8B275 /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19A0B446CD18F0011B7E /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift */; };
 		OBJ_100 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* Expression.swift */; };
@@ -90,6 +91,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DBA142E3A9B2EA6FEE32C49 /* URL+StaticString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+StaticString.swift"; sourceTree = "<group>"; };
 		2DBA19A0B446CD18F0011B7E /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+ExpressibleByDictionaryLiteralTests.swift"; sourceTree = "<group>"; };
 		2DBA1AC44EEE417A972BF5C6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+ExpresibleByDictionaryLiteral.swift"; sourceTree = "<group>"; };
 		"Nimble::Nimble::Product" /* Nimble.framework */ = {isa = PBXFileReference; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -357,6 +359,7 @@
 				OBJ_11 /* Header.swift */,
 				OBJ_12 /* Request.swift */,
 				2DBA1AC44EEE417A972BF5C6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */,
+				2DBA142E3A9B2EA6FEE32C49 /* URL+StaticString.swift */,
 			);
 			name = Requests;
 			path = Sources/Requests;
@@ -477,6 +480,7 @@
 				OBJ_153 /* Header.swift in Sources */,
 				OBJ_154 /* Request.swift in Sources */,
 				2DBA16155243F7BA908E416D /* URLQueryItem+ExpresibleByDictionaryLiteral.swift in Sources */,
+				2DBA12B907490331D5D8FA0D /* URL+StaticString.swift in Sources */,
 			);
 		};
 		OBJ_160 /* Sources */ = {
