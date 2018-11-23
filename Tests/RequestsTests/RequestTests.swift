@@ -7,7 +7,6 @@
 
 import Foundation
 import XCTest
-import Nimble
 import Requests
 
 /// A request that has default values for all properties.
@@ -49,7 +48,7 @@ final class RequestTests: XCTestCase {
         let urlRequest = try request.toURLRequest()
 
         // Then
-        expect(urlRequest.url).to(equal(request.baseURL))
+        XCTAssertEqual(urlRequest.url, request.baseURL)
     }
 
     // If the endpoint is empty, a trailing slash should not be appended to the base url.
@@ -65,7 +64,7 @@ final class RequestTests: XCTestCase {
         let urlRequest = try request.toURLRequest()
 
         // Then
-        expect(urlRequest.url).to(equal(request.baseURL))
+        XCTAssertEqual(urlRequest.url, request.baseURL)
     }
 
     func test_endpoint_appendedCorrectly() throws {
@@ -82,7 +81,7 @@ final class RequestTests: XCTestCase {
         let urlRequest = try request.toURLRequest()
 
         // Then
-        expect(urlRequest.url).to(equal(expectedUrl))
+        XCTAssertEqual(urlRequest.url, expectedUrl)
     }
 
     func test_queryItems_setCorrectly() throws {
@@ -100,7 +99,7 @@ final class RequestTests: XCTestCase {
         let urlRequest = try request.toURLRequest()
 
         // Then
-        expect(urlRequest.url).to(equal(expectedUrl))
+        XCTAssertEqual(urlRequest.url, expectedUrl)
     }
 
     func test_doesNot_appendEmptyQueryItems() throws {
@@ -114,7 +113,7 @@ final class RequestTests: XCTestCase {
         let urlRequest = try request.toURLRequest()
 
         // Then
-        expect(urlRequest.url).to(equal(SUT.defaultTestUrl))
+        XCTAssertEqual(urlRequest.url, SUT.defaultTestUrl)
     }
 
     func test_headerSetCorrectly() throws {
@@ -131,8 +130,8 @@ final class RequestTests: XCTestCase {
         let urlRequest = try request.toURLRequest()
 
         // Then
-        expect(urlRequest.allHTTPHeaderFields).toNot(beNil())
-        expect(urlRequest.allHTTPHeaderFields).to(equal(request.header.dictionaryValue))
+        XCTAssertNotNil(urlRequest.allHTTPHeaderFields)
+        XCTAssertEqual(urlRequest.allHTTPHeaderFields, request.header.dictionaryValue)
     }
 
     func test_emptyHeader_producesEmptyNonNilHeader() throws {
@@ -146,8 +145,8 @@ final class RequestTests: XCTestCase {
         let urlRequest = try request.toURLRequest()
 
         // Then
-        expect(urlRequest.allHTTPHeaderFields).toNot(beNil())
-        expect(urlRequest.allHTTPHeaderFields).to(equal([:]))
+        XCTAssertNotNil(urlRequest.allHTTPHeaderFields)
+        XCTAssertEqual(urlRequest.allHTTPHeaderFields, [:])
     }
 
     func test_httpMethod_setCorrectly() throws {
@@ -162,8 +161,8 @@ final class RequestTests: XCTestCase {
         let urlRequest = try request.toURLRequest()
 
         // Then
-        expect(urlRequest.httpMethod).toNot(beNil())
-        expect(urlRequest.httpMethod.map(HTTPMethod.init(rawValue:))).to(equal(expectedMethod))
+        XCTAssertNotNil(urlRequest.httpMethod)
+        XCTAssertEqual(urlRequest.httpMethod.map(HTTPMethod.init(rawValue:)), expectedMethod)
     }
 
     func test_httpBody_setCorrectly() throws {
@@ -178,8 +177,8 @@ final class RequestTests: XCTestCase {
         let urlRequest = try request.toURLRequest()
 
         // Then
-        expect(urlRequest.httpBody).toNot(beNil())
-        expect(urlRequest.httpBody).to(equal(expectedBody))
+        XCTAssertNotNil(urlRequest.httpBody)
+        XCTAssertEqual(urlRequest.httpBody, expectedBody)
     }
 
     func test_emptyHttpBody_setCorrectly() throws {
@@ -193,7 +192,7 @@ final class RequestTests: XCTestCase {
         let urlRequest = try request.toURLRequest()
 
         // Then
-        expect(urlRequest.httpBody).to(beNil())
+        XCTAssertNil(urlRequest.httpBody)
     }
 
     func test_cachePolicy_setCorrectly() throws {
@@ -208,7 +207,7 @@ final class RequestTests: XCTestCase {
         let urlRequest = try request.toURLRequest()
 
         // Then
-        expect(urlRequest.cachePolicy).to(equal(expectedPolicy))
+        XCTAssertEqual(urlRequest.cachePolicy, expectedPolicy)
     }
 
     func test_timeoutInterval_setCorrectly() throws {
@@ -223,6 +222,6 @@ final class RequestTests: XCTestCase {
         let urlRequest = try request.toURLRequest()
 
         // Then
-        expect(urlRequest.timeoutInterval).to(equal(expectedTimeout))
+        XCTAssertEqual(urlRequest.timeoutInterval, expectedTimeout)
     }
 }

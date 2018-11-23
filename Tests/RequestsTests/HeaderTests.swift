@@ -3,7 +3,6 @@
 //
 
 import XCTest
-import Nimble
 import Requests
 
 final class HeaderTests: XCTestCase {
@@ -20,9 +19,9 @@ final class HeaderTests: XCTestCase {
         let header = Header(fields)
 
         // Then
-        expect(header[.contentType]).to(equal("application/json"))
-        expect(header[.acceptLanguage]).to(equal("en_GB"))
-        expect(header[.accept]).to(equal("text/html"))
+        XCTAssertEqual(header[.contentType], "application/json")
+        XCTAssertEqual(header[.acceptLanguage], "en_GB")
+        XCTAssertEqual(header[.accept], "text/html")
     }
 
     func test_initFromArray_WithDuplicateFieldNames_GroupsValuesWithComma() {
@@ -34,7 +33,7 @@ final class HeaderTests: XCTestCase {
         let header = Header(fields)
 
         // Then
-        expect(header[.accept]).to(equal("text/html,application/json"))
+        XCTAssertEqual(header[.accept], "text/html,application/json")
     }
 
     func test_initFromArrayLiteral_Works() {
@@ -45,8 +44,8 @@ final class HeaderTests: XCTestCase {
         ]
 
         // Then
-        expect(header[.contentType]).to(equal("application/json"))
-        expect(header[.acceptLanguage]).to(equal("en_GB"))
+        XCTAssertEqual(header[.contentType], "application/json")
+        XCTAssertEqual(header[.acceptLanguage], "en_GB")
     }
 
     func test_initFromVariadic_Works() {
@@ -54,8 +53,8 @@ final class HeaderTests: XCTestCase {
         let header = Header(.contentType("application/json"), .accept("en_GB"))
 
         // Then
-        expect(header[.contentType]).to(equal("application/json"))
-        expect(header[.accept]).to(equal("en_GB"))
+        XCTAssertEqual(header[.contentType], "application/json")
+        XCTAssertEqual(header[.accept], "en_GB")
     }
 
     // MARK: - Add Method
@@ -68,7 +67,7 @@ final class HeaderTests: XCTestCase {
         header.add(.contentType("text/html"))
 
         // Then
-        expect(header[.contentType]).to(equal("text/html"))
+        XCTAssertEqual(header[.contentType], "text/html")
     }
 
     func test_add_joinsDuplicateFieldsWithComma() {
@@ -79,7 +78,7 @@ final class HeaderTests: XCTestCase {
         header.add(.accept("application/json"))
 
         // Then
-        expect(header[.accept]).to(equal("text/html,application/json"))
+        XCTAssertEqual(header[.accept], "text/html,application/json")
     }
 
     // MARK: - Set Method
@@ -92,7 +91,7 @@ final class HeaderTests: XCTestCase {
         header.set(.accept("text/html"))
 
         // Then
-        expect(header[.accept]).to(equal("text/html"))
+        XCTAssertEqual(header[.accept], "text/html")
     }
 
     func test_set_replacesExistingFieldValue() {
@@ -103,7 +102,7 @@ final class HeaderTests: XCTestCase {
         header.set(.accept("text/html"))
 
         // Then
-        expect(header[.accept]).to(equal("text/html"))
+        XCTAssertEqual(header[.accept], "text/html")
     }
 
     // MARK: - Remove Method
@@ -111,7 +110,7 @@ final class HeaderTests: XCTestCase {
     func test_remove_returnsNilIfFieldNameIsNotInHeader() {
         // Given, When, Then
         var header = Header(.contentType("application/json"))
-        expect(header.remove(.accept)).to(beNil())
+        XCTAssertNil(header.remove(.accept))
     }
 
     func test_remove_doesNotEffectHeaderIfFieldNameIsNotInHeader() {
@@ -123,7 +122,7 @@ final class HeaderTests: XCTestCase {
         header.remove(.accept)
 
         // Then
-        expect(header).to(equal(copy))
+        XCTAssertEqual(header, copy)
     }
 
     func test_remove_removesMatchingField() {
@@ -134,7 +133,7 @@ final class HeaderTests: XCTestCase {
         header.remove(.contentType)
 
         // Then
-        expect(header.contains(.contentType)).to(beFalse())
+        XCTAssertFalse(header.contains(.contentType))
     }
 
     func test_remove_returnsMatchingField() {
@@ -146,7 +145,7 @@ final class HeaderTests: XCTestCase {
         let removedField = header.remove(.contentType)
 
         // Then
-        expect(removedField).to(equal(field))
+        XCTAssertEqual(removedField, field)
     }
 
     // MARK: - Contains Method
@@ -156,7 +155,7 @@ final class HeaderTests: XCTestCase {
         let header = Header()
 
         // When, Then
-        expect(header.contains(.accept)).to(beFalse())
+        XCTAssertFalse(header.contains(.accept))
     }
 
     func test_contains_returnsTrueForExistingField() {
@@ -164,7 +163,7 @@ final class HeaderTests: XCTestCase {
         let header: Header = [.contentType("text/html")]
 
         // When, Then
-        expect(header.contains(.contentType)).to(beTrue())
+        XCTAssertTrue(header.contains(.contentType))
     }
 
     // MARK: - Dictionary Value Property
@@ -182,7 +181,7 @@ final class HeaderTests: XCTestCase {
         ]
 
         // Then
-        expect(dictHeader).to(equal(expectedValue))
+        XCTAssertEqual(dictHeader, expectedValue)
     }
 
     // MARK: - isEmpty Property
@@ -192,6 +191,6 @@ final class HeaderTests: XCTestCase {
         let header = Header()
 
         // Then
-        expect(header.isEmpty).to(beTrue())
+        XCTAssertTrue(header.isEmpty)
     }
 }

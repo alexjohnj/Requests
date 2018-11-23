@@ -12,9 +12,6 @@ let package = Package(
         targets: ["Requests"]
       ),
   ],
-  dependencies: [
-      .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "7.3.0"))
-  ],
   targets: [
       // Targets are the basic building blocks of a package. A target can define a module or a test suite.
       // Targets can depend on other targets in this package, and on products in packages which this package depends on.
@@ -23,6 +20,6 @@ let package = Package(
         dependencies: []),
       .testTarget(
         name: "RequestsTests",
-        dependencies: ["Requests", "Nimble"]),
+        dependencies: ["Requests"]),
   ]
 )

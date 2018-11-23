@@ -4,7 +4,6 @@
 
 import Foundation
 import XCTest
-import Nimble
 
 import Requests
 
@@ -26,6 +25,6 @@ internal final class URLQueryItemDictionaryLiteralTests: XCTestCase {
         ]
 
         // Then
-        expect(testItems).to(equal(expectedItems))
+        XCTAssertEqual(testItems, expectedItems)
     }
 }
