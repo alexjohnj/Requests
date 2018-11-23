@@ -1,0 +1,52 @@
+opt_in_rules:
+  - anyobject_protocol
+  - attributes
+  - closure_spacing
+  - empty_count
+  - explicit_top_level_acl # can disable this for non-frameworks
+  - fatal_error_message
+  - first_where
+  - implicitly_unwrapped_optional
+  - lower_acl_than_parent
+  - operator_usage_whitespace
+  - overridden_super_call
+  - prohibited_super_call
+  - switch_case_on_newline
+  - unneeded_parentheses_in_closure_argument
+
+excluded:
+  - Carthage/
+  - Pods/
+  - Tests/
+  - Package.swift
+
+identifier_name:
+  allowed_symbols: ["_"]
+  validates_start_with_lowercase: false
+
+  excluded:
+    - vc
+    - vm
+    - id
+
+type_name:
+  excluded:
+    - Id
+
+line_length:
+  warning: 120
+  ignores_function_declarations: true
+
+file_length:
+  ignore_comment_only_lines: true
+
+nesting:
+  type_level:
+    warning: 3
+
+custom_rules:
+  vertical_whitespaces_around_mark:
+    included: ".*.swift"
+    regex: '\/\/\s*MARK:[^\n]*(\n)(?!\n)|(\n\n\n)[ \t]*\/\/\s*MARK:|[^\s{]\n[^\n\/]*\/\/\s*MARK:'
+    name: "Vertical Whitespaces Around MARK:"
+    message: "Include a single vertical whitespace (empty line) before and after MARK: comments."
