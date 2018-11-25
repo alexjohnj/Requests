@@ -5,15 +5,11 @@
 
 import Foundation
 
-public enum RequestError: Error {
-    case invalidRequestURL
-}
-
 /// A Request encapsulates a network request. A `Request` knows how to transform itself into a URLRequest.
 public protocol Request: CustomStringConvertible {
 
-    /// The type of Response expected for `Request`
-    associatedtype Response
+    /// The type encoded in the body of the response for `Request`.
+    associatedtype Resource
 
     /// The base URL of the API. Convention dictates that this **should not** end with a trailing slash.
     var baseURL: URL { get }
@@ -42,7 +38,11 @@ public protocol Request: CustomStringConvertible {
 
     /// The data sent in the body of the request or `nil` if no data should be sent. Defaults to `nil`.
     var httpBody: Data? { get }
+
+    var responseDecoder: ResponseDecoder<Resource> { get }
 }
+
+// MARK: - Default Implementations
 
 extension Request {
 
@@ -66,6 +66,32 @@ extension Request {
         return []
     }
 }
+
+// MARK: Void Response
+
+extension Request where Resource == Void {
+    public var responseDecoder: ResponseDecoder<Resource> {
+        return .none
+    }
+}
+
+// MARK: String Response
+
+extension Request where Resource == String {
+    public var responseDecoder: ResponseDecoder<String> {
+        return .string
+    }
+}
+
+// MARK: Data Response
+
+extension Request where Resource == Data {
+    public var responseDecoder: ResponseDecoder<Data> {
+        return .data
+    }
+}
+
+// MARK: - Request Conversion
 
 extension Request {
     /**
@@ -94,7 +120,7 @@ extension Request {
         var endpointComponents = URLComponents(url: endpointURL, resolvingAgainstBaseURL: false)
         endpointComponents?.queryItems = queryItems.isEmpty ? nil : queryItems
 
-        guard let url = endpointComponents?.url else { throw RequestError.invalidRequestURL }
+        guard let url = endpointComponents?.url else { throw RequestError.invalidRequest }
         return url
     }
 }
@@ -104,7 +130,7 @@ extension Request {
 extension Request {
     public var description: String {
         if let url = (try?  toURLRequest())?.url {
-            return "Request<\(Response.self)> [\(method.rawValue)] (\(url))"
+            return "Request<\(Resource.self)> [\(method.rawValue)] (\(url))"
         } else {
             return "Request (INVALID)"
         }

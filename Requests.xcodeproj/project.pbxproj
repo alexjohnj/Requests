@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		2DBA12B907490331D5D8FA0D /* URL+StaticString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA142E3A9B2EA6FEE32C49 /* URL+StaticString.swift */; };
 		2DBA16155243F7BA908E416D /* URLQueryItem+ExpresibleByDictionaryLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1AC44EEE417A972BF5C6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */; };
+		2DBA1B98E7031EB4C0D1A9F3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA18FE48B29536DE063E12 /* Result.swift */; };
 		2DBA1E2090BCB0C69CB8B275 /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19A0B446CD18F0011B7E /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift */; };
+		FAD9A8FD21A989890039923C /* ResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9A8FC21A989890039923C /* ResponseDecoder.swift */; };
+		FAF5DE8121A9996100EA1DED /* URLSession+Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5DE8021A9996100EA1DED /* URLSession+Requests.swift */; };
+		FAF5DE8521A99DB000EA1DED /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5DE8421A99DB000EA1DED /* RequestError.swift */; };
 		OBJ_151 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Field.swift */; };
 		OBJ_152 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* HTTPMethod.swift */; };
 		OBJ_153 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Header.swift */; };
@@ -26,16 +30,20 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Requests::Requests";
+			remoteGlobalIDString = Requests::Requests;
 			remoteInfo = Requests;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2DBA142E3A9B2EA6FEE32C49 /* URL+StaticString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+StaticString.swift"; sourceTree = "<group>"; };
+		2DBA18FE48B29536DE063E12 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		2DBA19A0B446CD18F0011B7E /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+ExpressibleByDictionaryLiteralTests.swift"; sourceTree = "<group>"; };
 		2DBA1AC44EEE417A972BF5C6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+ExpresibleByDictionaryLiteral.swift"; sourceTree = "<group>"; };
+		FAD9A8FC21A989890039923C /* ResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDecoder.swift; sourceTree = "<group>"; };
 		FAF4D93521A81D7400231FFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAF5DE8021A9996100EA1DED /* URLSession+Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Requests.swift"; sourceTree = "<group>"; };
+		FAF5DE8421A99DB000EA1DED /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		OBJ_10 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -126,6 +134,10 @@
 				OBJ_12 /* Request.swift */,
 				2DBA1AC44EEE417A972BF5C6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */,
 				2DBA142E3A9B2EA6FEE32C49 /* URL+StaticString.swift */,
+				FAD9A8FC21A989890039923C /* ResponseDecoder.swift */,
+				FAF5DE8021A9996100EA1DED /* URLSession+Requests.swift */,
+				FAF5DE8421A99DB000EA1DED /* RequestError.swift */,
+				2DBA18FE48B29536DE063E12 /* Result.swift */,
 			);
 			name = Requests;
 			path = Sources/Requests;
@@ -230,12 +242,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				FAD9A8FD21A989890039923C /* ResponseDecoder.swift in Sources */,
 				OBJ_151 /* Field.swift in Sources */,
+				FAF5DE8121A9996100EA1DED /* URLSession+Requests.swift in Sources */,
 				OBJ_152 /* HTTPMethod.swift in Sources */,
 				OBJ_153 /* Header.swift in Sources */,
 				OBJ_154 /* Request.swift in Sources */,
 				2DBA16155243F7BA908E416D /* URLQueryItem+ExpresibleByDictionaryLiteral.swift in Sources */,
 				2DBA12B907490331D5D8FA0D /* URL+StaticString.swift in Sources */,
+				FAF5DE8521A99DB000EA1DED /* RequestError.swift in Sources */,
+				2DBA1B98E7031EB4C0D1A9F3 /* Result.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +287,6 @@
 				INFOPLIST_FILE = Sources/Requests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				MACH_O_TYPE = staticlib;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -297,7 +312,6 @@
 				INFOPLIST_FILE = Sources/Requests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				MACH_O_TYPE = staticlib;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";

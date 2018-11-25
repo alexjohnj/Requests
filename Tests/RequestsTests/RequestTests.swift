@@ -10,9 +10,12 @@ import XCTest
 import Requests
 
 /// A request that has default values for all properties.
-private protocol TestableRequest: Request where Response == Data { }
+private protocol TestableRequest: Request { }
 
 extension TestableRequest {
+
+    // The fix-it offered by xcode won't work as the compiler gets confused.
+    typealias Resource = Void
 
     var baseURL: URL {
         return URL("https://example.com")
@@ -26,7 +29,7 @@ extension TestableRequest {
         return .get
     }
 
-    /// The URL that would be produced by this request if none of its default properties are overridden.
+    /// The URL that wwould be produced by this request if none of its default properties are overridden.
     static var defaultTestUrl: URL {
         return URL("https://example.com/test")
     }

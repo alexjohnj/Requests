@@ -19,6 +19,7 @@ excluded:
   - Pods/
   - Tests/
   - Package.swift
+  - Requests-Lab.playground/
 
 identifier_name:
   allowed_symbols: ["_"]
@@ -28,6 +29,7 @@ identifier_name:
     - vc
     - vm
     - id
+    - f
 
 type_name:
   excluded:
