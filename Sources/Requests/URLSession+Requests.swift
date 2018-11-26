@@ -9,14 +9,14 @@ import Foundation
 
 extension URLSession {
 
-    /// Executes a `Request` that has no response body.
+    /// Executes a `RequestConvertible` request that has no response body.
     ///
     /// - Parameters:
     ///   - request: A HTTP request to execute.
     ///   - callbackQueue: A `DispatchQueue` to run `completionHandler` on. Default `.main`.
     ///   - completionHandler: A block executed when the request completes.
     ///
-    public func perform<R: Request>(
+    public func perform<R: RequestConvertible>(
       _ request: R,
       callbackQueue: DispatchQueue = .main,
       completionHandler: @escaping (Result<Void>) -> Void
@@ -44,7 +44,7 @@ extension URLSession {
         }
     }
 
-    /// Executes a `Request` and attempts to decode the response body.
+    /// Executes a `RequestConvertible` request and attempts to decode the response body.
     ///
     /// - Parameters:
     ///   - request: A HTTP request to execute.
@@ -57,7 +57,7 @@ extension URLSession {
     ///
     /// - Remark: Wouldn't it be wonderful if Swift had a common `Result<T>` type?
     ///
-    public func perform<R: Request>(
+    public func perform<R: RequestConvertible>(
       _ request: R,
       decodingQueue: DispatchQueue = .global(qos: .userInitiated),
       callbackQueue: DispatchQueue = .main,
@@ -99,7 +99,7 @@ extension URLSession {
         }
     }
 
-    private func dataTask<R: Request>(
+    private func dataTask<R: RequestConvertible>(
       with request: R,
       completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void
     ) throws -> URLSessionDataTask {

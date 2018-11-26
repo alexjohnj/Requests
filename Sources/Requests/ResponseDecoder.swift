@@ -7,8 +7,10 @@
 
 import Foundation
 
+/// A type that can decode a response type from the raw body of a HTTP response.
 public struct ResponseDecoder<Response> {
 
+    /// The body of the decoder.
     public let decode: (Data) throws -> Response
 
     public init(_ decode: @escaping (Data) throws -> Response) {
@@ -20,6 +22,7 @@ public struct ResponseDecoder<Response> {
 
 extension ResponseDecoder where Response == Void {
 
+    /// A decoder that always returns a `()` value.
     public static let none = ResponseDecoder { _ in () }
 }
 
@@ -36,7 +39,7 @@ extension ResponseDecoder where Response == Data {
 extension ResponseDecoder where Response == String {
 
     /// Decodes a UTF8 string from the response data.
-    public static let string = ResponseDecoder<String>.string(encoding: .utf8)
+    public static let text = ResponseDecoder<String>.text(encoding: .utf8)
 
     /// Decodes a string from the response data.
     ///
@@ -44,7 +47,7 @@ extension ResponseDecoder where Response == String {
     ///
     /// - Throws: `CocoaError.fileReadInapplicableStringEncoding` if the encoding is incorrect.
     ///
-    public static func string(encoding: String.Encoding) -> ResponseDecoder<String> {
+    public static func text(encoding: String.Encoding) -> ResponseDecoder<String> {
         return ResponseDecoder { data in
             guard let string = String(data: data, encoding: encoding) else {
                 throw CocoaError(.fileReadInapplicableStringEncoding,
@@ -53,6 +56,21 @@ extension ResponseDecoder where Response == String {
 
             return string
         }
+    }
+}
+
+extension ResponseDecoder {
+
+    /// Decodes a JSON encoded object from some response data.
+    ///
+    /// - parameter resourceType: A `Decodable` resource type that the decoder should decode.
+    /// - parameter decoder: The JSON decoder to decode the data with. Default `JSONDecoder()`.
+    ///
+    /// - Throws: Any error that can be thrown by a `JSONDecoder`.
+    ///
+    public static func json<T: Decodable>(encoded resourceType: T.Type, decoder: JSONDecoder = JSONDecoder())
+        -> ResponseDecoder<T> {
+        return ResponseDecoder<T>.json(decoder: decoder)
     }
 }
 

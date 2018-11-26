@@ -5,134 +5,380 @@
 
 import Foundation
 
-/// A Request encapsulates a network request. A `Request` knows how to transform itself into a URLRequest.
-public protocol Request: CustomStringConvertible {
+// MARK: - API Host
 
-    /// The type encoded in the body of the response for `Request`.
-    associatedtype Resource
+/// A type that provides an interface to create requests to an API.
+///
+/// ## Overview
+///
+/// For each API, create a type that conforms to `RequestProviding` and implement the base URL of the API. Using this
+/// type you can create `Request`s for the different endpoints of the API using the construction methods provided by the
+/// protocol.
+///
+/// You can optionally implement the `request(to:using:)` method to customize the default request provided by the other
+/// construction methods.
+///
+/// - SeeAlso: `AnonymousRequestProvider`
+///
+public protocol RequestProviding {
 
-    /// The base URL of the API. Convention dictates that this **should not** end with a trailing slash.
+    /// The base url of all requests to the API. Convention dictates that this URL **should not** have a trailing slash.
     var baseURL: URL { get }
 
-    /// The path to the endpoint of the API. Convention dictates that this **should** start with a forwards slash.
-    var endpoint: String { get }
-
-    /// The HTTP method to use with the request.
-    var method: HTTPMethod { get }
-
-    /// HTTP header to be submitted in the request. Defaults to an empty header.
-    var header: Header { get }
-
-    /// URL query parameters to be submitted in the request. Defaults to an empty array.
+    /// Constructs a new request to an endpoint of the API using a specific HTTP method.
     ///
-    /// - Note: An empty array of query items is interpreted as no query items. The resulting URL will have no query
-    /// query parameter component.
+    /// - parameter endpoint: The endpoint for the request.
+    /// - parameter method: The HTTP method for the request.
     ///
-    var queryItems: [URLQueryItem] { get }
-
-    /// The caching policy to specify when converted to a `URLRequest`. Defaults to `.useProtocolCachePolicy`.
-    var cachePolicy: URLRequest.CachePolicy { get }
-
-    /// The timeout interval to specify when converted to a `URLRequest`. Defaults to `60.0`.
-    var timeoutInterval: TimeInterval { get }
-
-    /// The data sent in the body of the request or `nil` if no data should be sent. Defaults to `nil`.
-    var httpBody: Data? { get }
-
-    var responseDecoder: ResponseDecoder<Resource> { get }
+    /// - Returns: A new `Request` to the endpoint using the method.
+    ///
+    func request(to endpoint: String, using method: HTTPMethod) -> Request<Self, Void>
 }
 
-// MARK: - Default Implementations
+// MARK: - Request Creation
+
+extension RequestProviding {
+
+    public func request(to endpoint: String, using method: HTTPMethod) -> Request<Self, Void> {
+        return Request(api: self, endpoint: endpoint, responseDecoder: .none, method: method)
+    }
+
+    /// Constructs a `GET` request for a resource at an endpoint of the API.
+    ///
+    /// - parameter resourceDecoder: A decoder for the resource at the endpoint.
+    /// - parameter endpoint: The endpoint to retrieve the resource from.
+    ///
+    /// - Returns: A new request for the resource at the endpoint
+    ///
+    public func get<NewResource>(_ resourceDecoder: ResponseDecoder<NewResource>, from endpoint: String)
+        -> Request<Self, NewResource> {
+        return request(to: endpoint, using: .get).receiving(resourceDecoder)
+    }
+
+    /// Constructs a `POST` request sending a body of data to an endpoint of the API.
+    ///
+    /// - parameter body: The data to send in the request's body.
+    /// - parameter endpoint: The endpoint to send the data to.
+    ///
+    /// - Returns: A new request to send the data to the endpoint.
+    ///
+    public func post(_ body: Data?, to endpoint: String) -> Request<Self, Void> {
+        return request(to: endpoint, using: .post).sending(body: body)
+    }
+
+    /// Constructs a `PUT` request sending a body of data to an endpoint of the API.
+    ///
+    /// - parameter body: The data to send in the request's body.
+    /// - parameter endpoint: The endpoint to send the data to.
+    ///
+    /// - Returns: A new request to send the data to the endpoint.
+    ///
+    public func put(_ body: Data, to endpoint: String) -> Request<Self, Void> {
+        return request(to: endpoint, using: .put).sending(body: body)
+    }
+
+    /// Constructs a `PATCH` request sending a body of data to an endpoint of the API.
+    ///
+    /// - parameter endpoint: The endpoint to send the data to.
+    /// - parameter body: The data to send in the request's body.
+    ///
+    /// - Returns: A new request to send the data to the endpoint.
+    ///
+    public func patch(_ endpoint: String, with body: Data) -> Request<Self, Void> {
+        return request(to: endpoint, using: .patch).sending(body: body)
+    }
+
+    /// Constructs a `DELETE` request for a resource at an endpoint of the API.
+    ///
+    /// - parameter endpoint: The endpoint of the resource to delete.
+    ///
+    /// - Returns: A new request to delete a resource.
+    ///
+    public func delete(_ endpoint: String) -> Request<Self, Void> {
+        return request(to: endpoint, using: .delete)
+    }
+
+    /// Constructs a `HEAD` request for the headers of a resource at an endpoint of the API.
+    ///
+    /// - parameter endpoint: The endpoint of the resource to retrieve the headers of.
+    ///
+    /// - Returns: A new request to retrieve the headers of a resource.
+    ///
+    public func head(_ endpoint: String) -> Request<Self, Void> {
+        return request(to: endpoint, using: .head)
+    }
+}
+
+/// A `RequestProviding` type to a single API host.
+///
+/// Use an `AnonymousRequestProvider` for one-off API requests or when you do not care about the `API` parameter of the
+/// `Request` type.
+///
+public struct AnonymousRequestProvider: RequestProviding {
+
+    public let baseURL: URL
+
+    /// Initialises a new request provider with the provided base URL.
+    public init(baseURL: URL) {
+        self.baseURL = baseURL
+    }
+}
+
+extension AnonymousRequestProvider {
+
+    /// Initialises a new request provider with the provided base URL string.
+    ///
+    /// - parameter baseURL: A string containing the base URL of the API.
+    ///
+    /// - Warning: `baseURL` must contain a valid URL.
+    ///
+    public init(_ baseURL: StaticString) {
+        self.init(baseURL: URL(baseURL))
+    }
+}
+
+/// A request for a resource from an API.
+///
+/// ## Overview
+///
+/// The `Request` structure is a concrete implementation of a `RequestConvertible` that provides a chainable
+/// builder-like interface to constructing requests. You rarely instantiate a `Request` directly. Instead, requests to a
+/// specific API are created by a `RequestProviding` type and are customised using the builder functions on `Request`.
+///
+/// The `Request` structure is generic over the `API` type and the `Resource` type. The `API` parameter is immutable and
+/// can be used to constrain extensions on `Request` to a specific API. The `Resource` parameter is "mutable" in the
+/// sense that it can be changed using the `receiving(_:)` builder function.
+///
+/// ## One-off Requests
+///
+/// A convenience initializer `init(method:baseURL:endpoint:)` is provided for one-off requests. This uses an
+/// `AnonymousRequestProvider` and is intended to be used for exploratory work with an API. Its use outside of this
+/// context is strongly discouraged.
+///
+/// - SeeAlso: `RequestConvertible`
+/// - SeeAlso: `RequestProviding`
+///
+public struct Request<API: RequestProviding, Resource>: RequestConvertible {
+
+    // MARK: - Public Properties
+
+    public let api: API
+
+    public var baseURL: URL {
+        return api.baseURL
+    }
+
+    public var endpoint: String
+
+    public var method: HTTPMethod
+
+    public var header: Header
+
+    public var queryItems: [URLQueryItem]
+
+    public var cachePolicy: URLRequest.CachePolicy
+
+    public var timeoutInterval: TimeInterval
+
+    public var httpBody: Data?
+
+    public var responseDecoder: ResponseDecoder<Resource>
+
+    // MARK: - Initializers
+
+    /// Initialises a new `Request` with the provided parameters. Default values for optional parameters are defined in
+    /// the `DefaultValue` type.
+    ///
+    /// - SeeAlso: `DefaultValue`
+    /// - SeeAlso: `RequestConvertible`
+    ///
+    public init(
+      api: API,
+      endpoint: String,
+      responseDecoder: ResponseDecoder<Resource>,
+      method: HTTPMethod = DefaultValue.method,
+      header: Header = DefaultValue.header,
+      queryItems: [URLQueryItem] = DefaultValue.queryItems,
+      cachePolicy: URLRequest.CachePolicy = DefaultValue.cachePolicy,
+      timeoutInterval: TimeInterval = DefaultValue.timeout,
+      httpBody: Data? = DefaultValue.httpBody
+    ) {
+        self.api = api
+        self.endpoint = endpoint
+        self.method = method
+        self.header = header
+        self.queryItems = queryItems
+        self.cachePolicy = cachePolicy
+        self.timeoutInterval = timeoutInterval
+        self.httpBody = httpBody
+        self.responseDecoder = responseDecoder
+    }
+}
+
+// MARK: - Convenience Initializers
+
+extension Request where API == AnonymousRequestProvider, Resource == Void {
+
+    /// Initialises a new request using an `AnonymousRequestProvider`.
+    ///
+    /// - Parameters:
+    ///   - method: The HTTP method for the request.
+    ///   - baseURL: The base url of the request and the anonymous request provider.
+    ///   - endpoint: The endpoint of the request. Default `""`.
+    ///
+    /// - Warning: Use of this initializer outside of playgrounds and exploratory work is strongly discouraged.
+    ///
+    public init(method: HTTPMethod, baseURL: URL, endpoint: String = "") {
+        self.init(api: AnonymousRequestProvider(baseURL: baseURL), endpoint: endpoint, responseDecoder: .none,
+                  method: method)
+    }
+
+}
+
+// MARK: - Method Manipulation
 
 extension Request {
 
-    public var header: Header {
-        return .empty
+    /// Changes the HTTP method used by a request.
+    ///
+    /// - parameter method: The new method to use for the request.
+    ///
+    public func using(method: HTTPMethod) -> Request<API, Resource> {
+        return self.setting(\.method, to: method)
     }
 
-    public var httpBody: Data? {
-        return nil
-    }
-
-    public var cachePolicy: URLRequest.CachePolicy {
-        return .useProtocolCachePolicy
-    }
-
-    public var timeoutInterval: TimeInterval {
-        return 60.0
-    }
-
-    public var queryItems: [URLQueryItem] {
-        return []
-    }
 }
 
-// MARK: Void Response
-
-extension Request where Resource == Void {
-    public var responseDecoder: ResponseDecoder<Resource> {
-        return .none
-    }
-}
-
-// MARK: String Response
-
-extension Request where Resource == String {
-    public var responseDecoder: ResponseDecoder<String> {
-        return .string
-    }
-}
-
-// MARK: Data Response
-
-extension Request where Resource == Data {
-    public var responseDecoder: ResponseDecoder<Data> {
-        return .data
-    }
-}
-
-// MARK: - Request Conversion
+// MARK: - Header Manipulation
 
 extension Request {
-    /**
-     Transform a `Request` into a Foundation `URLRequest`.
 
-     - returns: A `URLRequest` or `nil` if a valid URL can not be constructed.
-     */
-    public func toURLRequest() throws -> URLRequest {
-        let url = try buildRequestURL()
-
-        var request = URLRequest(url: url, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
-        request.httpMethod = method.rawValue
-        request.httpBody = httpBody
-        request.allHTTPHeaderFields = header.dictionaryValue
-        return request
+    /// Sets the header of the request to a new value.
+    ///
+    /// - parameter newHeader: The header to set for the request.
+    ///
+    /// - SeeAlso: `adding(headerField:)` to preserve the current header.
+    /// - SeeAlso: `setting(headerField:)` to preserve the current header.
+    ///
+    public func with(header newHeader: Header) -> Request<API, Resource> {
+        return self.setting(\.header, to: newHeader)
     }
 
-    /**
-     Construct a URL from a `Request`.
+    /// Adds the provided field to the request's header.
+    ///
+    /// - parameter headerField: A field to add to the request.
+    ///
+    /// - SeeAlso: `setting(headerField:)` to replace an existing field.
+    ///
+    public func adding(headerField: Field) -> Request<API, Resource> {
+        var copy = self
+        copy.header.add(headerField)
+        return copy
+    }
 
-     - returns: A valid `URL` or `nil` if one can't be constructed.
-     */
-    private func buildRequestURL() throws -> URL {
-        let endpointURL = endpoint.isEmpty ? baseURL : baseURL.appendingPathComponent(endpoint)
-
-        var endpointComponents = URLComponents(url: endpointURL, resolvingAgainstBaseURL: false)
-        endpointComponents?.queryItems = queryItems.isEmpty ? nil : queryItems
-
-        guard let url = endpointComponents?.url else { throw RequestError.invalidRequest }
-        return url
+    /// Sets the provided field in the request's header.
+    ///
+    /// - parameter headerField: A field to set in the request.
+    ///
+    /// - SeeAlso: `adding(headerField:)` to merge an existing field.
+    ///
+    public func setting(headerField: Field) -> Request<API, Resource> {
+        var copy = self
+        copy.header.set(headerField)
+        return copy
     }
 }
 
-// MARK: - CustomStringConvertible Implementation
+// MARK: - Query Manipulation
 
 extension Request {
-    public var description: String {
-        if let url = (try?  toURLRequest())?.url {
-            return "Request<\(Resource.self)> [\(method.rawValue)] (\(url))"
-        } else {
-            return "Request (INVALID)"
-        }
+
+    /// Sets the query for the request to a new value.
+    ///
+    /// - parameter newQuery: Collection of query items to build the new query from.
+    ///
+    /// - SeeAlso: `adding(queryItem:)` to update an existing query.
+    ///
+    public func with(query newQuery: [URLQueryItem]) -> Request<API, Resource> {
+        return self.setting(\.queryItems, to: newQuery)
+    }
+
+    /// Appends a new item to the query for the request.
+    ///
+    /// - parameter queryItem: The item to append.
+    ///
+    /// - SeeAlso: `with(query:)` to replace an existing query.
+    ///
+    public func adding(queryItem: URLQueryItem) -> Request<API, Resource> {
+        var copy = self
+        copy.queryItems.append(queryItem)
+        return copy
+    }
+}
+
+// MARK: - Body Manipulation
+
+extension Request {
+
+    /// Sets the body of the request, replacing the current body.
+    ///
+    /// - parameter body: Data to send in the body of the request or `nil` to clear the body.
+    ///
+    public func sending(body bodyData: Data?) -> Request<API, Resource> {
+        return self.setting(\.httpBody, to: bodyData)
+    }
+
+}
+
+// MARK: - Response Manipulation
+
+extension Request {
+
+    /// Sets the response decoder of the request.
+    ///
+    /// - parameter resourceDecoder: A decoder for the new request's resource.
+    ///
+    public func receiving<NewResource>(_ resourceDecoder: ResponseDecoder<NewResource>) -> Request<API, NewResource> {
+        return self.adapted(for: resourceDecoder)
+    }
+
+}
+
+// MARK: Request Configuration Manipulation
+
+extension Request {
+
+    /// Sets the timeout interval for the request.
+    ///
+    /// - parameter interval: The new timeout interval for the request in seconds.
+    ///
+    public func timeout(after interval: TimeInterval) -> Request<API, Resource> {
+        return self.setting(\.timeoutInterval, to: interval)
+    }
+
+}
+
+// MARK: - Private Helpers
+
+extension Request {
+
+    private func setting<T>(_ prop: WritableKeyPath<Request<API, Resource>, T>, to newValue: T) -> Request<API, Resource> {
+        var copy = self
+        copy[keyPath: prop] = newValue
+        return copy
+    }
+
+    private func adapted<NewResource>(for newDecoder: ResponseDecoder<NewResource>) -> Request<API, NewResource> {
+        return Request<API, NewResource>(
+          api: api,
+          endpoint: endpoint,
+          responseDecoder: newDecoder,
+          method: method,
+          header: header,
+          queryItems: queryItems,
+          cachePolicy: cachePolicy,
+          timeoutInterval: timeoutInterval,
+          httpBody: httpBody
+        )
     }
 }

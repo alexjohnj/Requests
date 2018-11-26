@@ -7,9 +7,10 @@
 
 import Foundation
 
+/// An error that can occur when performing a request.
 public enum RequestError: Error {
 
-    /// Indicates a `Request` could not be converted to a Foundation `URLRequest`.
+    /// Indicates a `RequestConvertible` could not be converted to a Foundation `URLRequest`.
     case invalidRequest
 
     /// The server did not give a response.
