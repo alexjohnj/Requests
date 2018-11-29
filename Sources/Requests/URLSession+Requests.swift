@@ -9,51 +9,16 @@ import Foundation
 
 extension URLSession {
 
-    /// Executes a `RequestConvertible` request that has no response body.
-    ///
-    /// - Parameters:
-    ///   - request: A HTTP request to execute.
-    ///   - callbackQueue: A `DispatchQueue` to run `completionHandler` on. Default `.main`.
-    ///   - completionHandler: A block executed when the request completes.
-    ///
-    public func perform<R: RequestConvertible>(
-      _ request: R,
-      callbackQueue: DispatchQueue = .main,
-      completionHandler: @escaping (Result<Void>) -> Void
-    ) where R.Resource == Void {
-
-        // Runs `completionHandler` on `callbackQueue`.
-        let complete = { (response: Result<Void>) in
-            callbackQueue.async { completionHandler(response) }
-        }
-
-        do {
-            let task = try dataTask(with: request) { _, response, error in
-                do {
-                    try ensureNoError(error)
-                    let httpResponse = try extractRequiredHttpResponse(from: response)
-                    complete(.success(httpResponse, ()))
-                } catch {
-                    complete(.failed(nil, error))
-                }
-            }
-
-            task.resume()
-        } catch {
-            complete(.failed(nil, error))
-        }
-    }
-
     /// Executes a `RequestConvertible` request and attempts to decode the response body.
     ///
     /// - Parameters:
     ///   - request: A HTTP request to execute.
     ///   - decodingQueue: A `DispatchQueue` to decode the response body on. Default `.global(.userInitiated)`.
     ///   - callbackQueue: A `DispatchQueue` to run `completionHandler` on. Default `.main`.
+    ///   - configureTask: A block that receives the `URLSessionTask` for the request. This block will only be called
+    ///     if the `RequestType` is successfully converted to a `URLRequest`. You do not need to call `resume()` on the
+    ///     provided task. The default implementation does nothing.
     ///   - completionHandler: A block executed when the request completes and the response body has been decoded.
-    ///
-    /// - Note: Either the response or the error passed to the completion handler will have a value. They will never
-    ///   both be `.none` or `.some`.
     ///
     /// - Remark: Wouldn't it be wonderful if Swift had a common `Result<T>` type?
     ///
@@ -61,6 +26,7 @@ extension URLSession {
       _ request: R,
       decodingQueue: DispatchQueue = .global(qos: .userInitiated),
       callbackQueue: DispatchQueue = .main,
+      configureTask: (URLSessionTask) -> Void = { _ in },
       completionHandler: @escaping (Result<R.Resource>) -> Void
     ) {
         let complete = { (response: Result<R.Resource>) in
@@ -68,28 +34,43 @@ extension URLSession {
         }
 
         do {
-            let task = try dataTask(with: request) { maybeData, response, requestError in
-                // The http response extracted from `response`. Placing the response at this scope means its accessible
-                // by the `catch` block if `maybeData` is `nil`.
-                var extractedResponse: HTTPURLResponse?
+            let task = try dataTask(with: request, configurationBlock: configureTask) { data, response, error in
 
-                do {
-                    try ensureNoError(requestError)
-                    let httpResponse = try extractRequiredHttpResponse(from: response)
-                    extractedResponse = httpResponse
-                    let data = try extractData(from: maybeData)
-
-                    decodingQueue.async {
-                        do {
-                            let resource = try request.responseDecoder.decode(data)
-                            complete(.success(httpResponse, resource))
-                        } catch {
-                            complete(.failed(httpResponse, error))
-                        }
+                // First check to see if there's a response and if there isn't, see if there's an error. There should be
+                // but since there's no type guarantees, fall back to a `noResponse` error if there isn't.
+                guard let response = response else {
+                    if let error = error {
+                        complete(.failed(nil, error))
+                        return
+                    } else {
+                        complete(.failed(nil, RequestError.noResponse))
+                        return
                     }
+                }
 
-                } catch {
-                    complete(.failed(extractedResponse, error))
+                // Now try and get a HTTP response out of the original response.
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    complete(.failed(nil, RequestError.nonHttpResponse(response)))
+                    return
+                }
+
+                // Now make sure there were no client-side errors after the initial response. From my time playing with
+                // `URLProtocol`, this doesn't seem possible as when the protocol sends an error to the client, the
+                // response is set to `nil`. Nonetheless, there's no type-level guarantee so we must handle this state.
+                guard error == nil else {
+                    // swiftlint:disable:next force_unwrapping
+                    complete(.failed(httpResponse, error!))
+                    return
+                }
+
+                // It's now safe to try and decode the resource from the response body.
+                decodingQueue.async {
+                    do {
+                        let resource = try decodeResponse(from: data, using: request.responseDecoder)
+                        complete(.success(httpResponse, resource))
+                    } catch let decodingError {
+                        complete(.failed(httpResponse, decodingError))
+                    }
                 }
             }
 
@@ -101,44 +82,20 @@ extension URLSession {
 
     private func dataTask<R: RequestConvertible>(
       with request: R,
+      configurationBlock configureTask: (URLSessionTask) -> Void,
       completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void
     ) throws -> URLSessionDataTask {
         let urlRequest = try request.toURLRequest()
-        return dataTask(with: urlRequest, completionHandler: completionHandler)
+        let task = dataTask(with: urlRequest, completionHandler: completionHandler)
+        configureTask(task)
+        return task
     }
 }
 
 // MARK: - Helper Functions
 
-/// Throws the wrapped error if `error` is `nil`.
-private func ensureNoError(_ error: Error?) throws {
-    guard error == nil else {
-        throw error!
-    }
-}
-
-/// Extracts data wrapped by an optional, throwing a `RequestError.noData` error if there is no data.
-private func extractData(from maybeData: Data?) throws -> Data {
-    guard let data = maybeData else {
-        throw RequestError.noData
-    }
-
-    return data
-}
-
-/// Extracts a `HTTPURLResponse` from an optional `URLResponse`.
-///
-/// - Throws: A `RequestError.noResponse` if `maybeResponse` is `nil`.
-/// - Throws: A `RequestError.nonHttpResponse` if `maybeResponse` is not a HTTP response.
-///
-private func extractRequiredHttpResponse(from response: URLResponse?) throws -> HTTPURLResponse {
-    guard let response = response else {
-        throw RequestError.noResponse
-    }
-
-    guard let httpResponse = response as? HTTPURLResponse else {
-        throw RequestError.nonHttpResponse(response)
-    }
-
-    return httpResponse
+private func decodeResponse<Response>(from data: Data?, using responseDecoder: ResponseDecoder<Response>) throws -> Response {
+    guard Response.self != Void.self else { return () as! Response } // swiftlint:disable:this force_cast
+    guard let data = data else { throw RequestError.noData }
+    return try responseDecoder.decode(data)
 }

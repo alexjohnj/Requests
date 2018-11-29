@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2DBA10B2A7E4CAB58236F972 /* RequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1CDBF88C079FF91A35BE /* RequestConvertible.swift */; };
+		2DBA11C07EC439631BF5C307 /* HTTPStubProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA18DBC5ABC0BD5D731237 /* HTTPStubProtocol.swift */; };
 		2DBA12B907490331D5D8FA0D /* URL+StaticString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA142E3A9B2EA6FEE32C49 /* URL+StaticString.swift */; };
 		2DBA12BE3777919AFA1817AF /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19CE359FF7E082AA390B /* RequestTests.swift */; };
 		2DBA153B4F62F5DFC51D56EB /* RequestTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* RequestTypeTests.swift */; };
 		2DBA16155243F7BA908E416D /* URLQueryItem+ExpresibleByDictionaryLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1AC44EEE417A972BF5C6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */; };
 		2DBA1631D1E731E4D9EE19D7 /* DefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA112E86530BDA9494A953 /* DefaultValue.swift */; };
+		2DBA1B1961F3D02E8F3B5632 /* URLSessionExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA123329A71BF0F0F19DA1 /* URLSessionExtensionTests.swift */; };
 		2DBA1B98E7031EB4C0D1A9F3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA18FE48B29536DE063E12 /* Result.swift */; };
 		2DBA1E2090BCB0C69CB8B275 /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19A0B446CD18F0011B7E /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift */; };
 		FAD9A8FD21A989890039923C /* ResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9A8FC21A989890039923C /* ResponseDecoder.swift */; };
@@ -40,7 +42,9 @@
 
 /* Begin PBXFileReference section */
 		2DBA112E86530BDA9494A953 /* DefaultValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultValue.swift; sourceTree = "<group>"; };
+		2DBA123329A71BF0F0F19DA1 /* URLSessionExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionExtensionTests.swift; sourceTree = "<group>"; };
 		2DBA142E3A9B2EA6FEE32C49 /* URL+StaticString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+StaticString.swift"; sourceTree = "<group>"; };
+		2DBA18DBC5ABC0BD5D731237 /* HTTPStubProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStubProtocol.swift; sourceTree = "<group>"; };
 		2DBA18FE48B29536DE063E12 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		2DBA19A0B446CD18F0011B7E /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+ExpressibleByDictionaryLiteralTests.swift"; sourceTree = "<group>"; };
 		2DBA19CE359FF7E082AA390B /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 				OBJ_18 /* RequestTypeTests.swift */,
 				2DBA19A0B446CD18F0011B7E /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift */,
 				2DBA19CE359FF7E082AA390B /* RequestTests.swift */,
+				2DBA123329A71BF0F0F19DA1 /* URLSessionExtensionTests.swift */,
+				2DBA18DBC5ABC0BD5D731237 /* HTTPStubProtocol.swift */,
 			);
 			name = RequestsTests;
 			path = Tests/RequestsTests;
@@ -276,6 +282,8 @@
 				2DBA1E2090BCB0C69CB8B275 /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift in Sources */,
 				2DBA153B4F62F5DFC51D56EB /* RequestTypeTests.swift in Sources */,
 				2DBA12BE3777919AFA1817AF /* RequestTests.swift in Sources */,
+				2DBA1B1961F3D02E8F3B5632 /* URLSessionExtensionTests.swift in Sources */,
+				2DBA11C07EC439631BF5C307 /* HTTPStubProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
