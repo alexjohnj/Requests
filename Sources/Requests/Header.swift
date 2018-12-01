@@ -7,12 +7,13 @@ import Foundation
 /// A header in a HTTP request. A header consists of a series of fields containing a key and a value. Keys are
 /// represented by the `Field.Name` type while values are simply `String`s.
 ///
-/// - Note: Instances of the `Header` type does not preserve the order of fields added to it.
+/// - Note: A `Header` instance does not preserve the order of fields added to it.
 ///
 public struct Header: Hashable {
 
     // MARK: - Public Properties
 
+    /// A dictionary representation of the header.
     public var dictionaryValue: [String: String] {
         return storage.reduce(into: [:]) { accum, element in
             accum[element.key.rawValue] = element.value
@@ -28,6 +29,10 @@ public struct Header: Hashable {
 
     // MARK: - Initializers
 
+    /// Initializes a new `Header` containing the provided fields.
+    ///
+    /// - parameter fields: The fields to initialize the header with.
+    ///
     public init(_ fields: [Field]) {
         let keysAndValues = fields.map(explode)
 
@@ -69,6 +74,7 @@ public struct Header: Hashable {
 
     // MARK: - Public Subscripts
 
+    /// Returns the value of the field named `name` in the header or `nil` if that field is not present in the header.
     public subscript(_ name: Field.Name) -> String? {
         return storage[name]
     }
