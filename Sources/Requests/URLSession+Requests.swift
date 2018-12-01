@@ -66,7 +66,8 @@ extension URLSession {
                 // It's now safe to try and decode the resource from the response body.
                 decodingQueue.async {
                     do {
-                        let resource = try decodeResponse(from: data, using: request.responseDecoder)
+                        let resource = try decodeBody(from: data, forResponse: httpResponse,
+                                                      using: request.responseDecoder)
                         complete(.success(httpResponse, resource))
                     } catch let decodingError {
                         complete(.failed(httpResponse, decodingError))
@@ -94,8 +95,9 @@ extension URLSession {
 
 // MARK: - Helper Functions
 
-private func decodeResponse<Response>(from data: Data?, using responseDecoder: ResponseDecoder<Response>) throws -> Response {
-    guard Response.self != Void.self else { return () as! Response } // swiftlint:disable:this force_cast
+private func decodeBody<Body>(from data: Data?, forResponse response: HTTPURLResponse,
+                              using responseDecoder: ResponseDecoder<Body>) throws -> Body {
+    guard Body.self != Void.self else { return () as! Body } // swiftlint:disable:this force_cast
     guard let data = data else { throw RequestError.noData }
-    return try responseDecoder.decode(data)
+    return try responseDecoder.decode(response, data)
 }

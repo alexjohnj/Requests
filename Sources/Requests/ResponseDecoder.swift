@@ -11,9 +11,9 @@ import Foundation
 public struct ResponseDecoder<Response> {
 
     /// The body of the decoder.
-    public let decode: (Data) throws -> Response
+    public let decode: (HTTPURLResponse, Data) throws -> Response
 
-    public init(_ decode: @escaping (Data) throws -> Response) {
+    public init(_ decode: @escaping (HTTPURLResponse, Data) throws -> Response) {
         self.decode = decode
     }
 }
@@ -23,7 +23,7 @@ public struct ResponseDecoder<Response> {
 extension ResponseDecoder where Response == Void {
 
     /// A decoder that always returns a `()` value.
-    public static let none = ResponseDecoder { _ in () }
+    public static let none = ResponseDecoder { _, _ in () }
 }
 
 // MARK: - Raw Data Decoding
@@ -31,7 +31,7 @@ extension ResponseDecoder where Response == Void {
 extension ResponseDecoder where Response == Data {
 
     /// Returns the response data unchanged. Never throws an error.
-    public static let data = ResponseDecoder { $0 }
+    public static let data = ResponseDecoder { _, data in data }
 }
 
 // MARK: - String Decoding
@@ -48,7 +48,7 @@ extension ResponseDecoder where Response == String {
     /// - Throws: `CocoaError.fileReadInapplicableStringEncoding` if the encoding is incorrect.
     ///
     public static func text(encoding: String.Encoding) -> ResponseDecoder<String> {
-        return ResponseDecoder { data in
+        return ResponseDecoder { _, data in
             guard let string = String(data: data, encoding: encoding) else {
                 throw CocoaError(.fileReadInapplicableStringEncoding,
                                  userInfo: [NSStringEncodingErrorKey: encoding.rawValue])
@@ -85,6 +85,6 @@ extension ResponseDecoder where Response: Decodable {
     /// - Throws: Any error that can be thrown by `JSONDecoder`.
     ///
     public static func json(decoder: JSONDecoder = JSONDecoder()) -> ResponseDecoder<Response> {
-        return ResponseDecoder { return try decoder.decode(Response.self, from: $0) }
+        return ResponseDecoder { _, data in return try decoder.decode(Response.self, from: data) }
     }
 }

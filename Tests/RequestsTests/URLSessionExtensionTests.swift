@@ -21,7 +21,7 @@ private extension ResponseDecoder {
 
     /// A response decoder that always throws a `TestError`.
     static func throwingDecoder<T>(forType: T.Type) -> ResponseDecoder<T> {
-        return ResponseDecoder<T> { _ in throw TestError() }
+        return ResponseDecoder<T> { _, _ in throw TestError() }
     }
 }
 
@@ -313,7 +313,7 @@ final class URLSessionExtensionTests: XCTestCase {
         defer { decodingQueue.setSpecific(key: queueKey, value: nil) }
         var recordedKeyValue: String?
 
-        let decoder = ResponseDecoder<String> { _ in
+        let decoder = ResponseDecoder<String> { _, _ in
             recordedKeyValue = DispatchQueue.getSpecific(key: queueKey)
             return "blah"
         }
