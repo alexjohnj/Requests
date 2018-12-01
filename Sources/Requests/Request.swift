@@ -276,6 +276,20 @@ extension Request {
         return copy
     }
 
+    /// Adds the provided fields to the request's header.
+    ///
+    /// - parameter headerFields: The fields to add to the header of the request.
+    ///
+    public func adding(headerFields: [Field]) -> Request<API, Resource> {
+        var copy = self
+        headerFields.forEach { copy.header.add($0) }
+        return copy
+    }
+
+    public func adding(headerFields: Field...) -> Request<API, Resource> {
+        return self.adding(headerFields: Array(headerFields))
+    }
+
     /// Sets the provided field in the request's header.
     ///
     /// - parameter headerField: A field to set in the request.
@@ -313,6 +327,28 @@ extension Request {
         var copy = self
         copy.queryItems.append(queryItem)
         return copy
+    }
+
+    /// Appends a collection of new query items to the request.
+    ///
+    /// - parameter queryItems: The items to append.
+    ///
+    /// - SeeAlso: `with(query:)` to replace an existing query.
+    ///
+    public func adding(queryItems newItems: [URLQueryItem]) -> Request<API, Resource> {
+        var copy = self
+        copy.queryItems.append(contentsOf: newItems)
+        return copy
+    }
+
+    /// Appends a collection of new query items to the request.
+    ///
+    /// - parameter queryItems: The items to append.
+    ///
+    /// - SeeAlso: `with(query:)` to replace an existing query.
+    ///
+    public func adding(queryItems: URLQueryItem...) -> Request<API, Resource> {
+        return self.adding(queryItems: Array(queryItems))
     }
 }
 

@@ -209,6 +209,41 @@ final class RequestTests: XCTestCase {
         XCTAssertEqual(request.header, expectedHeader)
     }
 
+    func test_addingHeaderFieldsArray_addsNewFields() {
+        // Given
+        let initialHeader = Header(.acceptLanguage("en-scouse"))
+        let newFields: [Field] = [.acceptLanguage("en-gb"), .contentType("application/json")]
+        var expectedHeader = initialHeader
+        newFields.forEach { expectedHeader.add($0) }
+
+        // When
+        let request = api.request(to: "/test", using: .get)
+            .with(header: initialHeader)
+            .adding(headerFields: newFields)
+
+        // Then
+        XCTAssertEqual(request.header, expectedHeader)
+    }
+
+    func test_addingHeaderFieldsVariadic_addsNewFields() {
+        // Given
+        let initialHeader = Header(.acceptLanguage("en-scouse"))
+        let newField1 = Field.acceptLanguage("en-gb")
+        let newField2 = Field.contentType("application/json")
+
+        var expectedHeader = initialHeader
+        expectedHeader.add(newField1)
+        expectedHeader.add(newField2)
+
+        // When
+        let request = api.request(to: "/test", using: .get)
+          .with(header: initialHeader)
+          .adding(headerFields: newField1, newField2)
+
+        // Then
+        XCTAssertEqual(request.header, expectedHeader)
+    }
+
     // MARK: - Query Manipulation
 
     func test_withQuery_setsQuery() {
@@ -235,6 +270,46 @@ final class RequestTests: XCTestCase {
         let request = api.request(to: "/test", using: .get)
           .with(query: initialQuery)
           .adding(queryItem: testQuery)
+
+        // Then
+        XCTAssertEqual(request.queryItems, expectedQuery)
+    }
+
+    func test_addingQueryItemsArray_addsNewItems() {
+        // Given
+        let initialQuery: [URLQueryItem] = [
+            "test": "test_value",
+            "test_2": "test_value_2"
+        ]
+        let appendedQuery: [URLQueryItem] = [
+            "test_3": "test_value_3",
+            "test_4": "test_value_4",
+        ]
+        let expectedQuery = initialQuery + appendedQuery
+
+        // When
+        let request = api.request(to: "/test", using: .get)
+            .with(query: initialQuery)
+            .adding(queryItems: appendedQuery)
+
+        // Then
+        XCTAssertEqual(request.queryItems, expectedQuery)
+    }
+
+    func test_addingQueryItemsVariadic_addsNewItems() {
+        // Given
+        let initialQuery: [URLQueryItem] = [
+            "test": "test_value",
+            "test_2": "test_value_2"
+        ]
+        let appendedQueryItem1 = URLQueryItem(name: "test_3", value: "test_value_3")
+        let appendedQueryItem2 = URLQueryItem(name: "test_4", value: "test_value_4")
+        let expectedQuery = initialQuery + [appendedQueryItem1, appendedQueryItem2]
+
+        // When
+        let request = api.request(to: "/test", using: .get)
+          .with(query: initialQuery)
+          .adding(queryItems: appendedQueryItem1, appendedQueryItem2)
 
         // Then
         XCTAssertEqual(request.queryItems, expectedQuery)
