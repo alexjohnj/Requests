@@ -25,11 +25,45 @@ moment.
 
 ## Installation
 
-Currently, the only supported installation method is using
-[Carthage][carthage-gh]. Support for CocoaPods and the Swift Package Manager
-will be added at a later date.
+_Requests_ can be installed using [CocoaPods][cocoapods-gh],
+[Carthage][carthage-gh] or the [Swift Package Manager][swiftpm-gh]. _Requests_
+supports macOS, iOS, tvOS and watchOS.
 
+I suggest using your package manager's [pessimistic
+operator][for-a-pessimist-im-pretty-optimistic] to pin the version number to a
+minor release while _Requests_ is in the `0.x` phase.
+
+[for-a-pessimist-im-pretty-optimistic]: https://robots.thoughtbot.com/rubys-pessimistic-operator
+[cocoapods-gh]: http://cocoapods.org/
 [carthage-gh]: https://github.com/carthage/carthage/
+[swiftpm-gh]: https://github.com/apple/swift-package-manager
+
+
+### CocoaPods
+
+Add the following to your `Podfile`:
+
+``` ruby
+pod "Requests", ~> "0.1.0"
+```
+
+### Carthage
+
+Add the following to your `Cartfile`:
+
+``` ruby
+github "alexjohnj/Requests" ~> 0.1.0
+```
+
+### Swift Package Manager
+
+Add the following to your `Package.swift` file's dependencies:
+
+``` swift
+dependencies: [
+    .package(url: "https://github.com/alexjohnj/Requests.git", .upToNextMinor(from: "0.1.0"))
+]
+```
 
 ## General Usage
 
