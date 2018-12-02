@@ -14,9 +14,6 @@ private protocol TestableRequest: RequestConvertible { }
 
 extension TestableRequest {
 
-    // The fix-it offered by xcode won't work as the compiler gets confused.
-    typealias Resource = Void
-
     var baseURL: URL {
         return URL("https://example.com")
     }
@@ -42,6 +39,7 @@ final class RequestTypeTests: XCTestCase {
     func test_baseUrl_setCorrectly() throws {
         // Given
         struct SUT: TestableRequest {
+            typealias Resource = String
             let baseURL = URL("https://example.com/api/")
             let endpoint = ""
         }
@@ -58,6 +56,7 @@ final class RequestTypeTests: XCTestCase {
     func test_endpoint_doesNotAppendSlashWhenEmpty() throws {
         // Given
         struct SUT: TestableRequest {
+            typealias Resource = String
             let baseURL = URL("https://example.com/api")
             let endpoint = ""
         }
@@ -73,6 +72,7 @@ final class RequestTypeTests: XCTestCase {
     func test_endpoint_appendedCorrectly() throws {
         // Given
         struct SUT: TestableRequest {
+            typealias Resource = String
             let baseURL = URL("https://example.com/api")
             let endpoint = "/doSomething"
         }
@@ -90,6 +90,7 @@ final class RequestTypeTests: XCTestCase {
     func test_queryItems_setCorrectly() throws {
         // Given
         struct SUT: TestableRequest {
+            typealias Resource = String
             let queryItems: [URLQueryItem] = [
                 "test": "value",
                 "test2": "value2"
@@ -108,6 +109,7 @@ final class RequestTypeTests: XCTestCase {
     func test_doesNot_appendEmptyQueryItems() throws {
         // Given
         struct SUT: TestableRequest {
+            typealias Resource = String
             let queryItems: [URLQueryItem] = []
         }
         let request = SUT()
@@ -122,6 +124,7 @@ final class RequestTypeTests: XCTestCase {
     func test_headerSetCorrectly() throws {
         // Given
         struct SUT: TestableRequest {
+            typealias Resource = String
             let header: Header = [
                 Field.accept("application/json"),
                 Field.contentType("text/html")
@@ -140,6 +143,7 @@ final class RequestTypeTests: XCTestCase {
     func test_emptyHeader_producesEmptyNonNilHeader() throws {
         // Given
         struct SUT: TestableRequest {
+            typealias Resource = String
             let header: Header = .empty
         }
         let request = SUT()
@@ -156,6 +160,7 @@ final class RequestTypeTests: XCTestCase {
         // Given
         let expectedMethod = HTTPMethod.post
         struct SUT: TestableRequest {
+            typealias Resource = String
             let method: HTTPMethod
         }
         let request = SUT(method: expectedMethod)
@@ -172,6 +177,7 @@ final class RequestTypeTests: XCTestCase {
         // Given
         let expectedBody = "Hello, world!".data(using: .utf8)!
         struct SUT: TestableRequest {
+            typealias Resource = String
             let httpBody: Data?
         }
         let request = SUT(httpBody: expectedBody)
@@ -187,6 +193,7 @@ final class RequestTypeTests: XCTestCase {
     func test_emptyHttpBody_setCorrectly() throws {
         // Given
         struct SUT: TestableRequest {
+            typealias Resource = String
             let body: Data?
         }
         let request = SUT(body: nil)
@@ -202,6 +209,7 @@ final class RequestTypeTests: XCTestCase {
         // Given
         let expectedPolicy = URLRequest.CachePolicy.reloadIgnoringCacheData
         struct SUT: TestableRequest {
+            typealias Resource = String
             let cachePolicy: URLRequest.CachePolicy
         }
         let request = SUT(cachePolicy: expectedPolicy)
@@ -217,6 +225,7 @@ final class RequestTypeTests: XCTestCase {
         // Given
         let expectedTimeout = 42 as TimeInterval
         struct SUT: TestableRequest {
+            typealias Resource = String
             let timeoutInterval: TimeInterval
         }
         let request = SUT(timeoutInterval: expectedTimeout)
