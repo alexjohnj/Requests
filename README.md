@@ -120,7 +120,7 @@ Detail](#RequestProviding-in-Detail).
    4. Invokes the completion handler on the main queue with the result of the
       request.
 
-Not using `URLSession`? Want to use `Promise<T>` instead of completion handler?
+Not using `URLSession`? Want to use a `Promise<T>` instead of a completion handler?
 No problem---See [Performing a Request](#Performing-a-Request) for pointers on
 implementing your own wrappers.
 
@@ -175,10 +175,10 @@ extension ExampleService {
 ```
 
 Aside from the encoding step, this is almost identical to the `GET` request in
-the previous section. The key difference is the use of the `post(_ body:to:)` to
-construct the request instead of `get(_ decoder:from:)`. As the name suggests
+the previous section. The key difference is the use of the `post(_ body:to:)` method to
+construct the request instead of `get(_ decoder:from:)`. As the name suggests,
 this constructs a `POST` request that sends some data in the body of the
-request. Also note that the response type is `Void`. This indicates the request
+request. Also note that the response type is `Void`. This indicates that the request
 does not expect to receive (or does not care about) a body in the response.
 
 ### `RequestProviding` in Detail
@@ -210,14 +210,14 @@ by the provider that created them. This enables you to add extensions on the
 `Request` type that are constrained by the API they belong to, allowing you to
 build a mini-DSL for your API requests.
 
-### Customising Requests
+### Modifying Requests
 
 The `Request` type has several methods that allow you to add headers, query
 parameters and modify the body or response type of the request. All these
 methods return a new `Request<API, Resource>` type so they can be chained
 together to keep things neat and tidy.
 
-Let's see how you can go about customising a request. The `POST` request we
+Let's see how you can go about modifying a request. The `POST` request we
 defined earlier isn't correct, it doesn't specify the `Content-Type` of the body
 and the API actually returns a plain-text status message in the response
 body. Let's fix it:
@@ -247,7 +247,7 @@ latter sets the response decoder of the request, changing the response
 type. Here we've used the `.text` `ResponseDecoder` which decodes UTF-8 encoded
 text from the body of the response.
 
-There are several other customisation methods on `Request`. Check out the
+There are several other modification methods on `Request`. Check out the
 generated interface in Xcode for the complete list.
 
 ### Decoding a Response
@@ -279,12 +279,12 @@ types. This type is just a big old bag of data with some methods for
 mutation. The logic of creating a `URLRequest` from a `Request` is actually
 handled by the `RequestConvertible` type.
 
-Types that conform to `RequestConvertible` declare all the information needed to
-construct a request and their associated resource type. Note that they _don't_
-have an associated `API` type. This is a feature confined to the `Request` type
-only. By conforming to the `RequestConvertible` protocol and implementing all
-the required properties (most are optional), your types gain the ability to be
-converted into a `URLRequest` via the `toURLRequest()` method.
+Types that conform to `RequestConvertible` declare their associated resource
+type and all the information needed to construct a request. Note that they _don't_
+have an associated `API` type. This is a feature confined to the `Request` type.
+By conforming to the `RequestConvertible` protocol and implementing all
+the required properties (most are optional), a type can be converted into a
+`URLRequest` via the `toURLRequest()` method.
 
 >☝️ If you're writing some functionality that operates on requests in general,
 consider using the `RequestConvertible` type instead of `Request`.
@@ -329,7 +329,7 @@ does come with a supported extension on `URLSession` to perform requests. This
 is there to help people get up and running with _Requests_ but it is by no means
 meant to define how _Requests_ should be used.
 
-If you're integrating _Requests_ with another a networking system, keep the
+If you're integrating _Requests_ with another networking system, keep the
 following in mind:
 
 - Constrain your functions to operate on `RequestConvertible`, not `Request<API,
