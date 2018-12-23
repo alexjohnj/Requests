@@ -16,7 +16,7 @@ public struct Header: Hashable {
     /// A dictionary representation of the header.
     public var dictionaryValue: [String: String] {
         return storage.reduce(into: [:]) { accum, element in
-            accum[element.key.rawValue] = element.value
+            accum[String(describing: element.key.rawValue)] = element.value
         }
     }
 

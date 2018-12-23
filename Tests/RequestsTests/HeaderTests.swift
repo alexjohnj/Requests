@@ -176,8 +176,8 @@ final class HeaderTests: XCTestCase {
         ]
         let dictHeader = header.dictionaryValue
         let expectedValue = [
-            Field.Name.contentType.rawValue: "application/json",
-            Field.Name.accept.rawValue: "text/html"
+            String(describing: Field.Name.contentType.rawValue): "application/json",
+            String(describing: Field.Name.accept.rawValue): "text/html"
         ]
 
         // Then

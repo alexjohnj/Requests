@@ -12,10 +12,12 @@
 		2DBA12B907490331D5D8FA0D /* URL+StaticString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA142E3A9B2EA6FEE32C49 /* URL+StaticString.swift */; };
 		2DBA12BE3777919AFA1817AF /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19CE359FF7E082AA390B /* RequestTests.swift */; };
 		2DBA153B4F62F5DFC51D56EB /* RequestTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* RequestTypeTests.swift */; };
+		2DBA1562695B3486BE0ED6AC /* CaseInsensitiveString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1B82C05A3C323FC266D8 /* CaseInsensitiveString.swift */; };
 		2DBA16155243F7BA908E416D /* URLQueryItem+ExpresibleByDictionaryLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1AC44EEE417A972BF5C6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */; };
 		2DBA1631D1E731E4D9EE19D7 /* DefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA112E86530BDA9494A953 /* DefaultValue.swift */; };
 		2DBA1B1961F3D02E8F3B5632 /* URLSessionExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA123329A71BF0F0F19DA1 /* URLSessionExtensionTests.swift */; };
 		2DBA1B98E7031EB4C0D1A9F3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA18FE48B29536DE063E12 /* Result.swift */; };
+		2DBA1BEA0719D60B5C55609C /* CaseInsensitiveStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1ACAD2DA46323D90F679 /* CaseInsensitiveStringTests.swift */; };
 		2DBA1E2090BCB0C69CB8B275 /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19A0B446CD18F0011B7E /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift */; };
 		FAD9A8FD21A989890039923C /* ResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9A8FC21A989890039923C /* ResponseDecoder.swift */; };
 		FAF5DE8121A9996100EA1DED /* URLSession+Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5DE8021A9996100EA1DED /* URLSession+Requests.swift */; };
@@ -35,7 +37,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Requests::Requests";
+			remoteGlobalIDString = Requests::Requests;
 			remoteInfo = Requests;
 		};
 /* End PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		2DBA19A0B446CD18F0011B7E /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+ExpressibleByDictionaryLiteralTests.swift"; sourceTree = "<group>"; };
 		2DBA19CE359FF7E082AA390B /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
 		2DBA1AC44EEE417A972BF5C6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+ExpresibleByDictionaryLiteral.swift"; sourceTree = "<group>"; };
+		2DBA1ACAD2DA46323D90F679 /* CaseInsensitiveStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseInsensitiveStringTests.swift; sourceTree = "<group>"; };
+		2DBA1B82C05A3C323FC266D8 /* CaseInsensitiveString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseInsensitiveString.swift; sourceTree = "<group>"; };
 		2DBA1CDBF88C079FF91A35BE /* RequestConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestConvertible.swift; sourceTree = "<group>"; };
 		FAD9A8FC21A989890039923C /* ResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDecoder.swift; sourceTree = "<group>"; };
 		FAF4D93521A81D7400231FFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 				2DBA19CE359FF7E082AA390B /* RequestTests.swift */,
 				2DBA123329A71BF0F0F19DA1 /* URLSessionExtensionTests.swift */,
 				2DBA18DBC5ABC0BD5D731237 /* HTTPStubProtocol.swift */,
+				2DBA1ACAD2DA46323D90F679 /* CaseInsensitiveStringTests.swift */,
 			);
 			name = RequestsTests;
 			path = Tests/RequestsTests;
@@ -153,6 +158,7 @@
 				2DBA142E3A9B2EA6FEE32C49 /* URL+StaticString.swift */,
 				2DBA1AC44EEE417A972BF5C6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */,
 				FAF5DE8021A9996100EA1DED /* URLSession+Requests.swift */,
+				2DBA1B82C05A3C323FC266D8 /* CaseInsensitiveString.swift */,
 			);
 			name = Requests;
 			path = Sources/Requests;
@@ -269,6 +275,7 @@
 				2DBA1B98E7031EB4C0D1A9F3 /* Result.swift in Sources */,
 				2DBA10B2A7E4CAB58236F972 /* RequestConvertible.swift in Sources */,
 				2DBA1631D1E731E4D9EE19D7 /* DefaultValue.swift in Sources */,
+				2DBA1562695B3486BE0ED6AC /* CaseInsensitiveString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +291,7 @@
 				2DBA12BE3777919AFA1817AF /* RequestTests.swift in Sources */,
 				2DBA1B1961F3D02E8F3B5632 /* URLSessionExtensionTests.swift in Sources */,
 				2DBA11C07EC439631BF5C307 /* HTTPStubProtocol.swift in Sources */,
+				2DBA1BEA0719D60B5C55609C /* CaseInsensitiveStringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

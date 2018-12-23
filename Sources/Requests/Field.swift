@@ -16,34 +16,24 @@ public struct Field {
 
         // MARK: - Public Properties
 
-        public let rawValue: String
+        public let rawValue: CaseInsensitiveString
 
         public var description: String {
-            return rawValue
+            return rawValue.description
         }
 
         // MARK: - Initializers
 
-        public init(rawValue: String) {
+        public init(rawValue: CaseInsensitiveString) {
             self.rawValue = rawValue
         }
 
         public init(_ rawValue: String) {
-            self.init(rawValue: rawValue)
+            self.init(rawValue: CaseInsensitiveString(rawValue))
         }
 
         public init(stringLiteral value: String) {
-            self.init(rawValue: value)
-        }
-
-        // MARK: - Equatable Conformance
-
-        public static func == (lhs: Name, rhs: Name) -> Bool {
-            return lhs.rawValue.lowercased() == rhs.rawValue.lowercased()
-        }
-
-        public var hashValue: Int {
-            return rawValue.lowercased().hashValue
+            self.init(rawValue: CaseInsensitiveString(value))
         }
     }
 
