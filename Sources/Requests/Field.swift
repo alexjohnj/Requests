@@ -97,7 +97,7 @@ public extension Field.Name {
 
 public extension Field {
 
-    static let contentType = { Field(name: .contentType, value: $0) }
+    static let contentType: (MediaType) -> Field = { Field(name: .contentType, value: $0.rawValue) }
 
     static let accept = { Field(name: .accept, value: $0) }
 

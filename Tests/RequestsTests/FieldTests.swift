@@ -12,7 +12,7 @@ final class FieldTests: XCTestCase {
 
     func test_fieldPatternMatchMatchesSameField() {
         // Given
-        let field = Field.contentType("text/html")
+        let field = Field.contentType(.html)
         let pattern = field
 
         // Then
@@ -24,8 +24,8 @@ final class FieldTests: XCTestCase {
 
     func test_fieldPatternMatchDoesNotMatchDifferentField() {
         // Given
-        let field = Field.contentType("application/html")
-        let pattern: Field = .contentType("text/html")
+        let field = Field.contentType(.json)
+        let pattern: Field = .contentType(.html)
 
         // Then
         guard case pattern = field else { return }
@@ -35,7 +35,7 @@ final class FieldTests: XCTestCase {
     func test_fieldExplodeMatchesStructure() {
         // Given
         let name = Field.Name("Content-Type")
-        let value = "application/json"
+        let value = MediaType.json.rawValue
         let field = Field(name: name, value: value)
 
         // When

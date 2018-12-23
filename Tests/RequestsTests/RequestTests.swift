@@ -135,7 +135,7 @@ final class RequestTests: XCTestCase {
         // Given
         let expectedHeader = Header(
           [
-              .contentType("application/json"),
+              .contentType(.json),
               .acceptLanguage("en-scouse")
           ])
 
@@ -149,7 +149,7 @@ final class RequestTests: XCTestCase {
     func test_addingHeaderField_addsNewField() {
         // Given
         let initialField = Field.acceptLanguage("en-scouse")
-        let testField = Field.contentType("application/json")
+        let testField = Field.contentType(.json)
         let expectedHeader = Header(initialField, testField)
 
         // When
@@ -180,7 +180,7 @@ final class RequestTests: XCTestCase {
     func test_settingHeaderField_addsNewField() {
         // Given
         let initialHeader = Header(.acceptLanguage("en-scouse"))
-        let testField = Field.contentType("application/json")
+        let testField = Field.contentType(.json)
         var expectedHeader = initialHeader
         expectedHeader.set(testField)
 
@@ -212,7 +212,7 @@ final class RequestTests: XCTestCase {
     func test_addingHeaderFieldsArray_addsNewFields() {
         // Given
         let initialHeader = Header(.acceptLanguage("en-scouse"))
-        let newFields: [Field] = [.acceptLanguage("en-gb"), .contentType("application/json")]
+        let newFields: [Field] = [.acceptLanguage("en-gb"), .contentType(.json)]
         var expectedHeader = initialHeader
         newFields.forEach { expectedHeader.add($0) }
 
@@ -229,7 +229,7 @@ final class RequestTests: XCTestCase {
         // Given
         let initialHeader = Header(.acceptLanguage("en-scouse"))
         let newField1 = Field.acceptLanguage("en-gb")
-        let newField2 = Field.contentType("application/json")
+        let newField2 = Field.contentType(.json)
 
         var expectedHeader = initialHeader
         expectedHeader.add(newField1)

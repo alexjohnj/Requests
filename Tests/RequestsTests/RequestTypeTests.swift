@@ -127,7 +127,7 @@ final class RequestTypeTests: XCTestCase {
             typealias Resource = String
             let header: Header = [
                 Field.accept("application/json"),
-                Field.contentType("text/html")
+                Field.contentType(.html)
             ]
         }
         let request = SUT()
