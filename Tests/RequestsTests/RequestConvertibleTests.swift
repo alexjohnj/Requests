@@ -32,7 +32,7 @@ extension TestableRequest {
     }
 }
 
-final class RequestTypeTests: XCTestCase {
+final class RequestConvertibleTests: XCTestCase {
 
     // MARK: - Test Cases
 

@@ -11,7 +11,7 @@
 		2DBA11C07EC439631BF5C307 /* HTTPStubProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA18DBC5ABC0BD5D731237 /* HTTPStubProtocol.swift */; };
 		2DBA12B907490331D5D8FA0D /* URL+StaticString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA142E3A9B2EA6FEE32C49 /* URL+StaticString.swift */; };
 		2DBA148DCED40CC400C3A759 /* BodyProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1AEFA258257EF3E48568 /* BodyProviderTests.swift */; };
-		2DBA153B4F62F5DFC51D56EB /* RequestTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* RequestTypeTests.swift */; };
+		2DBA153B4F62F5DFC51D56EB /* RequestConvertibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* RequestConvertibleTests.swift */; };
 		2DBA1562695B3486BE0ED6AC /* CaseInsensitiveString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1B82C05A3C323FC266D8 /* CaseInsensitiveString.swift */; };
 		2DBA16155243F7BA908E416D /* URLQueryItem+ExpresibleByDictionaryLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1AC44EEE417A972BF5C6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */; };
 		2DBA1631D1E731E4D9EE19D7 /* DefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA112E86530BDA9494A953 /* DefaultValue.swift */; };
@@ -74,7 +74,7 @@
 		OBJ_15 /* FieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTests.swift; sourceTree = "<group>"; };
 		OBJ_16 /* HTTPMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethodTests.swift; sourceTree = "<group>"; };
 		OBJ_17 /* HeaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTests.swift; sourceTree = "<group>"; };
-		OBJ_18 /* RequestTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTypeTests.swift; sourceTree = "<group>"; };
+		OBJ_18 /* RequestConvertibleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConvertibleTests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_9 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		"Requests::Requests::Product" /* Requests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Requests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,7 +114,7 @@
 				OBJ_15 /* FieldTests.swift */,
 				OBJ_16 /* HTTPMethodTests.swift */,
 				OBJ_17 /* HeaderTests.swift */,
-				OBJ_18 /* RequestTypeTests.swift */,
+				OBJ_18 /* RequestConvertibleTests.swift */,
 				2DBA19A0B446CD18F0011B7E /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift */,
 				2DBA19CE359FF7E082AA390B /* RequestTests.swift */,
 				2DBA123329A71BF0F0F19DA1 /* URLSessionExtensionTests.swift */,
@@ -306,7 +306,7 @@
 				OBJ_173 /* HTTPMethodTests.swift in Sources */,
 				OBJ_174 /* HeaderTests.swift in Sources */,
 				2DBA1E2090BCB0C69CB8B275 /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift in Sources */,
-				2DBA153B4F62F5DFC51D56EB /* RequestTypeTests.swift in Sources */,
+				2DBA153B4F62F5DFC51D56EB /* RequestConvertibleTests.swift in Sources */,
 				2DBA1B1961F3D02E8F3B5632 /* URLSessionExtensionTests.swift in Sources */,
 				2DBA11C07EC439631BF5C307 /* HTTPStubProtocol.swift in Sources */,
 				2DBA1BEA0719D60B5C55609C /* CaseInsensitiveStringTests.swift in Sources */,
