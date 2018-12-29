@@ -25,6 +25,6 @@ public enum DefaultValue {
     /// 60 seconds.
     public static let timeout: TimeInterval = 60
 
-    /// A `nil` body.
-    public static let httpBody: Data? = nil
+    /// A `none` body provider.
+    public static let bodyProvider: BodyProvider = .none
 }

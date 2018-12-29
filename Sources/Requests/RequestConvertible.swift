@@ -58,8 +58,8 @@ public protocol RequestConvertible: CustomStringConvertible {
     /// The timeout interval to specify when converted to a `URLRequest`. Defaults to `60.0`.
     var timeoutInterval: TimeInterval { get }
 
-    /// The data sent in the body of the request or `nil` if no data should be sent. Defaults to `nil`.
-    var httpBody: Data? { get }
+    /// A provider for the body of the request. Default is `RequestProvider.none` for an empty body.
+    var bodyProvider: BodyProvider { get }
 
     var responseDecoder: ResponseDecoder<Resource> { get }
 }
@@ -72,8 +72,8 @@ extension RequestConvertible {
         return DefaultValue.header
     }
 
-    public var httpBody: Data? {
-        return DefaultValue.httpBody
+    public var bodyProvider: BodyProvider {
+        return DefaultValue.bodyProvider
     }
 
     public var cachePolicy: URLRequest.CachePolicy {
@@ -127,9 +127,20 @@ extension RequestConvertible {
         let url = try buildRequestURL()
 
         var request = URLRequest(url: url, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
+        var header = self.header
+        let body = try bodyProvider.body(updating: &header)
         request.httpMethod = method.rawValue
-        request.httpBody = httpBody
         request.allHTTPHeaderFields = header.dictionaryValue
+
+        switch body {
+        case .none:
+            request.httpBody = nil
+        case .stream(let stream):
+            request.httpBodyStream = stream
+        case .data(let data):
+          request.httpBody = data
+        }
+
         return request
     }
 

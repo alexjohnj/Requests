@@ -31,49 +31,52 @@ final class RequestTests: XCTestCase {
         XCTAssertEqual(getRequest.method, expectedMethod)
     }
 
-    func test_post_setsEndpointAndBodyAndMethod() {
+    func test_post_setsEndpointAndBodyAndMethod() throws {
         // Given
         let expectedBody = "Hello, world".data(using: .utf8)!
         let expectedEndpoint = "/post"
         let expectedMethod = HTTPMethod.post
 
         // When
-        let request = api.post(expectedBody, to: expectedEndpoint)
+        let request = api.post(.raw(data: expectedBody), to: expectedEndpoint)
+        let urlRequest = try request.toURLRequest()
 
         // Then
         XCTAssertEqual(request.endpoint, expectedEndpoint)
-        XCTAssertEqual(request.httpBody, expectedBody)
         XCTAssertEqual(request.method, expectedMethod)
+        XCTAssertEqual(urlRequest.httpBody, expectedBody)
     }
 
-    func test_put_setsEndpointAndBodyAndMethod() {
+    func test_put_setsEndpointAndBodyAndMethod() throws {
         // Given
         let expectedBody = "Hello, world".data(using: .utf8)!
         let expectedEndpoint = "/put"
         let expectedMethod = HTTPMethod.put
 
         // When
-        let request = api.put(expectedBody, to: expectedEndpoint)
+        let request = api.put(.raw(data: expectedBody), to: expectedEndpoint)
+        let urlRequest = try request.toURLRequest()
 
         // Then
         XCTAssertEqual(request.endpoint, expectedEndpoint)
-        XCTAssertEqual(request.httpBody, expectedBody)
         XCTAssertEqual(request.method, expectedMethod)
+        XCTAssertEqual(urlRequest.httpBody, expectedBody)
     }
 
-    func test_patch_setsEndpointAndBodyAndMethod() {
+    func test_patch_setsEndpointAndBodyAndMethod() throws {
         // Given
         let expectedBody = "Hello, world".data(using: .utf8)!
         let expectedEndpoint = "/patch"
         let expectedMethod = HTTPMethod.patch
 
         // When
-        let request = api.patch(expectedEndpoint, with: expectedBody)
+        let request = api.patch(expectedEndpoint, with: .raw(data: expectedBody))
+        let urlRequest = try request.toURLRequest()
 
         // Then
         XCTAssertEqual(request.endpoint, expectedEndpoint)
-        XCTAssertEqual(request.httpBody, expectedBody)
         XCTAssertEqual(request.method, expectedMethod)
+        XCTAssertEqual(urlRequest.httpBody, expectedBody)
     }
 
     func test_delete_setsEndpointAndMethod() {
@@ -317,15 +320,16 @@ final class RequestTests: XCTestCase {
 
     // MARK: - Body Manipulation
 
-    func test_sendingBody_setsBody() {
+    func test_sendingBody_setsBody() throws {
         // Given
         let expectedBody = "Hello, world!".data(using: .utf8)!
 
         // When
-        let request = api.request(to: "/test", using: .post).sending(body: expectedBody)
+        let request = api.request(to: "/test", using: .post).sending(.raw(data: expectedBody))
+        let urlRequest = try request.toURLRequest()
 
         // Then
-        XCTAssertEqual(request.httpBody, expectedBody)
+        XCTAssertEqual(urlRequest.httpBody, expectedBody)
     }
 
     // MARK: - Request Configuration Manipulation

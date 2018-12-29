@@ -26,7 +26,7 @@ extension TestableRequest {
         return .get
     }
 
-    /// The URL that wwould be produced by this request if none of its default properties are overridden.
+    /// The URL that would be produced by this request if none of its default properties are overridden.
     static var defaultTestUrl: URL {
         return URL("https://example.com/test")
     }
@@ -127,7 +127,7 @@ final class RequestTypeTests: XCTestCase {
             typealias Resource = String
             let header: Header = [
                 Field.accept("application/json"),
-                Field.contentType(.html)
+                Field.acceptLanguage("en-scouse")
             ]
         }
         let request = SUT()
@@ -173,37 +173,89 @@ final class RequestTypeTests: XCTestCase {
         XCTAssertEqual(urlRequest.httpMethod.map(HTTPMethod.init(rawValue:)), expectedMethod)
     }
 
-    func test_httpBody_setCorrectly() throws {
+    // MARK: - Body Tests
+
+    struct BodyTestRequest: TestableRequest {
+        typealias Resource = Void
+        let bodyProvider: BodyProvider
+    }
+
+    func test_bodyProvider_isInvoked() throws {
         // Given
-        let expectedBody = "Hello, world!".data(using: .utf8)!
-        struct SUT: TestableRequest {
-            typealias Resource = String
-            let httpBody: Data?
+        var bodyProviderInvoked = false
+        let provider = BodyProvider { _ in
+            bodyProviderInvoked = true
+            return .none
         }
-        let request = SUT(httpBody: expectedBody)
+        let request = BodyTestRequest(bodyProvider: provider)
+
+        // When
+        _ = try request.toURLRequest()
+
+        // Then
+        XCTAssertTrue(bodyProviderInvoked)
+    }
+
+    func test_bodyProvider_headerUpdatesAreApplied() throws {
+        // Given
+        let expectedContentType: Field = .contentType(.svg)
+        let provider = BodyProvider { header in
+            header.set(expectedContentType)
+            return .none
+        }
+        let request = BodyTestRequest(bodyProvider: provider)
 
         // When
         let urlRequest = try request.toURLRequest()
 
         // Then
-        XCTAssertNotNil(urlRequest.httpBody)
-        XCTAssertEqual(urlRequest.httpBody, expectedBody)
+        XCTAssertNotNil(urlRequest.value(forHTTPHeaderField: Field.contentType(.svg).name.rawValue.description))
     }
 
-    func test_emptyHttpBody_setCorrectly() throws {
+    func test_httpBody_setCorrectlyForNoBody() throws {
         // Given
-        struct SUT: TestableRequest {
-            typealias Resource = String
-            let body: Data?
-        }
-        let request = SUT(body: nil)
+        let provider = BodyProvider { _ in return .none }
+        let request = BodyTestRequest(bodyProvider: provider)
 
         // When
         let urlRequest = try request.toURLRequest()
 
         // Then
         XCTAssertNil(urlRequest.httpBody)
+        XCTAssertNil(urlRequest.httpBodyStream)
     }
+
+    func test_httpBody_setCorrectlyForDataBody() throws {
+        // Given
+        let testData = Data(repeating: 1, count: 10)
+        let provider = BodyProvider { _ in return .data(testData) }
+        let request = BodyTestRequest(bodyProvider: provider)
+
+        // When
+        let urlRequest = try request.toURLRequest()
+
+        // Then
+        XCTAssertNil(urlRequest.httpBodyStream)
+        XCTAssertEqual(urlRequest.httpBody, testData)
+    }
+
+    func test_httpBody_setCorrectlyForStreamBody() throws {
+        // Given
+        let testData = Data(repeating: 1, count: 10)
+        let testStream = InputStream(data: testData)
+        let provider = BodyProvider { _ in return .stream(testStream) }
+        let request = BodyTestRequest(bodyProvider: provider)
+
+        // When
+        let urlRequest = try request.toURLRequest()
+
+        // Then
+        XCTAssertNil(urlRequest.httpBody)
+        XCTAssertNotNil(urlRequest.httpBodyStream)
+        XCTAssertTrue(urlRequest.httpBodyStream! === testStream)
+    }
+
+    // MARK: - Other Attribute Tests
 
     func test_cachePolicy_setCorrectly() throws {
         // Given

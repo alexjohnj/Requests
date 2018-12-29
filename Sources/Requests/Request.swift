@@ -62,8 +62,8 @@ extension RequestProviding {
     ///
     /// - Returns: A new request to send the data to the endpoint.
     ///
-    public func post(_ body: Data?, to endpoint: String) -> Request<Self, Void> {
-        return request(to: endpoint, using: .post).sending(body: body)
+    public func post(_ body: BodyProvider, to endpoint: String) -> Request<Self, Void> {
+        return request(to: endpoint, using: .post).sending(body)
     }
 
     /// Constructs a `PUT` request sending a body of data to an endpoint of the API.
@@ -73,8 +73,8 @@ extension RequestProviding {
     ///
     /// - Returns: A new request to send the data to the endpoint.
     ///
-    public func put(_ body: Data, to endpoint: String) -> Request<Self, Void> {
-        return request(to: endpoint, using: .put).sending(body: body)
+    public func put(_ body: BodyProvider, to endpoint: String) -> Request<Self, Void> {
+        return request(to: endpoint, using: .put).sending(body)
     }
 
     /// Constructs a `PATCH` request sending a body of data to an endpoint of the API.
@@ -84,8 +84,8 @@ extension RequestProviding {
     ///
     /// - Returns: A new request to send the data to the endpoint.
     ///
-    public func patch(_ endpoint: String, with body: Data) -> Request<Self, Void> {
-        return request(to: endpoint, using: .patch).sending(body: body)
+    public func patch(_ endpoint: String, with body: BodyProvider) -> Request<Self, Void> {
+        return request(to: endpoint, using: .patch).sending(body)
     }
 
     /// Constructs a `DELETE` request for a resource at an endpoint of the API.
@@ -180,7 +180,7 @@ public struct Request<API: RequestProviding, Resource>: RequestConvertible {
 
     public var timeoutInterval: TimeInterval
 
-    public var httpBody: Data?
+    public var bodyProvider: BodyProvider
 
     public var responseDecoder: ResponseDecoder<Resource>
 
@@ -201,7 +201,7 @@ public struct Request<API: RequestProviding, Resource>: RequestConvertible {
       queryItems: [URLQueryItem] = DefaultValue.queryItems,
       cachePolicy: URLRequest.CachePolicy = DefaultValue.cachePolicy,
       timeoutInterval: TimeInterval = DefaultValue.timeout,
-      httpBody: Data? = DefaultValue.httpBody
+      bodyProvider: BodyProvider = DefaultValue.bodyProvider
     ) {
         self.api = api
         self.endpoint = endpoint
@@ -210,7 +210,8 @@ public struct Request<API: RequestProviding, Resource>: RequestConvertible {
         self.queryItems = queryItems
         self.cachePolicy = cachePolicy
         self.timeoutInterval = timeoutInterval
-        self.httpBody = httpBody
+        self.bodyProvider = bodyProvider
+
         self.responseDecoder = responseDecoder
     }
 }
@@ -356,12 +357,9 @@ extension Request {
 
 extension Request {
 
-    /// Sets the body of the request, replacing the current body.
-    ///
-    /// - parameter body: Data to send in the body of the request or `nil` to clear the body.
-    ///
-    public func sending(body bodyData: Data?) -> Request<API, Resource> {
-        return self.setting(\.httpBody, to: bodyData)
+    /// Sets the body provider of the request to `body`.
+    public func sending(_ body: BodyProvider) -> Request<API, Resource> {
+        return self.setting(\.bodyProvider, to: body)
     }
 
 }
@@ -414,7 +412,7 @@ extension Request {
           queryItems: queryItems,
           cachePolicy: cachePolicy,
           timeoutInterval: timeoutInterval,
-          httpBody: httpBody
+          bodyProvider: bodyProvider
         )
     }
 }
