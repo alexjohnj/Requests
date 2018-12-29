@@ -34,7 +34,7 @@ extension TestableRequest {
 
 final class RequestConvertibleTests: XCTestCase {
 
-    // MARK: - Test Cases
+    // MARK: - Base URL Tests
 
     func test_baseUrl_setCorrectly() throws {
         // Given
@@ -51,6 +51,8 @@ final class RequestConvertibleTests: XCTestCase {
         // Then
         XCTAssertEqual(urlRequest.url, request.baseURL)
     }
+
+    // MARK: - Endpoint Tests
 
     // If the endpoint is empty, a trailing slash should not be appended to the base url.
     func test_endpoint_doesNotAppendSlashWhenEmpty() throws {
@@ -87,6 +89,8 @@ final class RequestConvertibleTests: XCTestCase {
         XCTAssertEqual(urlRequest.url, expectedUrl)
     }
 
+    // MARK: - Query Items Tests
+
     func test_queryItems_setCorrectly() throws {
         // Given
         struct SUT: TestableRequest {
@@ -120,6 +124,8 @@ final class RequestConvertibleTests: XCTestCase {
         // Then
         XCTAssertEqual(urlRequest.url, SUT.defaultTestUrl)
     }
+
+    // MARK: - Header Tests
 
     func test_headerSetCorrectly() throws {
         // Given
@@ -155,6 +161,8 @@ final class RequestConvertibleTests: XCTestCase {
         XCTAssertNotNil(urlRequest.allHTTPHeaderFields)
         XCTAssertEqual(urlRequest.allHTTPHeaderFields, [:])
     }
+
+    // MARK: - Method Tests
 
     func test_httpMethod_setCorrectly() throws {
         // Given
