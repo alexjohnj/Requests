@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
     :tag => "v#{spec.version}"
   }
 
-  spec.source_files              = 'Sources/Requests/**/*.swift'
+  spec.source_files              = 'Sources/**/*.swift'
   spec.swift_version             = '4.0'
 
   spec.ios.deployment_target     = '8.0'
@@ -19,7 +19,7 @@ Pod::Spec.new do |spec|
   spec.tvos.deployment_target    = '9.0'
 
   spec.test_spec do |tspec|
-    tspec.source_files = 'Tests/RequestsTests/**/*.swift'
+    tspec.source_files = 'Tests/**/*.swift'
 
     # Re-declare targets to avoid running tests on watchOS simulator.
     tspec.ios.deployment_target     = '8.0'
