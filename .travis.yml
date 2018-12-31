@@ -1,0 +1,23 @@
+os: osx
+osx_image: xcode10.1
+language: swift
+
+env:
+  global:
+    - XC_PROJECT=Requests.xcodeproj
+    - XC_SCHEME=Requests
+
+  matrix:
+    - XC_DESTINATION="platform=macOS"
+
+    - XC_DESTINATION="platform=iOS Simulator,OS=12.1,name=iPhone 8"
+    - XC_DESTINATION="platform=iOS Simulator,OS=11.4,name=iPhone 8"
+    - XC_DESTINATION="platform=iOS Simulator,OS=10.3.1,name=iPhone 7"
+
+    - XC_DESTINATION="platform=tvOS Simulator,OS=12.1,name=Apple TV"
+    - XC_DESTINATION="platform=tvOS Simulator,OS=11.4,name=Apple TV"
+
+script:
+  - set -o pipefail
+  - xcodebuild -version -sdk
+  - xcodebuild -project "$XC_PROJECT" -scheme "$XC_SCHEME" -destination "$XC_DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
