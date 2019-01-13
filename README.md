@@ -44,7 +44,7 @@ minor release while _Requests_ is in the `0.x` phase.
 Add the following to your `Podfile`:
 
 ``` ruby
-pod "Requests", ~> "0.1.0"
+pod "Requests", "~> 0.1.0"
 ```
 
 ### Carthage
