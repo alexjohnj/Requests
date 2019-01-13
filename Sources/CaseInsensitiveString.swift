@@ -43,8 +43,9 @@ extension CaseInsensitiveString: Equatable {
 // MARK: - Hashable Conformance
 
 extension CaseInsensitiveString: Hashable {
-    public var hashValue: Int {
-        return _string.lowercased().hashValue
+
+    public func hash(into hasher: inout Hasher) {
+        _string.lowercased().hash(into: &hasher)
     }
 }
 
