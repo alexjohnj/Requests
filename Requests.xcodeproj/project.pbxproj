@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DBA199D715CB9F9F221C64F /* AuthenticationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA148B5267890BF32415C1 /* AuthenticationProvider.swift */; };
+		2DBA1BF359A5E69874D5F3C4 /* AuthenticationProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1C266AF6773B5C5DA5A8 /* AuthenticationProviderTests.swift */; };
 		FAD3E3C621D7D5BE002A05F6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3E3B521D7D5BE002A05F6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */; };
 		FAD3E3C721D7D5BE002A05F6 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3E3B621D7D5BE002A05F6 /* MediaType.swift */; };
 		FAD3E3C821D7D5BE002A05F6 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3E3B721D7D5BE002A05F6 /* Request.swift */; };
@@ -42,12 +44,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Requests::Requests";
+			remoteGlobalIDString = Requests::Requests;
 			remoteInfo = Requests;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DBA148B5267890BF32415C1 /* AuthenticationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationProvider.swift; path = Sources/AuthenticationProvider.swift; sourceTree = "<group>"; };
+		2DBA1C266AF6773B5C5DA5A8 /* AuthenticationProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationProviderTests.swift; sourceTree = "<group>"; };
 		FAD3E3B521D7D5BE002A05F6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URLQueryItem+ExpresibleByDictionaryLiteral.swift"; path = "Sources/URLQueryItem+ExpresibleByDictionaryLiteral.swift"; sourceTree = "<group>"; };
 		FAD3E3B621D7D5BE002A05F6 /* MediaType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaType.swift; path = Sources/MediaType.swift; sourceTree = "<group>"; };
 		FAD3E3B721D7D5BE002A05F6 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Sources/Request.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 				FAD3E3D721D7D62F002A05F6 /* RequestTests.swift */,
 				FAD3E3DC21D7D62F002A05F6 /* URLQueryItem+ExpressibleByDictionaryLiteralTests.swift */,
 				FAD3E3DB21D7D62F002A05F6 /* URLSessionExtensionTests.swift */,
+				2DBA1C266AF6773B5C5DA5A8 /* AuthenticationProviderTests.swift */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
@@ -148,6 +153,7 @@
 				FAD3E3BC21D7D5BE002A05F6 /* URL+StaticString.swift */,
 				FAD3E3B521D7D5BE002A05F6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */,
 				FAD3E3C421D7D5BE002A05F6 /* URLSession+Requests.swift */,
+				2DBA148B5267890BF32415C1 /* AuthenticationProvider.swift */,
 			);
 			name = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -277,6 +283,7 @@
 				FAD3E3CF21D7D5BE002A05F6 /* DefaultValue.swift in Sources */,
 				FAD3E3CE21D7D5BE002A05F6 /* ResponseDecoder.swift in Sources */,
 				FAD3E3C621D7D5BE002A05F6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift in Sources */,
+				2DBA199D715CB9F9F221C64F /* AuthenticationProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +302,7 @@
 				FAD3E3F521D7D63B002A05F6 /* MediaTypeTests.swift in Sources */,
 				FAD3E3F021D7D63B002A05F6 /* FieldTests.swift in Sources */,
 				FAD3E3EE21D7D63B002A05F6 /* BodyProviderTests.swift in Sources */,
+				2DBA1BF359A5E69874D5F3C4 /* AuthenticationProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
