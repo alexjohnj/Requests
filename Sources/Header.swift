@@ -74,9 +74,15 @@ public struct Header: Hashable {
 
     // MARK: - Public Subscripts
 
-    /// Returns the value of the field named `name` in the header or `nil` if that field is not present in the header.
+    /// Accesses the value of the header field matching `name`.
     public subscript(_ name: Field.Name) -> String? {
-        return storage[name]
+        get {
+            return storage[name]
+        }
+
+        set {
+            storage[name] = newValue
+        }
     }
 }
 
