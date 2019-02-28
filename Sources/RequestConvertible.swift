@@ -62,6 +62,13 @@ public protocol RequestConvertible: CustomStringConvertible {
     var bodyProvider: BodyProvider { get }
 
     var responseDecoder: ResponseDecoder<Resource> { get }
+
+    /// A provider that adds authentication credentials to the header of the request. Defaults to
+    /// `AuthenticationProvider.none` for no authentication.
+    ///
+    /// - Note: The authentication provider is run after the body provider.
+    ///
+    var authenticationProvider: AuthenticationProvider { get }
 }
 
 // MARK: - Default Implementations
@@ -86,6 +93,10 @@ extension RequestConvertible {
 
     public var queryItems: [URLQueryItem] {
         return DefaultValue.queryItems
+    }
+
+    public var authenticationProvider: AuthenticationProvider {
+        return DefaultValue.authenticationProvider
     }
 }
 
@@ -129,6 +140,7 @@ extension RequestConvertible {
         var request = URLRequest(url: url, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
         var header = self.header
         let body = try bodyProvider.body(updating: &header)
+        authenticationProvider.update(&header)
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = header.dictionaryValue
 

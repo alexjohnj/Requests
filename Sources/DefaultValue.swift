@@ -27,4 +27,7 @@ public enum DefaultValue {
 
     /// A `none` body provider.
     public static let bodyProvider: BodyProvider = .none
+
+    /// A `none` authentication provider.
+    public static let authenticationProvider: AuthenticationProvider = .none
 }

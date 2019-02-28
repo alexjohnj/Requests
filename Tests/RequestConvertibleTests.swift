@@ -263,6 +263,65 @@ final class RequestConvertibleTests: XCTestCase {
         XCTAssertTrue(urlRequest.httpBodyStream! === testStream)
     }
 
+    // MARK: - Authentication Tests
+
+    struct AuthenticationTestRequest: TestableRequest {
+        typealias Resource = Void
+        let authenticationProvider: AuthenticationProvider
+    }
+
+    func test_authenticationProvider_isInvoked() throws {
+        // Given
+        var invokedAuthenticationProvider = false
+        let authProvider = AuthenticationProvider { _ in invokedAuthenticationProvider = true }
+        let request = AuthenticationTestRequest(authenticationProvider: authProvider)
+
+        // When
+        _ = try request.toURLRequest()
+
+        // Then
+        XCTAssertTrue(invokedAuthenticationProvider, "The authentication provider should be invoked")
+    }
+
+    func test_authenticationProvider_changesAreApplied() throws {
+        // Given
+        let expectedAuthFieldValue = "test"
+        let authProvider = AuthenticationProvider { $0[.authorization] = expectedAuthFieldValue }
+        let request = AuthenticationTestRequest(authenticationProvider: authProvider)
+
+        // When
+        let urlRequest = try request.toURLRequest()
+
+        // Then
+        let authorizationField = Field.Name.authorization.rawValue.description
+        XCTAssertEqual(urlRequest.allHTTPHeaderFields?[authorizationField], expectedAuthFieldValue)
+    }
+
+    func test_authenticationProvider_isInvokedAfterBodyProvider() throws {
+        // Given
+        struct SUT: TestableRequest {
+            typealias Resource = Void
+            let authenticationProvider: AuthenticationProvider
+            let bodyProvider: BodyProvider
+        }
+        var authProviderInvocationDate: Date?
+        var bodyProviderInvocationDate: Date?
+        let authProvider = AuthenticationProvider { _ in authProviderInvocationDate = Date() }
+        let bodyProvider = BodyProvider { _ in
+            bodyProviderInvocationDate = Date()
+            return .none
+        }
+
+        let request = SUT(authenticationProvider: authProvider, bodyProvider: bodyProvider)
+
+        // When
+        _ = try request.toURLRequest()
+
+        // Then
+        XCTAssert(bodyProviderInvocationDate! < authProviderInvocationDate!,
+                  "The body provider should be invoked before the authentication provider")
+    }
+
     // MARK: - Other Attribute Tests
 
     func test_cachePolicy_setCorrectly() throws {
