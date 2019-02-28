@@ -4,14 +4,26 @@
 
 import Foundation
 
+/// A type that can add authentication fields to a `Header`.
+///
+/// `AuthenticationProvider` is simply a wrapper around a function that modifies a header so it is authenticated.
+///
 public struct AuthenticationProvider {
 
     private let _body: (inout Header) -> Void
 
+    /// Creates an authentication provider that runs the provided function to add authentication fields to a `Header`.
+    ///
+    /// - parameter authenticate: A function that mutates a header so it is authenticated.
+    ///
     public init(authenticate: @escaping (inout Header) -> Void) {
         self._body = authenticate
     }
 
+    /// Updates a header with the authentication details of the provider.
+    ///
+    /// - parameter header: The header to update.
+    ///
     public func update(_ header: inout Header) {
         _body(&header)
     }
