@@ -344,4 +344,18 @@ final class RequestTests: XCTestCase {
         // Then
         XCTAssertEqual(request.timeoutInterval, expectedTimeout)
     }
+
+    func test_authenticatedWith_setsAuthenticationProvider() throws {
+        // Given
+        let expectedAuthFieldValue = "test"
+        let authenticationProvider = AuthenticationProvider { $0[.authorization] = expectedAuthFieldValue }
+
+        // When
+        let request = api.request(to: "/test", using: .get).authenticated(with: authenticationProvider)
+        let urlRequest = try request.toURLRequest()
+
+        // Then
+        let authorizationField = Field.Name.authorization.rawValue.description
+        XCTAssertEqual(urlRequest.allHTTPHeaderFields?[authorizationField], expectedAuthFieldValue)
+    }
 }

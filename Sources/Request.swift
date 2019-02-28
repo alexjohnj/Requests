@@ -184,6 +184,8 @@ public struct Request<API: RequestProviding, Resource>: RequestConvertible {
 
     public var responseDecoder: ResponseDecoder<Resource>
 
+    public var authenticationProvider: AuthenticationProvider
+
     // MARK: - Initializers
 
     /// Initialises a new `Request` with the provided parameters. Default values for optional parameters are defined in
@@ -201,7 +203,8 @@ public struct Request<API: RequestProviding, Resource>: RequestConvertible {
       queryItems: [URLQueryItem] = DefaultValue.queryItems,
       cachePolicy: URLRequest.CachePolicy = DefaultValue.cachePolicy,
       timeoutInterval: TimeInterval = DefaultValue.timeout,
-      bodyProvider: BodyProvider = DefaultValue.bodyProvider
+      bodyProvider: BodyProvider = DefaultValue.bodyProvider,
+      authenticationProvider: AuthenticationProvider = DefaultValue.authenticationProvider
     ) {
         self.api = api
         self.endpoint = endpoint
@@ -211,6 +214,7 @@ public struct Request<API: RequestProviding, Resource>: RequestConvertible {
         self.cachePolicy = cachePolicy
         self.timeoutInterval = timeoutInterval
         self.bodyProvider = bodyProvider
+        self.authenticationProvider = authenticationProvider
 
         self.responseDecoder = responseDecoder
     }
@@ -381,6 +385,14 @@ extension Request {
 // MARK: Request Configuration Manipulation
 
 extension Request {
+
+    /// Sets the authentication provider for the request.
+    ///
+    /// - parameter authenticator: An authentication provider for the request.
+    ///
+    public func authenticated(with authenticator: AuthenticationProvider) -> Request<API, Resource> {
+        return self.setting(\.authenticationProvider, to: authenticator)
+    }
 
     /// Sets the timeout interval for the request.
     ///
