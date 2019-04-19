@@ -99,7 +99,7 @@ public extension Field {
 
     static let contentType: (MediaType) -> Field = { Field(name: .contentType, value: $0.rawValue) }
 
-    static let accept = { Field(name: .accept, value: $0) }
+    static let accept: (MediaType) -> Field = { Field(name: .accept, value: $0.rawValue) }
 
     static let acceptLanguage = { Field(name: .acceptLanguage, value: $0) }
 

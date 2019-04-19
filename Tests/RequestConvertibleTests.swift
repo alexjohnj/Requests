@@ -132,7 +132,7 @@ final class RequestConvertibleTests: XCTestCase {
         struct SUT: TestableRequest {
             typealias Resource = String
             let header: Header = [
-                Field.accept("application/json"),
+                Field.accept(.json),
                 Field.acceptLanguage("en-scouse")
             ]
         }

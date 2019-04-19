@@ -14,26 +14,26 @@ final class HeaderTests: XCTestCase {
         let fields: [Field] = [
             .contentType(.json),
             .acceptLanguage("en_GB"),
-            .accept("text/html")
+            .accept(.html)
         ]
         let header = Header(fields)
 
         // Then
         XCTAssertEqual(header[.contentType], MediaType.json.rawValue)
         XCTAssertEqual(header[.acceptLanguage], "en_GB")
-        XCTAssertEqual(header[.accept], "text/html")
+        XCTAssertEqual(header[.accept], MediaType.html.rawValue)
     }
 
     func test_initFromArray_WithDuplicateFieldNames_GroupsValuesWithComma() {
         // Given, When
         let fields: [Field] = [
-            .accept("text/html"),
-            .accept("application/json")
+            .accept(.html),
+            .accept(.json)
         ]
         let header = Header(fields)
 
         // Then
-        XCTAssertEqual(header[.accept], "text/html,application/json")
+        XCTAssertEqual(header[.accept], "\(MediaType.html.rawValue),\(MediaType.json.rawValue)")
     }
 
     func test_initFromArrayLiteral_Works() {
@@ -50,11 +50,11 @@ final class HeaderTests: XCTestCase {
 
     func test_initFromVariadic_Works() {
         // Given, When
-        let header = Header(.contentType(.json), .accept("en_GB"))
+        let header = Header(.contentType(.json), .acceptLanguage("en_GB"))
 
         // Then
         XCTAssertEqual(header[.contentType], MediaType.json.rawValue)
-        XCTAssertEqual(header[.accept], "en_GB")
+        XCTAssertEqual(header[.acceptLanguage], "en_GB")
     }
 
     // MARK: - Add Method
@@ -72,13 +72,13 @@ final class HeaderTests: XCTestCase {
 
     func test_add_joinsDuplicateFieldsWithComma() {
         // Given
-        var header: Header = [.accept("text/html")]
+        var header: Header = [.accept(.html)]
 
         // When
-        header.add(.accept("application/json"))
+        header.add(.accept(.json))
 
         // Then
-        XCTAssertEqual(header[.accept], "text/html,application/json")
+        XCTAssertEqual(header[.accept], "\(MediaType.html.rawValue),\(MediaType.json.rawValue)")
     }
 
     // MARK: - Set Method
@@ -88,21 +88,21 @@ final class HeaderTests: XCTestCase {
         var header = Header()
 
         // When
-        header.set(.accept("text/html"))
+        header.set(.accept(.html))
 
         // Then
-        XCTAssertEqual(header[.accept], "text/html")
+        XCTAssertEqual(header[.accept], MediaType.html.rawValue)
     }
 
     func test_set_replacesExistingFieldValue() {
         // Given
-        var header: Header = [.accept("application/json")]
+        var header: Header = [.accept(.json)]
 
         // When
-        header.set(.accept("text/html"))
+        header.set(.accept(.html))
 
         // Then
-        XCTAssertEqual(header[.accept], "text/html")
+        XCTAssertEqual(header[.accept], MediaType.html.rawValue)
     }
 
     // MARK: - Remove Method
@@ -172,12 +172,12 @@ final class HeaderTests: XCTestCase {
         // Given, When
         let header: Header = [
             .contentType(.json),
-            .accept("text/html")
+            .accept(.html)
         ]
         let dictHeader = header.dictionaryValue
         let expectedValue = [
             String(describing: Field.Name.contentType.rawValue): MediaType.json.rawValue,
-            String(describing: Field.Name.accept.rawValue): "text/html"
+            String(describing: Field.Name.accept.rawValue): MediaType.html.rawValue
         ]
 
         // Then
