@@ -1,0 +1,544 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/BodyProvider.swift",
+      "line": 30,
+      "symbol": "BodyProvider.init(encode:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/BodyProvider.swift",
+      "line": 34,
+      "symbol": "BodyProvider.body(updating:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/CaseInsensitiveString.swift",
+      "line": 22,
+      "symbol": "CaseInsensitiveString.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Field.swift",
+      "line": 31,
+      "symbol": "Field.Name.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Field.swift",
+      "line": 42,
+      "symbol": "Field.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Field.swift",
+      "line": 44,
+      "symbol": "Field.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Field.swift",
+      "line": 48,
+      "symbol": "Field.init(name:value:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Field.swift",
+      "line": 73,
+      "symbol": "Field.~=(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Field.swift",
+      "line": 80,
+      "symbol": "explode(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Field.swift",
+      "line": 88,
+      "symbol": "Field.Name.accept",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Field.swift",
+      "line": 90,
+      "symbol": "Field.Name.acceptLanguage",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Field.swift",
+      "line": 92,
+      "symbol": "Field.Name.authorization",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Field.swift",
+      "line": 94,
+      "symbol": "Field.Name.contentType",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Field.swift",
+      "line": 100,
+      "symbol": "Field.contentType",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Field.swift",
+      "line": 102,
+      "symbol": "Field.accept",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Field.swift",
+      "line": 104,
+      "symbol": "Field.acceptLanguage",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/HTTPMethod.swift",
+      "line": 25,
+      "symbol": "HTTPMethod.~=(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/HTTPMethod.swift",
+      "line": 42,
+      "symbol": "HTTPMethod.connect",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/HTTPMethod.swift",
+      "line": 44,
+      "symbol": "HTTPMethod.delete",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/HTTPMethod.swift",
+      "line": 46,
+      "symbol": "HTTPMethod.get",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/HTTPMethod.swift",
+      "line": 48,
+      "symbol": "HTTPMethod.head",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/HTTPMethod.swift",
+      "line": 50,
+      "symbol": "HTTPMethod.options",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/HTTPMethod.swift",
+      "line": 52,
+      "symbol": "HTTPMethod.patch",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/HTTPMethod.swift",
+      "line": 54,
+      "symbol": "HTTPMethod.post",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/HTTPMethod.swift",
+      "line": 56,
+      "symbol": "HTTPMethod.put",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/HTTPMethod.swift",
+      "line": 58,
+      "symbol": "HTTPMethod.trace",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Header.swift",
+      "line": 92,
+      "symbol": "Header.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 58,
+      "symbol": "MediaType.TopLevelType.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 77,
+      "symbol": "MediaType.SubType.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 84,
+      "symbol": "MediaType.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 86,
+      "symbol": "MediaType.subtype",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 88,
+      "symbol": "MediaType.parameters",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 90,
+      "symbol": "MediaType.rawValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 99,
+      "symbol": "MediaType.init(type:subtype:parameters:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 127,
+      "symbol": "MediaType.TopLevelType.application",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 129,
+      "symbol": "MediaType.TopLevelType.audio",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 131,
+      "symbol": "MediaType.TopLevelType.font",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 133,
+      "symbol": "MediaType.TopLevelType.image",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 135,
+      "symbol": "MediaType.TopLevelType.message",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 137,
+      "symbol": "MediaType.TopLevelType.model",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 139,
+      "symbol": "MediaType.TopLevelType.multipart",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 141,
+      "symbol": "MediaType.TopLevelType.text",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 143,
+      "symbol": "MediaType.TopLevelType.video",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 150,
+      "symbol": "MediaType.SubType.plain",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 152,
+      "symbol": "MediaType.SubType.html",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 154,
+      "symbol": "MediaType.SubType.css",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 156,
+      "symbol": "MediaType.SubType.json",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 158,
+      "symbol": "MediaType.SubType.xml",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 160,
+      "symbol": "MediaType.SubType.urlEncodedForm",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 162,
+      "symbol": "MediaType.SubType.octetStream",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 164,
+      "symbol": "MediaType.SubType.formData",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 166,
+      "symbol": "MediaType.SubType.gif",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 168,
+      "symbol": "MediaType.SubType.png",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 170,
+      "symbol": "MediaType.SubType.jpeg",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 172,
+      "symbol": "MediaType.SubType.svg",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 181,
+      "symbol": "MediaType.json",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 183,
+      "symbol": "MediaType.xml",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 185,
+      "symbol": "MediaType.urlEncodedForm",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 188,
+      "symbol": "MediaType.binary",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 192,
+      "symbol": "MediaType.plainText",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 194,
+      "symbol": "MediaType.html",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 196,
+      "symbol": "MediaType.css",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 200,
+      "symbol": "MediaType.gif",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 202,
+      "symbol": "MediaType.png",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 204,
+      "symbol": "MediaType.jpeg",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/MediaType.swift",
+      "line": 206,
+      "symbol": "MediaType.svg",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Request.swift",
+      "line": 165,
+      "symbol": "Request.api",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Request.swift",
+      "line": 185,
+      "symbol": "Request.responseDecoder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Request.swift",
+      "line": 294,
+      "symbol": "Request.adding(headerFields:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/RequestConvertible.swift",
+      "line": 64,
+      "symbol": "RequestConvertible.responseDecoder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/RequestConvertible.swift",
+      "line": 106,
+      "symbol": "RequestConvertible.responseDecoder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/RequestConvertible.swift",
+      "line": 114,
+      "symbol": "RequestConvertible.responseDecoder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/RequestConvertible.swift",
+      "line": 122,
+      "symbol": "RequestConvertible.responseDecoder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/ResponseDecoder.swift",
+      "line": 16,
+      "symbol": "ResponseDecoder.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Result.swift",
+      "line": 7,
+      "symbol": "Result",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Result.swift",
+      "line": 8,
+      "symbol": "Result.success(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Result.swift",
+      "line": 9,
+      "symbol": "Result.failed(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/alex/dev/swift/Requests/Requests"
+}

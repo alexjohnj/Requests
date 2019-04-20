@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Request Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Struct/Request" class="dashAnchor"></a>
+
+    <a title="Request Structure Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          Requests Docs
+        </a>
+         (70% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/alexjohnj/Requests">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">Requests Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      Request Structure Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/DefaultValue.html">DefaultValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/RequestBody.html">RequestBody</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/RequestError.html">RequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Result.html">Result</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/TextBodyEncodingError.html">TextBodyEncodingError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URL.html">URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URLSession.html">URLSession</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:8Requests7explodeyAA5FieldV4NameV4name_SS5valuetADF">explode(_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/RequestConvertible.html">RequestConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/RequestProviding.html">RequestProviding</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/AnonymousRequestProvider.html">AnonymousRequestProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/AuthenticationProvider.html">AuthenticationProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/BodyProvider.html">BodyProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/CaseInsensitiveString.html">CaseInsensitiveString</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Field.html">Field</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Field/Name.html">– Name</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Header.html">Header</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MediaType.html">MediaType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MediaType/TopLevelType.html">– TopLevelType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MediaType/SubType.html">– SubType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ResponseDecoder.html">ResponseDecoder</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>Request</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RequestConvertible.html">RequestConvertible</a></span> <span class="k">where</span> <span class="kt">API</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RequestProviding.html">RequestProviding</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>A request for a resource from an API.</p>
+<h2 id='overview' class='heading'>Overview</h2>
+
+<p>The <code>Request</code> structure is a concrete implementation of a <code><a href="../Protocols/RequestConvertible.html">RequestConvertible</a></code> that provides a chainable
+builder-like interface to constructing requests. You rarely instantiate a <code>Request</code> directly. Instead, requests to a
+specific API are created by a <code><a href="../Protocols/RequestProviding.html">RequestProviding</a></code> type and are customised using the builder functions on <code>Request</code>.</p>
+
+<p>The <code>Request</code> structure is generic over the <code>API</code> type and the <code>Resource</code> type. The <code>API</code> parameter is immutable and
+can be used to constrain extensions on <code>Request</code> to a specific API. The <code>Resource</code> parameter is <q>mutable</q> in the
+sense that it can be changed using the <code>receiving(_:)</code> builder function.</p>
+<h2 id='one-off-requests' class='heading'>One-off Requests</h2>
+
+<p>A convenience initializer <code>init(method:baseURL:endpoint:)</code> is provided for one-off requests. This uses an
+<code><a href="../Structs/AnonymousRequestProvider.html">AnonymousRequestProvider</a></code> and is intended to be used for exploratory work with an API. Its use outside of this
+context is strongly discouraged.</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <code><a href="../Protocols/RequestConvertible.html">RequestConvertible</a></code>
+
+</div>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <code><a href="../Protocols/RequestProviding.html">RequestProviding</a></code>
+
+</div>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20Properties"></a>
+                <a name="//apple_ref/swift/Section/Public Properties" class="dashAnchor"></a>
+                <a href="#/Public%20Properties">
+                  <h3 class="section-name">Public Properties</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV3apixvp"></a>
+                    <a name="//apple_ref/swift/Property/api" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV3apixvp">api</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">api</span><span class="p">:</span> <span class="kt">API</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests18RequestConvertibleP7baseURL10Foundation0E0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/baseURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests18RequestConvertibleP7baseURL10Foundation0E0Vvp">baseURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">baseURL</span><span class="p">:</span> <span class="kt">URL</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests18RequestConvertibleP8endpointSSvp"></a>
+                    <a name="//apple_ref/swift/Property/endpoint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests18RequestConvertibleP8endpointSSvp">endpoint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests18RequestConvertibleP6methodAA10HTTPMethodVvp"></a>
+                    <a name="//apple_ref/swift/Property/method" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests18RequestConvertibleP6methodAA10HTTPMethodVvp">method</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Structs/HTTPMethod.html">HTTPMethod</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests18RequestConvertibleP6headerAA6HeaderVvp"></a>
+                    <a name="//apple_ref/swift/Property/header" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests18RequestConvertibleP6headerAA6HeaderVvp">header</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">header</span><span class="p">:</span> <span class="kt"><a href="../Structs/Header.html">Header</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests18RequestConvertibleP10queryItemsSay10Foundation12URLQueryItemVGvp"></a>
+                    <a name="//apple_ref/swift/Property/queryItems" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests18RequestConvertibleP10queryItemsSay10Foundation12URLQueryItemVGvp">queryItems</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">queryItems</span><span class="p">:</span> <span class="p">[</span><span class="kt">URLQueryItem</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests18RequestConvertibleP11cachePolicySo017NSURLRequestCacheE0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/cachePolicy" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests18RequestConvertibleP11cachePolicySo017NSURLRequestCacheE0Vvp">cachePolicy</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cachePolicy</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="o">.</span><span class="kt">CachePolicy</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests18RequestConvertibleP15timeoutIntervalSdvp"></a>
+                    <a name="//apple_ref/swift/Property/timeoutInterval" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests18RequestConvertibleP15timeoutIntervalSdvp">timeoutInterval</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">timeoutInterval</span><span class="p">:</span> <span class="kt">TimeInterval</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests18RequestConvertibleP12bodyProviderAA04BodyE0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/bodyProvider" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests18RequestConvertibleP12bodyProviderAA04BodyE0Vvp">bodyProvider</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">bodyProvider</span><span class="p">:</span> <span class="kt"><a href="../Structs/BodyProvider.html">BodyProvider</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV15responseDecoderAA08ResponseD0Vyq_Gvp"></a>
+                    <a name="//apple_ref/swift/Property/responseDecoder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV15responseDecoderAA08ResponseD0Vyq_Gvp">responseDecoder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">responseDecoder</span><span class="p">:</span> <span class="kt"><a href="../Structs/ResponseDecoder.html">ResponseDecoder</a></span><span class="o">&lt;</span><span class="kt">Resource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests18RequestConvertibleP22authenticationProviderAA014AuthenticationE0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/authenticationProvider" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests18RequestConvertibleP22authenticationProviderAA014AuthenticationE0Vvp">authenticationProvider</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">authenticationProvider</span><span class="p">:</span> <span class="kt"><a href="../Structs/AuthenticationProvider.html">AuthenticationProvider</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initializers"></a>
+                <a name="//apple_ref/swift/Section/Initializers" class="dashAnchor"></a>
+                <a href="#/Initializers">
+                  <h3 class="section-name">Initializers</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV3api8endpoint15responseDecoder6method6header10queryItems11cachePolicy15timeoutInterval12bodyProvider014authenticationP0ACyxq_Gx_SSAA08ResponseF0Vyq_GAA10HTTPMethodVAA6HeaderVSay10Foundation12URLQueryItemVGSo017NSURLRequestCacheL0VSdAA04BodyP0VAA014AuthenticationP0Vtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(api:endpoint:responseDecoder:method:header:queryItems:cachePolicy:timeoutInterval:bodyProvider:authenticationProvider:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV3api8endpoint15responseDecoder6method6header10queryItems11cachePolicy15timeoutInterval12bodyProvider014authenticationP0ACyxq_Gx_SSAA08ResponseF0Vyq_GAA10HTTPMethodVAA6HeaderVSay10Foundation12URLQueryItemVGSo017NSURLRequestCacheL0VSdAA04BodyP0VAA014AuthenticationP0Vtcfc">init(api:endpoint:responseDecoder:method:header:queryItems:cachePolicy:timeoutInterval:bodyProvider:authenticationProvider:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialises a new <code>Request</code> with the provided parameters. Default values for optional parameters are defined in
+the <code><a href="../Enums/DefaultValue.html">DefaultValue</a></code> type.</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <code><a href="../Enums/DefaultValue.html">DefaultValue</a></code>
+
+</div>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <code><a href="../Protocols/RequestConvertible.html">RequestConvertible</a></code>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span>
+  <span class="nv">api</span><span class="p">:</span> <span class="kt">API</span><span class="p">,</span>
+  <span class="nv">endpoint</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+  <span class="nv">responseDecoder</span><span class="p">:</span> <span class="kt"><a href="../Structs/ResponseDecoder.html">ResponseDecoder</a></span><span class="o">&lt;</span><span class="kt">Resource</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Structs/HTTPMethod.html">HTTPMethod</a></span> <span class="o">=</span> <span class="kt"><a href="../Enums/DefaultValue.html">DefaultValue</a></span><span class="o">.</span><span class="n"><a href="../Structs/Request.html#/s:8Requests18RequestConvertibleP6methodAA10HTTPMethodVvp">method</a></span><span class="p">,</span>
+  <span class="nv">header</span><span class="p">:</span> <span class="kt"><a href="../Structs/Header.html">Header</a></span> <span class="o">=</span> <span class="kt"><a href="../Enums/DefaultValue.html">DefaultValue</a></span><span class="o">.</span><span class="n"><a href="../Structs/Request.html#/s:8Requests18RequestConvertibleP6headerAA6HeaderVvp">header</a></span><span class="p">,</span>
+  <span class="nv">queryItems</span><span class="p">:</span> <span class="p">[</span><span class="kt">URLQueryItem</span><span class="p">]</span> <span class="o">=</span> <span class="kt"><a href="../Enums/DefaultValue.html">DefaultValue</a></span><span class="o">.</span><span class="n"><a href="../Structs/Request.html#/s:8Requests18RequestConvertibleP10queryItemsSay10Foundation12URLQueryItemVGvp">queryItems</a></span><span class="p">,</span>
+  <span class="nv">cachePolicy</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="o">.</span><span class="kt">CachePolicy</span> <span class="o">=</span> <span class="kt"><a href="../Enums/DefaultValue.html">DefaultValue</a></span><span class="o">.</span><span class="n"><a href="../Structs/Request.html#/s:8Requests18RequestConvertibleP11cachePolicySo017NSURLRequestCacheE0Vvp">cachePolicy</a></span><span class="p">,</span>
+  <span class="nv">timeoutInterval</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="kt"><a href="../Enums/DefaultValue.html">DefaultValue</a></span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span>
+  <span class="nv">bodyProvider</span><span class="p">:</span> <span class="kt"><a href="../Structs/BodyProvider.html">BodyProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Enums/DefaultValue.html">DefaultValue</a></span><span class="o">.</span><span class="n"><a href="../Structs/Request.html#/s:8Requests18RequestConvertibleP12bodyProviderAA04BodyE0Vvp">bodyProvider</a></span><span class="p">,</span>
+  <span class="nv">authenticationProvider</span><span class="p">:</span> <span class="kt"><a href="../Structs/AuthenticationProvider.html">AuthenticationProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Enums/DefaultValue.html">DefaultValue</a></span><span class="o">.</span><span class="n"><a href="../Structs/Request.html#/s:8Requests18RequestConvertibleP22authenticationProviderAA014AuthenticationE0Vvp">authenticationProvider</a></span>
+<span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Convenience%20Initializers"></a>
+                <a name="//apple_ref/swift/Section/Convenience Initializers" class="dashAnchor"></a>
+                <a href="#/Convenience%20Initializers">
+                  <h3 class="section-name">Convenience Initializers</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestVA2A09AnonymousB8ProviderVRszytRs_rlE6method7baseURL8endpointACyAEytGAA10HTTPMethodV_10Foundation0G0VSStcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(method:baseURL:endpoint:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestVA2A09AnonymousB8ProviderVRszytRs_rlE6method7baseURL8endpointACyAEytGAA10HTTPMethodV_10Foundation0G0VSStcfc">init(method:baseURL:endpoint:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialises a new request using an <code><a href="../Structs/AnonymousRequestProvider.html">AnonymousRequestProvider</a></code>.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>Use of this initializer outside of playgrounds and exploratory work is strongly discouraged.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Structs/HTTPMethod.html">HTTPMethod</a></span><span class="p">,</span> <span class="nv">baseURL</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">""</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>method</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The HTTP method for the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>baseURL</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The base url of the request and the anonymous request provider.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>endpoint</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The endpoint of the request. Default <code>&quot;&quot;</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Method%20Manipulation"></a>
+                <a name="//apple_ref/swift/Section/Method Manipulation" class="dashAnchor"></a>
+                <a href="#/Method%20Manipulation">
+                  <h3 class="section-name">Method Manipulation</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV5using6methodACyxq_GAA10HTTPMethodV_tF"></a>
+                    <a name="//apple_ref/swift/Method/using(method:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV5using6methodACyxq_GAA10HTTPMethodV_tF">using(method:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Changes the HTTP method used by a request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Structs/HTTPMethod.html">HTTPMethod</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>method</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new method to use for the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Header%20Manipulation"></a>
+                <a name="//apple_ref/swift/Section/Header Manipulation" class="dashAnchor"></a>
+                <a href="#/Header%20Manipulation">
+                  <h3 class="section-name">Header Manipulation</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV4with6headerACyxq_GAA6HeaderV_tF"></a>
+                    <a name="//apple_ref/swift/Method/with(header:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV4with6headerACyxq_GAA6HeaderV_tF">with(header:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the header of the request to a new value.</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <p><code><a href="../Structs/Request.html#/s:8Requests7RequestV6adding11headerFieldACyxq_GAA0E0V_tF">adding(headerField:)</a></code> to preserve the current header.</p>
+
+</div>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <p><code><a href="../Structs/Request.html#/s:8Requests7RequestV7setting11headerFieldACyxq_GAA0E0V_tF">setting(headerField:)</a></code> to preserve the current header.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">with</span><span class="p">(</span><span class="n"><a href="../Structs/Request.html#/s:8Requests18RequestConvertibleP6headerAA6HeaderVvp">header</a></span> <span class="nv">newHeader</span><span class="p">:</span> <span class="kt"><a href="../Structs/Header.html">Header</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>newHeader</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The header to set for the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV6adding11headerFieldACyxq_GAA0E0V_tF"></a>
+                    <a name="//apple_ref/swift/Method/adding(headerField:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV6adding11headerFieldACyxq_GAA0E0V_tF">adding(headerField:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds the provided field to the request&rsquo;s header.</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <p><code><a href="../Structs/Request.html#/s:8Requests7RequestV7setting11headerFieldACyxq_GAA0E0V_tF">setting(headerField:)</a></code> to replace an existing field.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">adding</span><span class="p">(</span><span class="nv">headerField</span><span class="p">:</span> <span class="kt"><a href="../Structs/Field.html">Field</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headerField</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A field to add to the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV6adding12headerFieldsACyxq_GSayAA5FieldVG_tF"></a>
+                    <a name="//apple_ref/swift/Method/adding(headerFields:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV6adding12headerFieldsACyxq_GSayAA5FieldVG_tF">adding(headerFields:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds the provided fields to the request&rsquo;s header.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">adding</span><span class="p">(</span><span class="nv">headerFields</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Field.html">Field</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headerFields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The fields to add to the header of the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV6adding12headerFieldsACyxq_GAA5FieldVd_tF"></a>
+                    <a name="//apple_ref/swift/Method/adding(headerFields:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV6adding12headerFieldsACyxq_GAA5FieldVd_tF">adding(headerFields:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">adding</span><span class="p">(</span><span class="nv">headerFields</span><span class="p">:</span> <span class="kt"><a href="../Structs/Field.html">Field</a></span><span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV7setting11headerFieldACyxq_GAA0E0V_tF"></a>
+                    <a name="//apple_ref/swift/Method/setting(headerField:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV7setting11headerFieldACyxq_GAA0E0V_tF">setting(headerField:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the provided field in the request&rsquo;s header.</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <p><code><a href="../Structs/Request.html#/s:8Requests7RequestV6adding11headerFieldACyxq_GAA0E0V_tF">adding(headerField:)</a></code> to merge an existing field.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setting</span><span class="p">(</span><span class="nv">headerField</span><span class="p">:</span> <span class="kt"><a href="../Structs/Field.html">Field</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headerField</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A field to set in the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Query%20Manipulation"></a>
+                <a name="//apple_ref/swift/Section/Query Manipulation" class="dashAnchor"></a>
+                <a href="#/Query%20Manipulation">
+                  <h3 class="section-name">Query Manipulation</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV4with5queryACyxq_GSay10Foundation12URLQueryItemVG_tF"></a>
+                    <a name="//apple_ref/swift/Method/with(query:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV4with5queryACyxq_GSay10Foundation12URLQueryItemVG_tF">with(query:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the query for the request to a new value.</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <p><code><a href="../Structs/Request.html#/s:8Requests7RequestV6adding9queryItemACyxq_G10Foundation08URLQueryE0V_tF">adding(queryItem:)</a></code> to update an existing query.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">with</span><span class="p">(</span><span class="n">query</span> <span class="nv">newQuery</span><span class="p">:</span> <span class="p">[</span><span class="kt">URLQueryItem</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>newQuery</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Collection of query items to build the new query from.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV6adding9queryItemACyxq_G10Foundation08URLQueryE0V_tF"></a>
+                    <a name="//apple_ref/swift/Method/adding(queryItem:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV6adding9queryItemACyxq_G10Foundation08URLQueryE0V_tF">adding(queryItem:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a new item to the query for the request.</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <p><code><a href="../Structs/Request.html#/s:8Requests7RequestV4with5queryACyxq_GSay10Foundation12URLQueryItemVG_tF">with(query:)</a></code> to replace an existing query.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">adding</span><span class="p">(</span><span class="nv">queryItem</span><span class="p">:</span> <span class="kt">URLQueryItem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>queryItem</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The item to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV6adding10queryItemsACyxq_GSay10Foundation12URLQueryItemVG_tF"></a>
+                    <a name="//apple_ref/swift/Method/adding(queryItems:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV6adding10queryItemsACyxq_GSay10Foundation12URLQueryItemVG_tF">adding(queryItems:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a collection of new query items to the request.</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <p><code><a href="../Structs/Request.html#/s:8Requests7RequestV4with5queryACyxq_GSay10Foundation12URLQueryItemVG_tF">with(query:)</a></code> to replace an existing query.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">adding</span><span class="p">(</span><span class="n"><a href="../Structs/Request.html#/s:8Requests18RequestConvertibleP10queryItemsSay10Foundation12URLQueryItemVGvp">queryItems</a></span> <span class="nv">newItems</span><span class="p">:</span> <span class="p">[</span><span class="kt">URLQueryItem</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>queryItems</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The items to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV6adding10queryItemsACyxq_G10Foundation12URLQueryItemVd_tF"></a>
+                    <a name="//apple_ref/swift/Method/adding(queryItems:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV6adding10queryItemsACyxq_G10Foundation12URLQueryItemVd_tF">adding(queryItems:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a collection of new query items to the request.</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <p><code><a href="../Structs/Request.html#/s:8Requests7RequestV4with5queryACyxq_GSay10Foundation12URLQueryItemVG_tF">with(query:)</a></code> to replace an existing query.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">adding</span><span class="p">(</span><span class="nv">queryItems</span><span class="p">:</span> <span class="kt">URLQueryItem</span><span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>queryItems</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The items to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Body%20Manipulation"></a>
+                <a name="//apple_ref/swift/Section/Body Manipulation" class="dashAnchor"></a>
+                <a href="#/Body%20Manipulation">
+                  <h3 class="section-name">Body Manipulation</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV7sendingyACyxq_GAA12BodyProviderVF"></a>
+                    <a name="//apple_ref/swift/Method/sending(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV7sendingyACyxq_GAA12BodyProviderVF">sending(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the body provider of the request to <code>body</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">sending</span><span class="p">(</span><span class="n">_</span> <span class="nv">body</span><span class="p">:</span> <span class="kt"><a href="../Structs/BodyProvider.html">BodyProvider</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Response%20Manipulation"></a>
+                <a name="//apple_ref/swift/Section/Response Manipulation" class="dashAnchor"></a>
+                <a href="#/Response%20Manipulation">
+                  <h3 class="section-name">Response Manipulation</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV9receivingyACyxqd__GAA15ResponseDecoderVyqd__GlF"></a>
+                    <a name="//apple_ref/swift/Method/receiving(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV9receivingyACyxqd__GAA15ResponseDecoderVyqd__GlF">receiving(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the response decoder of the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">receiving</span><span class="o">&lt;</span><span class="kt">NewResource</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">resourceDecoder</span><span class="p">:</span> <span class="kt"><a href="../Structs/ResponseDecoder.html">ResponseDecoder</a></span><span class="o">&lt;</span><span class="kt">NewResource</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">NewResource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resourceDecoder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A decoder for the new request&rsquo;s resource.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Request%20Configuration%20Manipulation"></a>
+                <a name="//apple_ref/swift/Section/Request Configuration Manipulation" class="dashAnchor"></a>
+                <a href="#/Request%20Configuration%20Manipulation">
+                  <h3 class="section-name">Request Configuration Manipulation</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV13authenticated4withACyxq_GAA22AuthenticationProviderV_tF"></a>
+                    <a name="//apple_ref/swift/Method/authenticated(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV13authenticated4withACyxq_GAA22AuthenticationProviderV_tF">authenticated(with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the authentication provider for the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">authenticated</span><span class="p">(</span><span class="n">with</span> <span class="nv">authenticator</span><span class="p">:</span> <span class="kt"><a href="../Structs/AuthenticationProvider.html">AuthenticationProvider</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>authenticator</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An authentication provider for the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV7timeout5afterACyxq_GSd_tF"></a>
+                    <a name="//apple_ref/swift/Method/timeout(after:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV7timeout5afterACyxq_GSd_tF">timeout(after:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the timeout interval for the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">timeout</span><span class="p">(</span><span class="n">after</span> <span class="nv">interval</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>interval</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new timeout interval for the request in seconds.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2019 <a class="link" href="https://alexj.org" target="_blank" rel="external">Alex Jackson</a>. All rights reserved. (Last updated: 2019-04-20)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

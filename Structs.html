@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Structures  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Section/Structures" class="dashAnchor"></a>
+
+    <a title="Structures  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          Requests Docs
+        </a>
+         (70% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/alexjohnj/Requests">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">Requests Reference</a>
+      <img class="carat" src="img/carat.png" />
+      Structures  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/DefaultValue.html">DefaultValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/RequestBody.html">RequestBody</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/RequestError.html">RequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/Result.html">Result</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/TextBodyEncodingError.html">TextBodyEncodingError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/URL.html">URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/URLSession.html">URLSession</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:8Requests7explodeyAA5FieldV4NameV4name_SS5valuetADF">explode(_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/RequestConvertible.html">RequestConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/RequestProviding.html">RequestProviding</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/AnonymousRequestProvider.html">AnonymousRequestProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/AuthenticationProvider.html">AuthenticationProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/BodyProvider.html">BodyProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/CaseInsensitiveString.html">CaseInsensitiveString</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Field.html">Field</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Field/Name.html">– Name</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Header.html">Header</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/MediaType.html">MediaType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/MediaType/TopLevelType.html">– TopLevelType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/MediaType/SubType.html">– SubType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/ResponseDecoder.html">ResponseDecoder</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>Structures</h1>
+            <p>The following structures are available globally.</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests22AuthenticationProviderV"></a>
+                    <a name="//apple_ref/swift/Struct/AuthenticationProvider" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests22AuthenticationProviderV">AuthenticationProvider</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A type that can add authentication fields to a <code><a href="Structs/Header.html">Header</a></code>.</p>
+
+<p><code>AuthenticationProvider</code> is simply a wrapper around a function that modifies a header so it is authenticated.</p>
+
+                        <a href="Structs/AuthenticationProvider.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AuthenticationProvider</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests12BodyProviderV"></a>
+                    <a name="//apple_ref/swift/Struct/BodyProvider" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests12BodyProviderV">BodyProvider</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A type that produces the body of a request and updates the header of a request accordingly.</p>
+
+<p>A <code>BodyProvider</code> implements a function that takes an <code>inout</code> <code><a href="Structs/Header.html">Header</a></code> and produces a <code><a href="Enums/RequestBody.html">RequestBody</a></code>. In the
+<code>body(updating:)</code> method, the provider should construct the <code><a href="Enums/RequestBody.html">RequestBody</a></code> and update the <code>Content-Type</code> of the
+provided <code><a href="Structs/Header.html">Header</a></code>. The provider can also set any other relevant fields in the header.</p>
+
+<p>Several predefined <code>BodyProvider</code>s are provided for text bodies and JSON bodies.</p>
+<h2 id='creating-a-code-bodyprovider-code' class='heading'>Creating a <code>BodyProvider</code></h2>
+
+<p>The <code>body(updating:)</code> method is defined when the <code>BodyProvider</code> is initialised as a closure. The method is somewhat
+odd because it doesn&rsquo;t take any data to convert to a <code><a href="Enums/RequestBody.html">RequestBody</a></code> as input. In your <code>BodyProvider</code>s you should
+capture the input data in the closure provided at initialization. This means that most <code>BodyProvider</code>s will be
+provided by factory functions that take the input data and construct a new body provider using it.</p>
+
+<p>When implementing a provider, ensure that updates to the provided <code>header</code> are only applied when any throwing
+functions have succeeded. Otherwise you may end up in the situation where the header of a request is updated but its
+body has not been created because an error was thrown during creation.</p>
+
+                        <a href="Structs/BodyProvider.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">BodyProvider</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests21CaseInsensitiveStringV"></a>
+                    <a name="//apple_ref/swift/Struct/CaseInsensitiveString" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests21CaseInsensitiveStringV">CaseInsensitiveString</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code>String</code> wrapper that implements case insensitive comparison, sorting and hashing methods.</p>
+
+                        <a href="Structs/CaseInsensitiveString.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CaseInsensitiveString</span> <span class="p">:</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests5FieldV"></a>
+                    <a name="//apple_ref/swift/Struct/Field" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests5FieldV">Field</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A header field in a HTTP request. A field consists of a key-value pair mapping <code>name</code> onto <code>value</code>.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    As HTTP headers are case insensitive, the implementations of <code>Hashable</code> and <code>Equatable</code> take this into
+consideration and convert all header names to lowercase before comparing them.
+
+</div>
+
+                        <a href="Structs/Field.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Field</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests10HTTPMethodV"></a>
+                    <a name="//apple_ref/swift/Struct/HTTPMethod" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests10HTTPMethodV">HTTPMethod</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A method (AKA verb) to be sent in a HTTP request. The standard (HTTP/1.1) headers are implemented as static
+properties. New methods can be added in an extension on the <code>HTTPMethod</code> type.</p>
+<h1 id='pattern-matching' class='heading'>Pattern Matching</h1>
+
+<p><code>HTTPMethod</code> provides an overload of the <code>~=</code> operator so methods can easily be pattern matched on in a <code>switch</code>
+statement.</p>
+
+                        <a href="Structs/HTTPMethod.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HTTPMethod</span> <span class="p">:</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt">RawRepresentable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests6HeaderV"></a>
+                    <a name="//apple_ref/swift/Struct/Header" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests6HeaderV">Header</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A header in a HTTP request. A header consists of a series of fields containing a key and a value. Keys are
+represented by the <code><a href="Structs/Field/Name.html">Field.Name</a></code> type while values are simply <code>String</code>s.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    A <code>Header</code> instance does not preserve the order of fields added to it.
+
+</div>
+
+                        <a href="Structs/Header.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Header</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests9MediaTypeV"></a>
+                    <a name="//apple_ref/swift/Struct/MediaType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests9MediaTypeV">MediaType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A media type (MIME type) used to identify content.</p>
+
+<p>Media types consist of a top level <code>type</code> a <code>subtype</code> and zero or more parameters (key-value pairs). The
+implementation in <em>Requests</em> is based on <a href="https://tools.ietf.org/html/rfc2045#section-5">RFC 2045</a> and <a href="https://tools.ietf.org/html/rfc6838">RFC
+6838</a>. The key take-aways from these RFCs are:</p>
+
+<ol>
+<li>The <code>type</code> and <code>subtype</code> of a media type are case-insensitive.</li>
+<li>The key of a parameter is case-insensitive but the value is case-sensitive.</li>
+<li>The parameters of a media type do not effect its value.</li>
+</ol>
+
+<p>The implications of these for <code>MediaType</code> are:</p>
+
+<ol>
+<li>The implementations of <code>Equatable</code> and <code>Hashable</code> are case-insensitive.</li>
+<li>Ditto for the parameters of a <code>MediaType</code>.</li>
+<li>The <code>parameters</code> of a <code>MediaType</code> are not used in the <code>Equatable</code> and <code>Hashable</code> implementation of <code>MediaType</code>.</li>
+</ol>
+<h2 id='defining-new-media-types' class='heading'>Defining New Media Types</h2>
+
+<p>Several common media types are defined as static properties on <code>MediaType</code>. You can add new types in an extension of
+<code>MediaType</code>. Define the new subtype in an extension of <code><a href="Structs/MediaType/SubType.html">MediaType.SubType</a></code> and the new media type in an extension of
+<code>MediaType</code></p>
+
+<p>For media types with required parameters (e.g., <code>multipart/form-data</code>), define the media type as a static function
+of its required parameters. For example, <code><a href="Structs/MediaType.html#/s:8Requests9MediaTypeV8formDatayACSScvpZ">MediaType.formData</a></code> is defined as:</p>
+<pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">formData</span><span class="p">:</span> <span class="p">(</span><span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">MediaType</span> <span class="o">=</span> <span class="p">{</span> <span class="n">boundary</span> <span class="k">in</span>
+    <span class="kt">MediaType</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">multipart</span><span class="p">,</span> <span class="nv">subtype</span><span class="p">:</span> <span class="o">.</span><span class="n">formData</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span><span class="s">"boundary"</span><span class="p">:</span> <span class="n">boundary</span><span class="p">])</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>which will produce a new <code>MediaType</code> with the <code>boundary</code> parameter set to the provided <code>String</code>.</p>
+
+                        <a href="Structs/MediaType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MediaType</span> <span class="p">:</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Request%20Creation"></a>
+                <a name="//apple_ref/swift/Section/Request Creation" class="dashAnchor"></a>
+                <a href="#/Request%20Creation">
+                  <h3 class="section-name">Request Creation</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests24AnonymousRequestProviderV"></a>
+                    <a name="//apple_ref/swift/Struct/AnonymousRequestProvider" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests24AnonymousRequestProviderV">AnonymousRequestProvider</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/RequestProviding.html">RequestProviding</a></code> type to a single API host.</p>
+
+<p>Use an <code>AnonymousRequestProvider</code> for one-off API requests or when you do not care about the <code>API</code> parameter of the
+<code><a href="Structs/Request.html">Request</a></code> type.</p>
+
+                        <a href="Structs/AnonymousRequestProvider.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AnonymousRequestProvider</span> <span class="p">:</span> <span class="kt"><a href="Protocols/RequestProviding.html">RequestProviding</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests7RequestV"></a>
+                    <a name="//apple_ref/swift/Struct/Request" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests7RequestV">Request</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A request for a resource from an API.</p>
+<h2 id='overview' class='heading'>Overview</h2>
+
+<p>The <code>Request</code> structure is a concrete implementation of a <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> that provides a chainable
+builder-like interface to constructing requests. You rarely instantiate a <code>Request</code> directly. Instead, requests to a
+specific API are created by a <code><a href="Protocols/RequestProviding.html">RequestProviding</a></code> type and are customised using the builder functions on <code>Request</code>.</p>
+
+<p>The <code>Request</code> structure is generic over the <code>API</code> type and the <code>Resource</code> type. The <code>API</code> parameter is immutable and
+can be used to constrain extensions on <code>Request</code> to a specific API. The <code>Resource</code> parameter is <q>mutable</q> in the
+sense that it can be changed using the <code>receiving(_:)</code> builder function.</p>
+<h2 id='one-off-requests' class='heading'>One-off Requests</h2>
+
+<p>A convenience initializer <code>init(method:baseURL:endpoint:)</code> is provided for one-off requests. This uses an
+<code><a href="Structs/AnonymousRequestProvider.html">AnonymousRequestProvider</a></code> and is intended to be used for exploratory work with an API. Its use outside of this
+context is strongly discouraged.</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code>
+
+</div>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <code><a href="Protocols/RequestProviding.html">RequestProviding</a></code>
+
+</div>
+
+                        <a href="Structs/Request.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">API</span><span class="p">,</span> <span class="kt">Resource</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/RequestConvertible.html">RequestConvertible</a></span> <span class="k">where</span> <span class="kt">API</span> <span class="p">:</span> <span class="kt"><a href="Protocols/RequestProviding.html">RequestProviding</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests15ResponseDecoderV"></a>
+                    <a name="//apple_ref/swift/Struct/ResponseDecoder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests15ResponseDecoderV">ResponseDecoder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A type that can decode a response type from the raw body of a HTTP response.</p>
+
+                        <a href="Structs/ResponseDecoder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ResponseDecoder</span><span class="o">&lt;</span><span class="kt">Response</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2019 <a class="link" href="https://alexj.org" target="_blank" rel="external">Alex Jackson</a>. All rights reserved. (Last updated: 2019-04-20)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

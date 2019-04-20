@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Requests  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="Requests  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          Requests Docs
+        </a>
+         (70% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/alexjohnj/Requests">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">Requests Reference</a>
+      <img class="carat" src="img/carat.png" />
+      Requests  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/DefaultValue.html">DefaultValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/RequestBody.html">RequestBody</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/RequestError.html">RequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/Result.html">Result</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/TextBodyEncodingError.html">TextBodyEncodingError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/URL.html">URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/URLSession.html">URLSession</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:8Requests7explodeyAA5FieldV4NameV4name_SS5valuetADF">explode(_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/RequestConvertible.html">RequestConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/RequestProviding.html">RequestProviding</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/AnonymousRequestProvider.html">AnonymousRequestProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/AuthenticationProvider.html">AuthenticationProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/BodyProvider.html">BodyProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/CaseInsensitiveString.html">CaseInsensitiveString</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Field.html">Field</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Field/Name.html">– Name</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Header.html">Header</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/MediaType.html">MediaType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/MediaType/TopLevelType.html">– TopLevelType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/MediaType/SubType.html">– SubType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/ResponseDecoder.html">ResponseDecoder</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            
+            <h1 id='requests' class='heading'>Requests</h1>
+
+<p><em>Requests</em> is a Swift library focused on providing sugar for building and
+organising your application&rsquo;s HTTP requests.</p>
+
+<p><em>Requests</em> <strong>is not</strong> concerned with performing network requests. You can use
+<a href="https://developer.apple.com/documentation/foundation/urlsession">whatever</a> <a href="https://github.com/Alamofire/Alamofire">you</a> <a href="https://github.com/AFNetworking/AFNetworking">want</a> to
+perform the requests. <em>Requests</em> simply provides some types that make building
+requests and keeping them organised more enjoyable.</p>
+
+<blockquote>
+<p>⚠️ <em>Requests</em> is under active development and there are some areas of the API
+that will change. Until <em>Requests</em> reaches version 1.0, any non patch 0.x
+release can be API breaking.</p>
+</blockquote>
+
+<hr>
+<h1 id='usage-guide' class='heading'>Usage Guide</h1>
+<h2 id='core-types' class='heading'>Core Types</h2>
+
+<p><em>Requests</em> contains a few types that form the core of the library as well as
+many helper types. Complete reference documentation for all types can be found
+<a href="https://alexjohnj.github.io/requests">here</a>.</p>
+
+<p>The core types are:</p>
+
+<ul>
+<li>The <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> protocol &mdash; Conforming types declare the properties
+of a HTTP request and can be converted into Foundation <code>URLRequest</code> instances.</li>
+<li>The <code><a href="Structs/Request.html">Request</a></code> structure &mdash; A concrete implementation of the
+<code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> protocol that provides a fluent interface for declaring
+API requests.</li>
+<li>The <code><a href="Protocols/RequestProviding.html">RequestProviding</a></code> protocol &mdash; Conforming types declare the base URL of
+an API and can initialise base <code><a href="Structs/Request.html">Request</a></code> instances for a specific API.</li>
+<li>The <code><a href="Structs/ResponseDecoder.html">ResponseDecoder</a></code> structure &mdash; A type wrapping a function that decodes a
+type from a HTTP response.</li>
+<li>The <code><a href="Structs/BodyProvider.html">BodyProvider</a></code> structure &mdash; A type wrapping a function that encodes the
+body of a <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> type.</li>
+</ul>
+
+<p>If you need to get started with <em>Requests</em> quickly, you should investigate the
+<code><a href="Structs/Request.html">Request</a></code> and <code><a href="Protocols/RequestProviding.html">RequestProviding</a></code> types.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p><em>Requests</em> supports installation using <a href="http://cocoapods.org/">CocoaPods</a>,
+<a href="https://github.com/carthage/carthage/">Carthage</a> or the <a href="https://github.com/apple/swift-package-manager">Swift Package Manager</a>. <em>Requests</em>
+supports macOS, iOS, tvOS and watchOS. Linux is not supported but may work.</p>
+
+<blockquote>
+<p>⚠️ While <em>Requests</em> is in the <code>0.x</code> release phase, use your package manager&rsquo;s
+<a href="https://robots.thoughtbot.com/rubys-pessimistic-operator">pessimistic operator</a> to pin the
+version number to a minor release.</p>
+</blockquote>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+
+<p>Add the following to your <code>Podfile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s2">"Requests"</span><span class="p">,</span> <span class="s2">"~&gt; 0.1.0"</span>
+</code></pre>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p>Add the following to your <code>Cartfile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">github</span> <span class="s2">"alexjohnj/Requests"</span> <span class="o">~&gt;</span> <span class="mf">0.1</span><span class="o">.</span><span class="mi">0</span>
+</code></pre>
+<h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
+
+<p>Add the following to your <code>Package.swift</code> file&rsquo;s dependencies:</p>
+<pre class="highlight swift"><code><span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
+    <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/alexjohnj/Requests.git"</span><span class="p">,</span> <span class="o">.</span><span class="nf">upToNextMinor</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="s">"0.1.0"</span><span class="p">))</span>
+<span class="p">]</span>
+</code></pre>
+<h2 id='create-a-request-provider-for-an-api' class='heading'>Create a Request Provider for an API</h2>
+
+<p>For each API in your application, create a type that conforms to the
+<code><a href="Protocols/RequestProviding.html">RequestProviding</a></code> protocol. These types provide the base URL for an API:</p>
+<pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">ExampleAPI</span><span class="p">:</span> <span class="kt">RequestProviding</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">development</span>
+    <span class="k">case</span> <span class="n">production</span>
+
+    <span class="k">var</span> <span class="nv">baseURL</span><span class="p">:</span> <span class="kt">URL</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="k">self</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">development</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kt">URL</span><span class="p">(</span><span class="s">"https://dev.example.com/api"</span><span class="p">)</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">production</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kt">URL</span><span class="p">(</span><span class="s">"https://live.example.com/api"</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">let</span> <span class="nv">api</span> <span class="o">=</span> <span class="kt">ExampleAPI</span><span class="o">.</span><span class="n">development</span>
+</code></pre>
+
+<p><code><a href="Protocols/RequestProviding.html">RequestProviding</a></code> types form the entry point to building a <code><a href="Structs/Request.html">Request</a></code> for an
+API. A <code><a href="Protocols/RequestProviding.html">RequestProviding</a></code> type has several methods that construct a base
+<code><a href="Structs/Request.html">Request</a></code> to an API.</p>
+<h2 id='get-a-resource' class='heading'>GET a Resource</h2>
+
+<p>To build a request to retrieve a JSON encoded resource modelled as a <code>Decodable</code>
+structure, use the <code>get(_:from:)</code> method on a request provider:</p>
+<pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">User</span><span class="p">:</span> <span class="kt">Codable</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="k">let</span> <span class="nv">getUserRequest</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="o">.</span><span class="nf">json</span><span class="p">(</span><span class="nv">encoded</span><span class="p">:</span> <span class="kt">User</span><span class="o">.</span><span class="k">self</span><span class="p">),</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"/user/1/"</span><span class="p">)</span>
+
+<span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">perform</span><span class="p">(</span><span class="n">getUserRequest</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="k">let</span> <span class="nv">urlResponse</span><span class="p">,</span> <span class="k">let</span> <span class="nv">user</span><span class="p">):</span>
+        <span class="c1">// Do something with the user</span>
+        <span class="k">break</span>
+
+    <span class="k">case</span> <span class="o">.</span><span class="nf">failed</span><span class="p">(</span><span class="k">let</span> <span class="nv">response</span><span class="p">?,</span> <span class="k">let</span> <span class="nv">error</span><span class="p">):</span>
+        <span class="c1">// We got a HTTP response but also an error. Something probably went wrong decoding the JSON.</span>
+        <span class="k">break</span>
+
+    <span class="k">case</span> <span class="o">.</span><span class="nf">failed</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="k">let</span> <span class="nv">error</span><span class="p">):</span>
+        <span class="c1">// We didn't get a response. There was probably a network error.</span>
+        <span class="k">break</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>This method constructs a <code>GET</code> request to <code>https://dev.example.com/api/user/1</code>
+and configures it with a <code><a href="Structs/ResponseDecoder.html">ResponseDecoder</a></code> that tries to decode a <code>User</code> struct
+from the response&rsquo;s body. The returned request is generic over its response&rsquo;s
+body&rsquo;s type (called the <code>Resource</code> to distinguish it from a <code>HTTPURLResponse</code>).</p>
+
+<p>The <code>perform(_:)</code> method on <code>URLSession</code> performs a request and evaluates the
+<code><a href="Structs/ResponseDecoder.html">ResponseDecoder</a></code> with the response&rsquo;s body. It then passes the decoded
+<code>Resource</code> to the completion block alongside a <code>HTTPURLResponse</code> if everything
+succeeds. Otherwise the block receives an <code>Error</code> and possibly a
+<code>HTTPURLResponse</code>.</p>
+<h2 id='post-some-data' class='heading'>POST Some Data</h2>
+
+<p>Sending data looks similar to retrieving a resource. To build a request that
+posts a JSON encoded <code>User</code> struct, use the <code>post(_:to:)</code> method on an API&rsquo;s
+request provider:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">user</span> <span class="o">=</span> <span class="kt">User</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">createUserRequest</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="nf">post</span><span class="p">(</span><span class="o">.</span><span class="nf">json</span><span class="p">(</span><span class="nv">encoded</span><span class="p">:</span> <span class="n">user</span><span class="p">),</span> <span class="nv">to</span><span class="p">:</span> <span class="s">"/user/"</span><span class="p">)</span>
+<span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">perform</span><span class="p">(</span><span class="n">createUserRequest</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="c1">// Handle the result</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>This method creates a <code>POST</code> request configured with a <code><a href="Structs/BodyProvider.html">BodyProvider</a></code> that
+encodes the user struct as JSON. The <code>Resource</code> type of the request is <code>Void</code>
+meaning the request&rsquo;s response doesn&rsquo;t have a body or the request doesn&rsquo;t care
+about the body. Note that the <code><a href="Structs/BodyProvider.html">BodyProvider</a></code> will take care of updating the
+request&rsquo;s headers to indicate the type of content it contains.</p>
+<h2 id='authenticating-a-request' class='heading'>Authenticating a Request</h2>
+
+<p><em>Requests</em> has basic support for authenticating requests. If a request can be
+authenticated using its header, use an <code><a href="Structs/AuthenticationProvider.html">AuthenticationProvider</a></code> to update the
+header with the required credentials:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">authToken</span> <span class="o">=</span> <span class="s">"DEADBEEF-DEADBEEF-DEADBEEF"</span>
+<span class="k">let</span> <span class="nv">updateUserRequest</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="nf">patch</span><span class="p">(</span><span class="s">"/user/1"</span><span class="p">,</span> <span class="nv">with</span><span class="p">:</span> <span class="o">.</span><span class="nf">json</span><span class="p">(</span><span class="nv">encoded</span><span class="p">:</span> <span class="n">user</span><span class="p">))</span>
+    <span class="o">.</span><span class="nf">authenticated</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="o">.</span><span class="nf">bearerToken</span><span class="p">(</span><span class="n">authToken</span><span class="p">))</span>
+
+<span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">perform</span><span class="p">(</span><span class="n">updateUserRequest</span><span class="p">)</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}</span>
+</code></pre>
+
+<p>This builds a <code>PATCH</code> request that will include a bearer token in the
+header. <em>Requests</em> includes built in support for attaching:</p>
+
+<ul>
+<li>Bearer token headers</li>
+<li>HTTP Basic Auth headers</li>
+</ul>
+
+<p>You can add additional header based authentication schemes by writing a new
+<code><a href="Structs/AuthenticationProvider.html">AuthenticationProvider</a></code>.</p>
+<h2 id='customising-headers' class='heading'>Customising Headers</h2>
+
+<p>The <code><a href="Structs/Request.html">Request</a></code> type has several functions for setting the headers of a
+request. The <code><a href="Structs/Header.html">Header</a></code> type models a request&rsquo;s header, consisting of multiple
+<code><a href="Structs/Field.html">Field</a></code>s. <code><a href="Structs/Field.html">Field</a></code>s consist of a name and a value.</p>
+
+<p>To set the header of a request, use the <code>with(header:)</code> method:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">getBioRequest</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"/user/1/bio"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="nv">header</span><span class="p">:</span> <span class="p">[</span>
+        <span class="o">.</span><span class="nf">acceptLanguage</span><span class="p">(</span><span class="s">"en-scouse"</span><span class="p">),</span>
+        <span class="o">.</span><span class="nf">accept</span><span class="p">(</span><span class="o">.</span><span class="n">plainText</span><span class="p">)</span>
+        <span class="p">])</span>
+</code></pre>
+
+<p>This constructs a new <code><a href="Structs/Header.html">Header</a></code> from an array of <code><a href="Structs/Field.html">Field</a></code>s and replaces the
+request&rsquo;s header with it.</p>
+
+<p>To add a header to a request or replace a single field in a request&rsquo;s header,
+use one of <code>adding(headerField:)</code>, <code>adding(headerFields:)</code> or
+<code>setting(headerField:)</code>.</p>
+
+<blockquote>
+<p>⚠️ A request&rsquo;s <code><a href="Structs/BodyProvider.html">BodyProvider</a></code> and <code><a href="Structs/AuthenticationProvider.html">AuthenticationProvider</a></code> can both modify the
+fields of a request&rsquo;s header. Any changes made by them will override the
+fields you specify when building the request.</p>
+</blockquote>
+<h2 id='customising-query-parameters' class='heading'>Customising Query Parameters</h2>
+
+<p>Similar to headers, the <code><a href="Structs/Request.html">Request</a></code> type provides several functions that set the
+query parameters of a request:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">searchRequest</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"/users/search"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">"query"</span><span class="p">:</span> <span class="s">"alex"</span><span class="p">,</span>
+        <span class="s">"limit"</span><span class="p">:</span> <span class="s">"30"</span><span class="p">,</span>
+        <span class="p">])</span>
+</code></pre>
+
+<p>This produces a request to the URL
+<code>https://dev.example.com/api/users/search?query=alex&amp;limit=30</code>. Note that
+<em>Requests</em> uses the Foundation <code>URLQueryItem</code> to represent query items but
+provides several extensions that makes building them neater.</p>
+<h2 id='defining-custom-header-fields' class='heading'>Defining Custom Header Fields</h2>
+
+<p><em>Requests</em> includes several predefined fields for common HTTP headers. You can
+easily add new ones by adding a <code>static</code> property on the <code><a href="Structs/Field.html">Field</a></code> and
+<code><a href="Structs/Field/Name.html">Field.Name</a></code> types:</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Field</span><span class="o">.</span><span class="kt">Name</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">applicationKey</span> <span class="o">=</span> <span class="kt">Field</span><span class="o">.</span><span class="kt">Name</span><span class="p">(</span><span class="s">"X-APPLICATION-KEY"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">extension</span> <span class="kt">Field</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">applicationKey</span><span class="p">:</span> <span class="p">(</span><span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Field</span> <span class="o">=</span> <span class="p">{</span> <span class="kt">Field</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="o">.</span><span class="n">applicationKey</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="nv">$0</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id='defining-a-base-request-for-an-api' class='heading'>Defining a Base Request for an API</h2>
+
+<p>Some APIs require common properties set on all API requests. For example, an API
+might require an application key in the header of each request. You can achieve
+this by implementing an optional method in a <code><a href="Protocols/RequestProviding.html">RequestProviding</a></code> conforming type.</p>
+
+<p>The <code>request(to:using:)</code> method is the core method of the <code><a href="Protocols/RequestProviding.html">RequestProviding</a></code>
+protocol. It returns a new <code><a href="Structs/Request.html">Request</a></code> for an API and is the starting point for
+all other request building methods on <code><a href="Protocols/RequestProviding.html">RequestProviding</a></code>.</p>
+
+<p>A custom implementation of <code>request(to:using:)</code> can return a <code><a href="Structs/Request.html">Request</a></code> with a
+default set of values applied:</p>
+<pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">ExternalAPI</span><span class="p">:</span> <span class="kt">RequestProviding</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">baseURL</span><span class="p">:</span> <span class="kt">URL</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="s">"https://api.external.org"</span><span class="p">)</span>
+
+    <span class="kd">func</span> <span class="nf">request</span><span class="p">(</span><span class="n">to</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">using</span> <span class="nv">method</span><span class="p">:</span> <span class="kt">HTTPMethod</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">ExternalAPI</span><span class="p">,</span> <span class="kt">Void</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">Request</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="n">endpoint</span><span class="p">,</span> <span class="nv">responseDecoder</span><span class="p">:</span> <span class="o">.</span><span class="k">none</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="n">method</span><span class="p">)</span>
+            <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="nv">headerField</span><span class="p">:</span> <span class="o">.</span><span class="nf">applicationKey</span><span class="p">(</span><span class="s">"DEAD-BEEF"</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Now, any <code><a href="Structs/Request.html">Request</a></code> built from <code>ExternalAPI</code> will include the application key header field.</p>
+<h2 id='writing-a-new-response-decoder' class='heading'>Writing a New Response Decoder</h2>
+
+<p><em>Requests</em> ships with a couple of built in <code><a href="Structs/ResponseDecoder.html">ResponseDecoder</a></code>s for JSON and text
+data. It&rsquo;s possible to define a new <code><a href="Structs/ResponseDecoder.html">ResponseDecoder</a></code> if needed.</p>
+
+<p>A <code><a href="Structs/ResponseDecoder.html">ResponseDecoder</a></code> is a structure generic over its <code>Response</code> that wraps a
+throwing function taking a <code>HTTPURLResponse</code> and some <code>Data</code> and producing a
+<code>Response</code>:</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ResponseDecoder</span><span class="o">&lt;</span><span class="kt">Response</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">decode</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">HTTPURLResponse</span><span class="p">,</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Response</span><span class="p">)</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>When adding a new response decoder, declare a static property or function in an
+extension of the <code><a href="Structs/ResponseDecoder.html">ResponseDecoder</a></code> type that returns a new
+<code><a href="Structs/ResponseDecoder.html">ResponseDecoder</a></code>. This provides unqualified access to a decoder when used with
+the <code><a href="Structs/Request.html">Request</a></code> building methods and goes a long way towards making request
+definitions readable.</p>
+
+<p>As an example, the definition of <code>.text(encoding:)</code> response decoder is a static
+function on the <code><a href="Structs/ResponseDecoder.html">ResponseDecoder&lt;String&gt;</a></code> type:</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">ResponseDecoder</span> <span class="k">where</span> <span class="kt">Response</span> <span class="o">==</span> <span class="kt">String</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">text</span> <span class="o">=</span> <span class="kt">ResponseDecoder</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;.</span><span class="nf">text</span><span class="p">(</span><span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">text</span><span class="p">(</span><span class="nv">encoding</span><span class="p">:</span> <span class="kt">String</span><span class="o">.</span><span class="kt">Encoding</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ResponseDecoder</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">ResponseDecoder</span> <span class="p">{</span> <span class="n">_</span><span class="p">,</span> <span class="n">data</span> <span class="k">in</span>
+            <span class="k">guard</span> <span class="k">let</span> <span class="nv">string</span> <span class="o">=</span> <span class="kt">String</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="n">encoding</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">throw</span> <span class="kt">CocoaError</span><span class="p">(</span><span class="o">.</span><span class="n">fileReadInapplicableStringEncoding</span><span class="p">,</span>
+                                 <span class="nv">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSStringEncodingErrorKey</span><span class="p">:</span> <span class="n">encoding</span><span class="o">.</span><span class="n">rawValue</span><span class="p">])</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="n">string</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Using this, the call site for the response decoder looks incredibly neat:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">getBookRequest</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="o">.</span><span class="nf">text</span><span class="p">(</span><span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">ascii</span><span class="p">),</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"/book/1/contents"</span><span class="p">)</span>
+
+<span class="c1">// Or for UTF-8</span>
+<span class="k">let</span> <span class="nv">getOtherBookRequest</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"/book/2/contents"</span><span class="p">)</span>
+
+</code></pre>
+
+<p>This approach is a bit unconventional for Swift&mdash;a protocol would generally be
+the more Swifty solution. However, the goal here was to optimise for readability
+at the call site rather than in the implementation of the protocol. As you&rsquo;ll be
+consuming request providers more often than you&rsquo;ll be writing them (especially
+as <em>Requests</em> adds more built-ins), I believe this is a worthwhile trade-off.</p>
+<h2 id='writing-a-new-authentication-provider' class='heading'>Writing a New Authentication Provider</h2>
+
+<p>Like the <code><a href="Structs/ResponseDecoder.html">ResponseDecoder</a></code> type, an <code><a href="Structs/AuthenticationProvider.html">AuthenticationProvider</a></code> is a struct
+wrapping a function. An authentication provider wraps a function that mutates an
+<code>inout Header</code>:</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AuthenticationProvider</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">authenticate</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="k">inout</span> <span class="kt">Header</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+
+</code></pre>
+
+<p>Again, declare <code><a href="Structs/AuthenticationProvider.html">AuthenticationProvider</a></code>s as static properties or functions on
+the <code><a href="Structs/AuthenticationProvider.html">AuthenticationProvider</a></code> type so that they read nicely with the <code><a href="Structs/Request.html">Request</a></code>
+type&rsquo;s methods:</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">AuthenticationProvider</span> <span class="p">{</span>
+
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">custom</span><span class="p">:</span> <span class="p">(</span><span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AuthenticationProvider</span> <span class="o">=</span> <span class="p">{</span> <span class="n">customToken</span> <span class="k">in</span>
+        <span class="kt">AuthenticationProvider</span> <span class="p">{</span> <span class="n">header</span> <span class="k">in</span>
+            <span class="n">header</span><span class="p">[</span><span class="o">.</span><span class="n">authorization</span><span class="p">]</span> <span class="o">=</span> <span class="s">"Custom </span><span class="se">\(</span><span class="n">customToken</span><span class="se">)</span><span class="s">"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+<h2 id='writing-a-new-body-provider' class='heading'>Writing a New Body Provider</h2>
+
+<p>No surprises with this one. <code><a href="Structs/BodyProvider.html">BodyProvider</a></code>s work the same way as
+<code><a href="Structs/AuthenticationProvider.html">AuthenticationProvider</a></code>s and <code><a href="Structs/ResponseDecoder.html">ResponseDecoder</a></code>s. A body provider is a struct
+that wraps a throwing function that takes an <code>inout Header</code> and returns a
+<code><a href="Enums/RequestBody.html">RequestBody</a></code>:</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">BodyProvider</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">encode</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="k">inout</span> <span class="kt">Header</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">RequestBody</span><span class="p">)</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>In the body of the <code><a href="Structs/BodyProvider.html">BodyProvider</a></code> you should encode some data, update the
+<code>ContentType</code> of the <code><a href="Structs/Header.html">Header</a></code> and then return the body. Note that the returned
+<code><a href="Enums/RequestBody.html">RequestBody</a></code> can wrap either raw <code>Data</code> or an <code>InputStream</code>.</p>
+
+<p>Declare new body providers in static functions in an extension of <code><a href="Structs/BodyProvider.html">BodyProvider</a></code>:</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">BodyProvider</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">text</span><span class="p">(</span><span class="n">_</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BodyProvider</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">BodyProvider</span> <span class="p">{</span> <span class="n">header</span> <span class="k">in</span>
+            <span class="k">guard</span> <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">throw</span> <span class="kt">TextBodyEncodingError</span><span class="o">.</span><span class="n">utf8EncodingFailed</span>
+            <span class="p">}</span>
+
+            <span class="n">header</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="o">.</span><span class="nf">contentType</span><span class="p">(</span><span class="o">.</span><span class="n">plainText</span><span class="p">))</span>
+            <span class="k">return</span> <span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<blockquote>
+<p>⚠️ Only update the header of a request after calling any throwing functions.</p>
+</blockquote>
+<h2 id='advanced-usage' class='heading'>Advanced Usage</h2>
+<h3 id='the-code-requestconvertible-code-protocol' class='heading'>The <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> Protocol</h3>
+
+<p>The <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> protocol is really the core of <em>Requests</em>. Indeed, for
+a long time it was all there was to <em>Requests</em>. Everything else was built around
+the type to simplify its usage.</p>
+
+<p><code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> types declare all the information needed to convert a
+request to a Foundation <code>URLRequest</code>. An extension method on the protocol
+(<code>toURLRequest()</code>) handles the actual conversion of conforming types. If you&rsquo;re
+building any functions that operate on requests, you should consider
+constraining them to <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> conforming types instead of the
+<code><a href="Structs/Request.html">Request</a></code> type itself for maximum flexibility.</p>
+
+<p>Most of the properties of the <code><a href="Structs/Request.html">Request</a></code> type map directly to a requirement in
+the <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> protocol. The only difference between <code><a href="Structs/Request.html">Request</a></code> and
+<code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> is the absence of an associated <code>API</code> type in the
+protocol. <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> lacks this type because of the different usage
+model organising requests with it opens up.</p>
+
+<p>With the <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> protocol, you can organise you application&rsquo;s HTTP
+requests using protocol inheritance and composition. Each request in your
+application is a <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> type. Common properties for an API can be
+declared in a protocol that inherits from the base <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code>
+protocol. This eliminates the need for an associated <code>API</code> type.</p>
+
+<p>This organisation system has pros and cons. Some of the pros are:</p>
+
+<ul>
+<li>Ease of discoverability &mdash; Each API request is its own type (generally in its
+own file) and so can easily be searched for in a project.</li>
+<li>Easy definition of ad-hoc <code>Resource</code> types &mdash; You can satisfy the protocol&rsquo;s
+<code>Resource</code> associated type requirement using a type nested inside the request
+definition. This is handy for one-off responses and keeps the model of the
+request and its associated resource in close proximity.</li>
+</ul>
+
+<p>Some of its cons:</p>
+
+<ul>
+<li>Boilerplate &mdash; This approach leads to lots of boilerplate. Each API request
+needs a new type, a new file (normally) and then a protocol hiding the actual
+construction and execution of the network request.</li>
+<li>Protocol composition is not as composable as function composition &mdash; If you
+try and compose two <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> child protocols that both have
+default implementations of the same property, you will lose the default
+implementation. You will need knowledge of the default implementations of both
+the protocols you&rsquo;re composing to implement the conforming type&rsquo;s properties
+correctly.</li>
+</ul>
+<h3 id='performing-a-request' class='heading'>Performing a Request</h3>
+
+<p>As has already been mentioned, <em>Requests</em> is not concerned with performing
+network requests, only constructing them. Saying that, <em>Requests</em> does come with
+a supported extension on <code>URLSession</code> to perform requests. This is there to help
+people get up and running with <em>Requests</em> but it is by no means meant to define
+how <em>Requests</em> should be used.</p>
+
+<p>If you&rsquo;re integrating <em>Requests</em> with another networking system, keep the
+following in mind:</p>
+
+<ul>
+<li>Constrain your functions to operate on <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> types, not
+<code><a href="Structs/Request.html">Request</a></code>.</li>
+<li>A <code>Void</code> resource type indicates the request either doesn&rsquo;t expect or doesn&rsquo;t
+care about the response&rsquo;s body. Your functions should respect this and not
+treat a <code>nil</code> response body as an error for <code>Void</code> requests.</li>
+<li><code>ResponseDecoders</code> only operate on HTTP responses. Your functions should treat
+non <code>HTTPURLResponse</code> instances as an error.</li>
+<li>Converting a <code><a href="Protocols/RequestConvertible.html">RequestConvertible</a></code> type to a <code>URLRequest</code> can fail.</li>
+</ul>
+<h2 id='license' class='heading'>License</h2>
+
+<p><em>Requests</em> is released under the MIT license.</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2019 <a class="link" href="https://alexj.org" target="_blank" rel="external">Alex Jackson</a>. All rights reserved. (Last updated: 2019-04-20)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
