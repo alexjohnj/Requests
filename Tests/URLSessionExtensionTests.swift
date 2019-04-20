@@ -262,7 +262,7 @@ final class URLSessionExtensionTests: XCTestCase {
 
               return true
           }(),
-          "Got \(error) but expected \(RequestError.nonHttpResponse)"
+          "Got \(error) but expected \(String(describing: RequestError.nonHttpResponse))"
         )
     }
 
