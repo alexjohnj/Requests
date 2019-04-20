@@ -1,0 +1,4 @@
+[submodule "Requests"]
+	path = Requests
+	url = https://github.com/alexjohnj/Requests.git
+	branch = master
