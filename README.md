@@ -24,7 +24,7 @@ requests and keeping them organised more enjoyable.
 
 _Requests_ contains a few types that form the core of the library as well as
 many helper types. Complete reference documentation for all types can be found
-[here](https://alexjohnj.github.io/requests).
+[here](https://alexjohnj.github.io/Requests).
 
 The core types are:
 
