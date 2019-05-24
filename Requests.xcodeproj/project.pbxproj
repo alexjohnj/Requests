@@ -44,14 +44,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = Requests::Requests;
+			remoteGlobalIDString = "Requests::Requests";
 			remoteInfo = Requests;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2DBA148B5267890BF32415C1 /* AuthenticationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationProvider.swift; path = Sources/AuthenticationProvider.swift; sourceTree = "<group>"; };
-		2DBA1C266AF6773B5C5DA5A8 /* AuthenticationProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationProviderTests.swift; sourceTree = "<group>"; };
+		2DBA1C266AF6773B5C5DA5A8 /* AuthenticationProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationProviderTests.swift; path = Tests/AuthenticationProviderTests.swift; sourceTree = "<group>"; };
 		FAD3E3B521D7D5BE002A05F6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URLQueryItem+ExpresibleByDictionaryLiteral.swift"; path = "Sources/URLQueryItem+ExpresibleByDictionaryLiteral.swift"; sourceTree = "<group>"; };
 		FAD3E3B621D7D5BE002A05F6 /* MediaType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaType.swift; path = Sources/MediaType.swift; sourceTree = "<group>"; };
 		FAD3E3B721D7D5BE002A05F6 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Sources/Request.swift; sourceTree = "<group>"; };
@@ -228,6 +228,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = OBJ_5;
