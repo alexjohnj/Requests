@@ -304,12 +304,21 @@ final class RequestConvertibleTests: XCTestCase {
             let authenticationProvider: AuthenticationProvider
             let bodyProvider: BodyProvider
         }
-        var authProviderInvocationDate: Date?
-        var bodyProviderInvocationDate: Date?
-        let authProvider = AuthenticationProvider { _ in authProviderInvocationDate = Date() }
+
+        var bodyProviderInvoked = false
+        var authProviderInvoked = false
+
         let bodyProvider = BodyProvider { _ in
-            bodyProviderInvocationDate = Date()
+            XCTAssertFalse(authProviderInvoked,
+                           "The authentication provider should not be invoked before the body provider")
+            bodyProviderInvoked = true
             return .none
+        }
+
+        let authProvider = AuthenticationProvider { _ in
+            XCTAssertTrue(bodyProviderInvoked,
+                          "The body provider should be invoked before the authentication provider")
+            authProviderInvoked = true
         }
 
         let request = SUT(authenticationProvider: authProvider, bodyProvider: bodyProvider)
@@ -318,8 +327,8 @@ final class RequestConvertibleTests: XCTestCase {
         _ = try request.toURLRequest()
 
         // Then
-        XCTAssert(bodyProviderInvocationDate! < authProviderInvocationDate!,
-                  "The body provider should be invoked before the authentication provider")
+        XCTAssertTrue(authProviderInvoked)
+        XCTAssertTrue(bodyProviderInvoked)
     }
 
     // MARK: - Other Attribute Tests
