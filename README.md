@@ -1,4 +1,4 @@
-# Requests
+# Requests [![Build Status](https://app.bitrise.io/app/5a6709f831604876/status.svg?token=IhVpUeUB9JduoFGCyhR6Uw&branch=master)](https://app.bitrise.io/app/5a6709f831604876)
 
 _Requests_ is a Swift library focused on providing sugar for building and
 organising your application's HTTP requests.
