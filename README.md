@@ -63,7 +63,7 @@ supports macOS, iOS, tvOS and watchOS. Linux is not supported but may work.
 Add the following to your `Podfile`:
 
 ``` ruby
-pod "Requests", "~> 0.1.0"
+pod "Requests", "~> 0.2.0"
 ```
 
 ### Carthage
@@ -71,7 +71,7 @@ pod "Requests", "~> 0.1.0"
 Add the following to your `Cartfile`:
 
 ``` ruby
-github "alexjohnj/Requests" ~> 0.1.0
+github "alexjohnj/Requests" ~> 0.2.0
 ```
 
 ### Swift Package Manager
@@ -80,7 +80,7 @@ Add the following to your `Package.swift` file's dependencies:
 
 ``` swift
 dependencies: [
-    .package(url: "https://github.com/alexjohnj/Requests.git", .upToNextMinor(from: "0.1.0"))
+    .package(url: "https://github.com/alexjohnj/Requests.git", .upToNextMinor(from: "0.2.0"))
 ]
 ```
 
