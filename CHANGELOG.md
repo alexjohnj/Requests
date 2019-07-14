@@ -1,3 +1,24 @@
+# v0.3.0 (2019-07-14)
+
+## New
+
+- The `URLSession` perform extension now uses the Result type in the standard
+  library.
+- A new `RequestTransportError` type has been introduced. This type makes it
+  easier to pass around contextual information with an error (e.g., the failing
+  request, any received response).
+- Added support for validating the received `HTTPURLResponse` in the
+  `URLSession` perform extension.
+
+## API Breaking Changes
+
+- _Requests_ now requires Swift 5.
+- The `URLSession` perform extension now uses the Result type in the standard
+  library.
+- The `RequestError.invalidRequest` error case has been removed and replaced
+  with a standalone `InvalidRequestURLError` type.
+- The `RequestError.nonHTTPResponse` error no longer wraps the received `URLResponse`
+
 # v0.2.0 (2019-05-25)
 
 ## New
