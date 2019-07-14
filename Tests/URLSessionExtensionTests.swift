@@ -320,7 +320,7 @@ final class URLSessionExtensionTests: XCTestCase {
 
         let request = api.get(decoder, from: "/test")
         try stub(request) { r in
-            return (Data(bytes: [0, 1, 0, 1]), .success(r), nil)
+            return (Data([0, 1, 0, 1]), .success(r), nil)
         }
 
         // When
