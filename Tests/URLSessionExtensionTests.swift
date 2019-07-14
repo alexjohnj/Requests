@@ -147,7 +147,7 @@ final class URLSessionExtensionTests: XCTestCase {
         let request = api.get(.text, from: "/test")
         let expectedResource = "test"
         let expectedResponse = HTTPURLResponse.success(try! request.toURLRequest()) as! HTTPURLResponse
-        var recordedResult: Result<String>?
+        var recordedResult: NetworkResult<String>?
 
         try stub(request) { r in
             return (expectedResource.data(using: .utf8)!, expectedResponse, nil)
@@ -181,7 +181,7 @@ final class URLSessionExtensionTests: XCTestCase {
         try stub(request) { r in
             return (nil, nil, expectedError)
         }
-        var recordedResult: Result<Void>?
+        var recordedResult: NetworkResult<Void>?
 
         // When
         session.perform(request) { result in
@@ -193,13 +193,13 @@ final class URLSessionExtensionTests: XCTestCase {
 
         // Then
 
-        guard case .failed(let maybeResponse, let error)? = recordedResult else {
+        guard case .failure(let error)? = recordedResult else {
             XCTFail("Request result was \(String(describing: recordedResult)) not failed")
             return
         }
 
-        XCTAssertNil(maybeResponse)
-        XCTAssertEqual(error as NSError, expectedError)
+        XCTAssertNil(error.httpResponse)
+        XCTAssertEqual(error.underlyingError as NSError, expectedError)
     }
 
     func test_performRequest_invokesCompletionHandler_ForDecodingErrorAfterGettingAResponse() throws {
@@ -209,7 +209,7 @@ final class URLSessionExtensionTests: XCTestCase {
         try stub(request) { r in
             return ("test".data(using: .utf8)!, .success(r), nil)
         }
-        var recordedResult: Result<String>?
+        var recordedResult: NetworkResult<String>?
 
         // When
         session.perform(request) { result in
@@ -220,13 +220,13 @@ final class URLSessionExtensionTests: XCTestCase {
         waitForExpectations(timeout: 1)
 
         // Then
-        guard case .failed(let maybeResponse, let error)? = recordedResult else {
+        guard case .failure(let error)? = recordedResult else {
             XCTFail("Request result was \(String(describing: recordedResult)) not failed")
             return
         }
 
-        XCTAssertNotNil(maybeResponse)
-        XCTAssert(error is TestError, "Got an \(error) not a \(TestError.self)")
+        XCTAssertNotNil(error.httpResponse)
+        XCTAssert(error.underlyingError is TestError, "Got an \(error.underlyingError) not a \(TestError.self)")
     }
 
     func test_performRequest_invokesCompletionHandler_ForNonHTTPResponse() throws {
@@ -237,7 +237,7 @@ final class URLSessionExtensionTests: XCTestCase {
             // note, not a HTTPURLResponse
             return (nil, URLResponse(url: r.url!, mimeType: nil, expectedContentLength: 0, textEncodingName: nil), nil)
         }
-        var recordedResult: Result<Void>?
+        var recordedResult: NetworkResult<Void>?
 
         // When
         session.perform(request) { result in
@@ -248,21 +248,21 @@ final class URLSessionExtensionTests: XCTestCase {
         waitForExpectations(timeout: 1)
 
         // Then
-        guard case .failed(let maybeResponse, let error)? = recordedResult else {
+        guard case .failure(let error)? = recordedResult else {
             XCTFail("Request result was \(String(describing: recordedResult)) not failed(nil, error)")
             return
         }
 
-        XCTAssertNil(maybeResponse)
+        XCTAssertNil(error.httpResponse)
         XCTAssert(
           {
-              guard case RequestError.nonHttpResponse = error else {
+            guard case RequestError.nonHTTPResponse = error.underlyingError else {
                   return false
               }
 
               return true
           }(),
-          "Got \(error) but expected \(String(describing: RequestError.nonHttpResponse))"
+          "Got \(error.underlyingError) but expected \(String(describing: RequestError.nonHTTPResponse))"
         )
     }
 
@@ -273,7 +273,7 @@ final class URLSessionExtensionTests: XCTestCase {
         try stub(request) { r in
             return (nil, nil, nil)
         }
-        var recordedResult: Result<Void>?
+        var recordedResult: NetworkResult<Void>?
 
         // When
         session.perform(request) { result in
@@ -284,21 +284,21 @@ final class URLSessionExtensionTests: XCTestCase {
         waitForExpectations(timeout: 1)
 
         // Then
-        guard case .failed(let maybeResponse, let error)? = recordedResult else {
+        guard case .failure(let error)? = recordedResult else {
             XCTFail("Request result was \(String(describing: recordedResult)) not failed(nil, error)")
             return
         }
 
-        XCTAssertNil(maybeResponse)
+        XCTAssertNil(error.response)
         XCTAssert(
           {
-              guard case RequestError.noResponse = error else {
+              guard case RequestError.noResponse = error.underlyingError else {
                   return false
               }
 
               return true
           }(),
-          "Got \(error) but expected \(RequestError.noResponse)"
+          "Got \(error.underlyingError) but expected \(RequestError.noResponse)"
         )
 
     }

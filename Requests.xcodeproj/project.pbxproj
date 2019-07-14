@@ -15,7 +15,6 @@
 		FAD3E3C921D7D5BE002A05F6 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3E3B821D7D5BE002A05F6 /* HTTPMethod.swift */; };
 		FAD3E3CA21D7D5BE002A05F6 /* RequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3E3B921D7D5BE002A05F6 /* RequestConvertible.swift */; };
 		FAD3E3CB21D7D5BE002A05F6 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3E3BA21D7D5BE002A05F6 /* Field.swift */; };
-		FAD3E3CC21D7D5BE002A05F6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3E3BB21D7D5BE002A05F6 /* Result.swift */; };
 		FAD3E3CD21D7D5BE002A05F6 /* URL+StaticString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3E3BC21D7D5BE002A05F6 /* URL+StaticString.swift */; };
 		FAD3E3CE21D7D5BE002A05F6 /* ResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3E3BD21D7D5BE002A05F6 /* ResponseDecoder.swift */; };
 		FAD3E3CF21D7D5BE002A05F6 /* DefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3E3BE21D7D5BE002A05F6 /* DefaultValue.swift */; };
@@ -44,7 +43,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Requests::Requests";
+			remoteGlobalIDString = Requests::Requests;
 			remoteInfo = Requests;
 		};
 /* End PBXContainerItemProxy section */
@@ -58,7 +57,6 @@
 		FAD3E3B821D7D5BE002A05F6 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = Sources/HTTPMethod.swift; sourceTree = "<group>"; };
 		FAD3E3B921D7D5BE002A05F6 /* RequestConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestConvertible.swift; path = Sources/RequestConvertible.swift; sourceTree = "<group>"; };
 		FAD3E3BA21D7D5BE002A05F6 /* Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Field.swift; path = Sources/Field.swift; sourceTree = "<group>"; };
-		FAD3E3BB21D7D5BE002A05F6 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Sources/Result.swift; sourceTree = "<group>"; };
 		FAD3E3BC21D7D5BE002A05F6 /* URL+StaticString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URL+StaticString.swift"; path = "Sources/URL+StaticString.swift"; sourceTree = "<group>"; };
 		FAD3E3BD21D7D5BE002A05F6 /* ResponseDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResponseDecoder.swift; path = Sources/ResponseDecoder.swift; sourceTree = "<group>"; };
 		FAD3E3BE21D7D5BE002A05F6 /* DefaultValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultValue.swift; path = Sources/DefaultValue.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 				FAD3E3B921D7D5BE002A05F6 /* RequestConvertible.swift */,
 				FAD3E3C021D7D5BE002A05F6 /* RequestError.swift */,
 				FAD3E3BD21D7D5BE002A05F6 /* ResponseDecoder.swift */,
-				FAD3E3BB21D7D5BE002A05F6 /* Result.swift */,
 				FAD3E3BC21D7D5BE002A05F6 /* URL+StaticString.swift */,
 				FAD3E3B521D7D5BE002A05F6 /* URLQueryItem+ExpresibleByDictionaryLiteral.swift */,
 				FAD3E3C421D7D5BE002A05F6 /* URLSession+Requests.swift */,
@@ -275,7 +272,6 @@
 				FAD3E3CA21D7D5BE002A05F6 /* RequestConvertible.swift in Sources */,
 				FAD3E3D321D7D5BE002A05F6 /* BodyProvider.swift in Sources */,
 				FAD3E3D421D7D5BE002A05F6 /* URLSession+Requests.swift in Sources */,
-				FAD3E3CC21D7D5BE002A05F6 /* Result.swift in Sources */,
 				FAD3E3D021D7D5BE002A05F6 /* Header.swift in Sources */,
 				FAD3E3C821D7D5BE002A05F6 /* Request.swift in Sources */,
 				FAD3E3CD21D7D5BE002A05F6 /* URL+StaticString.swift in Sources */,

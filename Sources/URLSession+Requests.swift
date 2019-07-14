@@ -7,6 +7,8 @@
 
 import Foundation
 
+public typealias NetworkResult<Resource> = Result<(HTTPURLResponse, Resource), RequestTransportError>
+
 extension URLSession {
 
     /// Executes a `RequestConvertible` request and attempts to decode the response body.
@@ -20,37 +22,42 @@ extension URLSession {
     ///     provided task. The default implementation does nothing.
     ///   - completionHandler: A block executed when the request completes and the response body has been decoded.
     ///
-    /// - Remark: Wouldn't it be wonderful if Swift had a common `Result<T>` type?
-    ///
     public func perform<R: RequestConvertible>(
       _ request: R,
       decodingQueue: DispatchQueue = .global(qos: .userInitiated),
       callbackQueue: DispatchQueue = .main,
       configureTask: (URLSessionTask) -> Void = { _ in },
-      completionHandler: @escaping (Result<R.Resource>) -> Void
+      completionHandler: @escaping (NetworkResult<R.Resource>) -> Void
     ) {
-        let complete = { (response: Result<R.Resource>) in
+        let complete = { (response: NetworkResult<R.Resource>) in
             callbackQueue.async { completionHandler(response) }
         }
 
         do {
-            let task = try dataTask(with: request, configurationBlock: configureTask) { data, response, error in
+            let urlRequest = try request.toURLRequest()
+            let task = try dataTask(with: urlRequest, configurationBlock: configureTask) { data, response, error in
 
                 // First check to see if there's a response and if there isn't, see if there's an error. There should be
                 // but since there's no type guarantees, fall back to a `noResponse` error if there isn't.
                 guard let response = response else {
                     if let error = error {
-                        complete(.failed(nil, error))
+                        let transportError = RequestTransportError(underlyingError: error, request: urlRequest,
+                                                                   response: nil)
+                        complete(.failure(transportError))
                         return
                     } else {
-                        complete(.failed(nil, RequestError.noResponse))
+                        let transportError = RequestTransportError(underlyingError: RequestError.noResponse,
+                                                                   request: urlRequest, response: nil)
+                        complete(.failure(transportError))
                         return
                     }
                 }
 
                 // Now try and get a HTTP response out of the original response.
                 guard let httpResponse = response as? HTTPURLResponse else {
-                    complete(.failed(nil, RequestError.nonHttpResponse(response)))
+                    let transportError = RequestTransportError(underlyingError: RequestError.nonHTTPResponse,
+                                                               request: urlRequest, response: response)
+                    complete(.failure(transportError))
                     return
                 }
 
@@ -59,7 +66,9 @@ extension URLSession {
                 // response is set to `nil`. Nonetheless, there's no type-level guarantee so we must handle this state.
                 guard error == nil else {
                     // swiftlint:disable:next force_unwrapping
-                    complete(.failed(httpResponse, error!))
+                    let transportError = RequestTransportError(underlyingError: error!, request: urlRequest,
+                                                               response: response)
+                    complete(.failure(transportError))
                     return
                 }
 
@@ -68,25 +77,26 @@ extension URLSession {
                     do {
                         let resource = try decodeBody(from: data, forResponse: httpResponse,
                                                       using: request.responseDecoder)
-                        complete(.success(httpResponse, resource))
+                        complete(.success((httpResponse, resource)))
                     } catch let decodingError {
-                        complete(.failed(httpResponse, decodingError))
+                        let transportError = RequestTransportError(underlyingError: decodingError, request: urlRequest,
+                                                                   response: response)
+                        complete(.failure(transportError))
                     }
                 }
             }
 
             task.resume()
         } catch {
-            complete(.failed(nil, error))
+            complete(.failure(RequestTransportError(underlyingError: error, request: nil, response: nil)))
         }
     }
 
-    private func dataTask<R: RequestConvertible>(
-      with request: R,
+    private func dataTask(
+      with urlRequest: URLRequest,
       configurationBlock configureTask: (URLSessionTask) -> Void,
       completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void
     ) throws -> URLSessionDataTask {
-        let urlRequest = try request.toURLRequest()
         let task = dataTask(with: urlRequest, completionHandler: completionHandler)
         configureTask(task)
         return task
