@@ -512,6 +512,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/RequestError.swift",
+      "line": 48,
+      "symbol": "RequestTransportError.init(underlyingError:request:response:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/alex/dev/swift/Requests/Requests/Sources/ResponseDecoder.swift",
       "line": 16,
       "symbol": "ResponseDecoder.init(_:)",
@@ -519,24 +526,10 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Result.swift",
-      "line": 7,
-      "symbol": "Result",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Result.swift",
-      "line": 8,
-      "symbol": "Result.success(_:_:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/Result.swift",
-      "line": 9,
-      "symbol": "Result.failed(_:_:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/alex/dev/swift/Requests/Requests/Sources/URLSession+Requests.swift",
+      "line": 10,
+      "symbol": "NetworkResult",
+      "symbol_kind": "source.lang.swift.decl.typealias",
       "warning": "undocumented"
     }
   ],

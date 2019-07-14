@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Functions  Reference</title>
+    <title>Type Aliases  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Section/Functions" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Section/Type Aliases" class="dashAnchor"></a>
 
-    <a title="Functions  Reference"></a>
+    <a title="Type Aliases  Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html">Requests Reference</a>
       <img class="carat" src="img/carat.png" />
-      Functions  Reference
+      Type Aliases  Reference
     </p>
 
     <div class="content-wrapper">
@@ -164,8 +164,8 @@
 
         <section class="section">
           <div class="section-content">
-            <h1>Functions</h1>
-            <p>The following functions are available globally.</p>
+            <h1>Type Aliases</h1>
+            <p>The following type aliases are available globally.</p>
 
           </div>
         </section>
@@ -173,20 +173,13 @@
         <section class="section">
           <div class="section-content">
             <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Field%20Functions"></a>
-                <a name="//apple_ref/swift/Section/Field Functions" class="dashAnchor"></a>
-                <a href="#/Field%20Functions">
-                  <h3 class="section-name">Field Functions</h3>
-                </a>
-              </div>
               <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Requests7explodeyAA5FieldV4NameV4name_SS5valuetADF"></a>
-                    <a name="//apple_ref/swift/Function/explode(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Requests7explodeyAA5FieldV4NameV4name_SS5valuetADF">explode(_:)</a>
+                    <a name="/s:8Requests13NetworkResulta"></a>
+                    <a name="//apple_ref/swift/Alias/NetworkResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests13NetworkResulta">NetworkResult</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -201,7 +194,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">explode</span><span class="p">(</span><span class="n">_</span> <span class="nv">field</span><span class="p">:</span> <span class="kt"><a href="Structs/Field.html">Field</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt"><a href="Structs/Field.html">Field</a></span><span class="o">.</span><span class="kt">Name</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">NetworkResult</span><span class="o">&lt;</span><span class="kt">Resource</span><span class="o">&gt;</span> <span class="o">=</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">HTTPURLResponse</span><span class="p">,</span> <span class="kt">Resource</span><span class="p">),</span> <span class="kt"><a href="Structs/RequestTransportError.html">RequestTransportError</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>

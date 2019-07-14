@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>RequestBody Enumeration Reference</title>
+    <title>RequestTransportError Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Enum/RequestBody" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Struct/RequestTransportError" class="dashAnchor"></a>
 
-    <a title="RequestBody Enumeration Reference"></a>
+    <a title="RequestTransportError Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">Requests Reference</a>
       <img class="carat" src="../img/carat.png" />
-      RequestBody Enumeration Reference
+      RequestTransportError Structure Reference
     </p>
 
     <div class="content-wrapper">
@@ -164,14 +164,14 @@
 
         <section class="section">
           <div class="section-content">
-            <h1>RequestBody</h1>
+            <h1>RequestTransportError</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RequestBody</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">RequestTransportError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
 
                 </div>
               </div>
-            <p>The body of a <code><a href="../Protocols/RequestConvertible.html">RequestConvertible</a></code> type.</p>
+            <p>An error that wraps an error that occurred when executing a network request.</p>
 
           </div>
         </section>
@@ -183,9 +183,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Requests11RequestBodyO4noneyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/none" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Requests11RequestBodyO4noneyA2CmF">none</a>
+                    <a name="/s:8Requests21RequestTransportErrorV010underlyingD0s0D0_pvp"></a>
+                    <a name="//apple_ref/swift/Property/underlyingError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests21RequestTransportErrorV010underlyingD0s0D0_pvp">underlyingError</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -193,14 +193,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An empty/non-existent body.</p>
+                        <p>The error that caused the request to fail.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="k">none</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">underlyingError</span><span class="p">:</span> <span class="kt">Error</span></code></pre>
 
                         </div>
                       </div>
@@ -210,9 +210,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Requests11RequestBodyO4datayAC10Foundation4DataVcACmF"></a>
-                    <a name="//apple_ref/swift/Element/data(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Requests11RequestBodyO4datayAC10Foundation4DataVcACmF">data(_:)</a>
+                    <a name="/s:8Requests21RequestTransportErrorV7request10Foundation10URLRequestVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/request" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests21RequestTransportErrorV7request10Foundation10URLRequestVSgvp">request</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -220,14 +220,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A body consisting of the wrapped data.</p>
+                        <p>The failed request or <code>nil</code> if the request could not be constructed.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">data</span><span class="p">(</span><span class="kt">Data</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -237,9 +237,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Requests11RequestBodyO6streamyACSo13NSInputStreamCcACmF"></a>
-                    <a name="//apple_ref/swift/Element/stream(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Requests11RequestBodyO6streamyACSo13NSInputStreamCcACmF">stream(_:)</a>
+                    <a name="/s:8Requests21RequestTransportErrorV8responseSo13NSURLResponseCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/response" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests21RequestTransportErrorV8responseSo13NSURLResponseCSgvp">response</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -247,14 +247,69 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A body whose data is provided by the wrapped stream.</p>
+                        <p>A response received before the error occurred or <code>nil</code> if there was no response.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">stream</span><span class="p">(</span><span class="kt">InputStream</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">response</span><span class="p">:</span> <span class="kt">URLResponse</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests21RequestTransportErrorV12httpResponseSo17NSHTTPURLResponseCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/httpResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests21RequestTransportErrorV12httpResponseSo17NSHTTPURLResponseCSgvp">httpResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A HTTP response received before the error occurred or <code>nil</code> if there was no response or <code><a href="../Structs/RequestTransportError.html#/s:8Requests21RequestTransportErrorV8responseSo13NSURLResponseCSgvp">response</a></code> is not an
+HTTP response.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">httpResponse</span><span class="p">:</span> <span class="kt">HTTPURLResponse</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Requests21RequestTransportErrorV010underlyingD07request8responseACs0D0_p_10Foundation10URLRequestVSgSo13NSURLResponseCSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(underlyingError:request:response:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Requests21RequestTransportErrorV010underlyingD07request8responseACs0D0_p_10Foundation10URLRequestVSgSo13NSURLResponseCSgtcfc">init(underlyingError:request:response:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">underlyingError</span><span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">?,</span> <span class="nv">response</span><span class="p">:</span> <span class="kt">URLResponse</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
