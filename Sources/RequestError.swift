@@ -7,11 +7,11 @@
 
 import Foundation
 
+/// Indicates a valid URL could not be constructed from a `RequestConvertible` type.
+public struct InvalidRequestURLError: Error { }
+
 /// An error that can occur when performing a request.
 public enum RequestError: Error {
-
-    /// Indicates a `RequestConvertible` could not be converted to a Foundation `URLRequest`.
-    case invalidRequest
 
     /// The server did not give a response.
     case noResponse

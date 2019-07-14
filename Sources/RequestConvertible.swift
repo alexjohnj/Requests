@@ -132,10 +132,14 @@ extension RequestConvertible {
     ///
     /// - Returns: A `URLRequest` constructed from the instance.
     ///
-    /// - Throws: A `RequestError.invalidRequest` if a valid `URLRequest` could not be constructed.
+    /// - Throws:
+    ///   - An `InvalidRequestURLError` if a valid `URL` could not be constructed from the request.
+    ///   - Any errors thrown by the request's `bodyProvider`.
     ///
     public func toURLRequest() throws -> URLRequest {
-        let url = try buildRequestURL()
+        guard let url = buildRequestURL() else {
+            throw InvalidRequestURLError()
+        }
 
         var request = URLRequest(url: url, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
         var header = self.header
@@ -158,16 +162,14 @@ extension RequestConvertible {
 
     /// Constructs a `URL` from the request.
     ///
-    /// - Throws: A `RequestError.invalidRequest` if a valid `URLRequest` could not be constructed.
+    /// - Returns: A `URL` constructed from the request or `nil` if a valid URL could not be constructed.
     ///
-    private func buildRequestURL() throws -> URL {
+    private func buildRequestURL() -> URL? {
         let endpointURL = endpoint.isEmpty ? baseURL : baseURL.appendingPathComponent(endpoint)
 
         var endpointComponents = URLComponents(url: endpointURL, resolvingAgainstBaseURL: false)
         endpointComponents?.queryItems = queryItems.isEmpty ? nil : queryItems
-
-        guard let url = endpointComponents?.url else { throw RequestError.invalidRequest }
-        return url
+        return endpointComponents?.url
     }
 }
 
