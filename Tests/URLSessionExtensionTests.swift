@@ -348,4 +348,93 @@ final class URLSessionExtensionTests: XCTestCase {
         // Then
         XCTAssertTrue(invokedConfigurationBlock)
     }
+
+    func test_performRequest_invokesResponseValidationBlock() throws {
+        // Given
+        let exp = expectation(description: "Waiting for session to invoke the completion block.")
+        let request = api.get(.none, from: "/test")
+        try stub(request) { r in return (nil, .success(r), nil) }
+
+        var invokedValidationBlock = false
+
+        // When
+        session.perform(
+            request,
+            validateResponse: { response in
+                invokedValidationBlock = true
+                return true
+        },
+            completionHandler: { _ in
+                exp.fulfill()
+        })
+        waitForExpectations(timeout: 1)
+
+        // Then
+        XCTAssertTrue(invokedValidationBlock, "The validation block is invoked")
+    }
+
+    func test_performRequest_throwsValidationErrorIfValidationBlockReturnsFalse() throws {
+        // Given
+        let exp = expectation(description: "Waiting for session to invoke the completion block.")
+        let request = api.get(.none, from: "/test")
+        try stub(request) { r in return (nil, .success(r), nil) }
+
+        var recordedResult: NetworkResult<Void>?
+
+        // When
+        session.perform(
+            request,
+            validateResponse: { response in
+                return false
+        },
+            completionHandler: { result in
+                recordedResult = result
+                exp.fulfill()
+        })
+        waitForExpectations(timeout: 1)
+
+        // Then
+        guard case .failure(let error)? = recordedResult else {
+            XCTFail("Expected request result to be failure but got \(String(describing: recordedResult))")
+            return
+        }
+        XCTAssert(
+            {
+                guard case RequestError.unacceptableResponse = error.underlyingError else {
+                    return false
+                }
+
+                return true
+        }(),
+            "Got \(error.underlyingError) but expected \(RequestError.unacceptableResponse)"
+        )
+    }
+
+    func test_performRequest_rethrowsErrorsThrownInValidationBlock() throws {
+        // Given
+        let exp = expectation(description: "Waiting for session to invoke the completion block.")
+        let request = api.get(.none, from: "/test")
+        try stub(request) { r in return (nil, .success(r), nil) }
+
+        var recordedResult: NetworkResult<Void>?
+
+        // When
+        session.perform(
+            request,
+            validateResponse: { response in
+                throw TestError()
+        },
+            completionHandler: { result in
+                recordedResult = result
+                exp.fulfill()
+        })
+        waitForExpectations(timeout: 1)
+
+        // Then
+        guard case .failure(let error)? = recordedResult else {
+            XCTFail("Expected request result to be failure but got \(String(describing: recordedResult))")
+            return
+        }
+        XCTAssert(error.underlyingError is TestError, "The request should fail with the error thrown in the validation block")
+    }
 }

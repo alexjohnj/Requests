@@ -15,6 +15,9 @@ extension URLSession {
     ///
     /// - Parameters:
     ///   - request: A HTTP request to execute.
+    ///   - validateResponse: A block that validates the received response. This block can throw a custom error or
+    ///    return `false` to indicate an invalid response. If it returns `false`, the request will fail with a
+    ///    `RequestError.unacceptableResponse` error. Default is `nil` for no validation.
     ///   - decodingQueue: A `DispatchQueue` to decode the response body on. Default `.global(.userInitiated)`.
     ///   - callbackQueue: A `DispatchQueue` to run `completionHandler` on. Default `.main`.
     ///   - configureTask: A block that receives the `URLSessionTask` for the request. This block will only be called
@@ -24,6 +27,7 @@ extension URLSession {
     ///
     public func perform<R: RequestConvertible>(
       _ request: R,
+      validateResponse validationBlock: ((HTTPURLResponse) throws -> Bool)? = nil,
       decodingQueue: DispatchQueue = .global(qos: .userInitiated),
       callbackQueue: DispatchQueue = .main,
       configureTask: (URLSessionTask) -> Void = { _ in },
@@ -70,6 +74,22 @@ extension URLSession {
                                                                response: response)
                     complete(.failure(transportError))
                     return
+                }
+
+                // Now validate the response. As this expected to be a pure function, we can execute this from whatever
+                // queue the URLSession invokes its callback on.
+                if let validationBlock = validationBlock {
+                    do {
+                        let isValidResponse = try validationBlock(httpResponse)
+                        guard isValidResponse else {
+                            throw RequestError.unacceptableResponse
+                        }
+                    } catch {
+                        let transportError = RequestTransportError(underlyingError: error, request: urlRequest,
+                                                                   response: response)
+                        complete(.failure(transportError))
+                        return
+                    }
                 }
 
                 // It's now safe to try and decode the resource from the response body.

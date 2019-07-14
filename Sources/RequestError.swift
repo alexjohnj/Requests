@@ -21,6 +21,9 @@ public enum RequestError: Error {
 
     /// The server replied with an empty body when a request was expecting one.
     case noData
+
+    /// The server's response did not pass the given response validation block.
+    case unacceptableResponse
 }
 
 /// An error that wraps an error that occurred when executing a network request.
