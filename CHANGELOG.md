@@ -1,3 +1,8 @@
+# v0.3.1 (2019-07-20)
+
+There are no library changes in this release. This release is signed with my PGP
+key and includes the updated CHANGELOG and README.
+
 # v0.3.0 (2019-07-14)
 
 ## New
