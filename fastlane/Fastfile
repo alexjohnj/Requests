@@ -24,5 +24,8 @@ def prepare_release(bump_type)
   version = increment_version_number(bump_type: bump_type)
   version_bump_podspec(path: PODSPEC, version_number: version)
   commit_version_bump(include: PODSPEC)
-  add_git_tag(tag: "v#{version}")
+  add_git_tag(
+    tag: "v#{version}",
+    sign: true
+  )
 end
