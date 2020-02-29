@@ -1,3 +1,7 @@
+# v0.3.2 (2020-02-29)
+
+- Enable the APPLICATION_EXTENSION_ONLY_API build setting.
+
 # v0.3.1 (2019-07-20)
 
 There are no library changes in this release. This release is signed with my PGP
